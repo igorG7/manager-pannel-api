@@ -1,4 +1,18 @@
 const express = require("express");
 const routes = express.Router();
 
-module.exports = { routes };
+const {
+  getProducts,
+  createProduct,
+} = require("../controllers/productsController");
+const {
+  validateProductFields,
+  validateData,
+} = require("../middlewares/validateProduct");
+
+// Products routes
+
+routes.get("/products", getProducts);
+routes.post("/products", validateProductFields, validateData, createProduct);
+
+module.exports = routes;
