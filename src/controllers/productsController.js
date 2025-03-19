@@ -2,15 +2,15 @@ const Products = require("../models/ProductsModel");
 
 exports.getProducts = async (req, res) => {
   try {
-    const response = await Products.find();
+    const products = await Products.find();
 
-    if (!response.length) {
+    if (!products.length) {
       return res.status(404).json({ message: "No products found." });
     }
 
     res.status(200).json({
       message: "Products successfully recovered,",
-      data: response,
+      data: products,
     });
   } catch (error) {
     res
@@ -30,5 +30,31 @@ exports.createProduct = async (req, res) => {
       message: "Error registering the product.",
       error: error.message,
     });
+  }
+};
+
+exports.updateProducts = async (req, res) => {
+  try {
+    const product = await Products.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    if (!product) return res.status(404).json({ message: "Product not found" });
+
+    res.status(200).json({ message: "Product updated successfuly.", product });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.deleteProduct = async (req, res) => {
+  try {
+    const product = await Products.findByIdAndDelete(req.params.id);
+
+    if (!product) return res.status(404).json({ message: "Product not found" });
+
+    res.status(200).json({ message: "Product deleted successfuly." });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
