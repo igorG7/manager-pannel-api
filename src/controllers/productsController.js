@@ -2,7 +2,14 @@ const Products = require("../models/ProductsModel");
 
 exports.getProducts = async (req, res) => {
   try {
-    const products = await Products.find();
+    const products = await Products.find({
+      $or: [
+        { productName: { $regex: req.query.productName || "", $options: "i" } },
+        {
+          providerName: { $regex: req.query.providerName || "", $options: "i" },
+        },
+      ],
+    });
 
     if (!products.length) {
       return res.status(404).json({ message: "No products found." });
