@@ -8,6 +8,9 @@ exports.getProducts = async (req, res) => {
         {
           providerName: { $regex: req.query.providerName || "", $options: "i" },
         },
+        {
+          makerName: { $regex: req.query.makerName || "", $options: "i" },
+        },
       ],
     });
 
