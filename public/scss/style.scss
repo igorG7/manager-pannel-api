@@ -1,0 +1,36 @@
+@use "variables";
+@use "nav-side-menu";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: variables.$fontDefault;
+}
+
+// Mixins
+
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+  body {
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+  }
+}
