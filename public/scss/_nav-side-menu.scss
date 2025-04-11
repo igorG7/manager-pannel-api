@@ -118,6 +118,7 @@ html {
         .side-menu {
           width: 20%;
           padding: 32px 16px;
+          visibility: visible;
 
           .btn-menu {
             display: none;
@@ -126,6 +127,8 @@ html {
           .menu {
             .item-menu {
               height: 60px;
+              visibility: visible;
+              opacity: 1;
 
               a {
                 span {
