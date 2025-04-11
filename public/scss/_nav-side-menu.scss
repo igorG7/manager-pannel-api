@@ -10,13 +10,22 @@ html {
 
     .container {
       .side-menu {
-        width: 50%;
-        min-width: 180px;
+        width: 0;
+        min-width: 0;
         max-width: 270px;
         height: 100%;
-        padding: 16px;
+        visibility: hidden;
+        transition: width 1s, visibility 1s, min-width 1s, padding 1s;
         background-color: $darkPaleGreen;
         position: absolute;
+
+        &.active {
+          width: 50%;
+          min-width: 180px;
+          padding: 16px;
+          visibility: visible;
+          transition: width 1s, visibility 1s, min-width 1s, padding 1s;
+        }
 
         .btn-menu {
           width: 40px;
@@ -28,6 +37,7 @@ html {
           right: 0;
           top: 0;
           transform: translateX(98%);
+          visibility: visible;
         }
 
         .menu {
@@ -45,6 +55,15 @@ html {
             background-color: $paleGreen;
             border-radius: 8px;
             border: 1px solid #f9f9f9;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 300ms, opacity 500ms;
+
+            &.active {
+              visibility: visible;
+              opacity: 1;
+              transition: visibility 1.5s, opacity 1.5s;
+            }
 
             a {
               width: 100%;
