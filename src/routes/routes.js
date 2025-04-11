@@ -7,10 +7,16 @@ const {
   updateProducts,
   deleteProduct,
 } = require("../controllers/productsController");
+
 const {
   validateProductFields,
   validateData,
 } = require("../middlewares/validateProduct");
+
+const { home } = require("../controllers/homeController");
+// Interface routes
+
+routes.get("/index", home);
 
 // Products routes
 
