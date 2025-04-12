@@ -1,11 +1,11 @@
-@use "variables";
+@use "variables" as *;
 @use "nav-side-menu";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: variables.$fontDefault;
+  font-family: $fontDefault;
 }
 
 // Mixins
@@ -31,6 +31,196 @@ html {
       width: 100%;
       height: 100%;
       display: flex;
+
+      main {
+        width: 100%;
+        height: 100%;
+        padding: 32px 0;
+
+        .search {
+          width: 80%;
+          max-width: 340px;
+          height: 50px;
+          margin: 0 auto;
+          position: relative;
+
+          .search-input {
+            width: 100%;
+            height: 100%;
+            padding: 0 32px 0 16px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: $shadowElements;
+            color: $darkGray;
+            font-size: 14px;
+
+            &::placeholder {
+              font-size: 14px;
+              color: #afafaf;
+            }
+          }
+
+          img {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+
+        .products {
+          width: 80%;
+          margin: 16px auto 0;
+
+          .card-product {
+            width: 100%;
+            max-width: 340px;
+            height: 260px;
+            margin: 0 auto 32px;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: $shadowElements;
+            background-color: #ffffff;
+
+            .card-container-1 {
+              width: 100%;
+
+              p {
+                margin-bottom: 16px;
+                font-size: 20px;
+                color: $darkGray;
+              }
+            }
+
+            .card-container-2 {
+              width: 100%;
+
+              .infos-1,
+              .infos-2 {
+                p {
+                  font-size: 14px;
+                  color: $darkGray;
+                  margin: 4px 0;
+                }
+              }
+
+              .action-buttons {
+                margin-top: 16px;
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                  width: 120px;
+                  height: 30px;
+                  cursor: pointer;
+                  @include center;
+
+                  span {
+                    color: white;
+                    font-size: 14px;
+                    margin-left: 8px;
+                  }
+
+                  img {
+                    width: 20px;
+                    height: 20px;
+                  }
+                }
+
+                .edit-button {
+                  background-color: $darkPaleGreen;
+                  border-radius: 8px;
+                  border: none;
+                  margin-right: 8px;
+                }
+
+                .delete-button {
+                  background-color: $paleRed;
+                  border-radius: 8px;
+                  border: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    body {
+      .container {
+        main {
+          width: 80%;
+          height: 100%;
+          margin: 0 auto;
+          padding: 32px 0;
+
+          .search {
+            max-width: 600px;
+
+            .search-input {
+              font-size: 16px;
+
+              &::placeholder {
+                font-size: 16px;
+              }
+            }
+          }
+
+          .products {
+            width: 80%;
+            min-width: 790px;
+
+            .card-product {
+              max-width: 900px;
+              height: 180px;
+
+              .card-container-1 {
+                p {
+                  margin-bottom: 16px;
+                }
+              }
+
+              .card-container-2 {
+                height: 70%;
+                display: flex;
+                position: relative;
+
+                .infos-1 {
+                  margin-right: 200px;
+                }
+
+                .infos-1,
+                .infos-2 {
+                  p {
+                    font-size: 16px;
+                  }
+                }
+
+                .action-buttons {
+                  position: absolute;
+                  right: 0;
+                  bottom: 0;
+
+                  button {
+                    span {
+                      font-size: 16px;
+                    }
+
+                    img {
+                      width: 22px;
+                      height: 22px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

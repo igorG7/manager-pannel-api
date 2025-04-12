@@ -14,6 +14,7 @@ html body .container .side-menu {
   transition: width 1s, visibility 1s, min-width 1s, padding 1s;
   background-color: #486966;
   position: absolute;
+  z-index: 1;
 }
 html body .container .side-menu.active {
   width: 50%;
@@ -100,6 +101,7 @@ html body .container .side-menu .menu .logout img {
     width: 20%;
     padding: 32px 16px;
     visibility: visible;
+    position: static;
   }
   html body .container .side-menu .btn-menu {
     display: none;
@@ -149,6 +151,155 @@ html body .container {
   width: 100%;
   height: 100%;
   display: flex;
+}
+html body .container main {
+  width: 100%;
+  height: 100%;
+  padding: 32px 0;
+}
+html body .container main .search {
+  width: 80%;
+  max-width: 340px;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+html body .container main .search .search-input {
+  width: 100%;
+  height: 100%;
+  padding: 0 32px 0 16px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  color: #3b3936;
+  font-size: 14px;
+}
+html body .container main .search .search-input::placeholder {
+  font-size: 14px;
+  color: #afafaf;
+}
+html body .container main .search img {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+html body .container main .products {
+  width: 80%;
+  margin: 16px auto 0;
+}
+html body .container main .products .card-product {
+  width: 100%;
+  max-width: 340px;
+  height: 260px;
+  margin: 0 auto 32px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+html body .container main .products .card-product .card-container-1 {
+  width: 100%;
+}
+html body .container main .products .card-product .card-container-1 p {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #3b3936;
+}
+html body .container main .products .card-product .card-container-2 {
+  width: 100%;
+}
+html body .container main .products .card-product .card-container-2 .infos-1 p,
+html body .container main .products .card-product .card-container-2 .infos-2 p {
+  font-size: 14px;
+  color: #3b3936;
+  margin: 4px 0;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons button {
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons button span {
+  color: white;
+  font-size: 14px;
+  margin-left: 8px;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons button img {
+  width: 20px;
+  height: 20px;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons .edit-button {
+  background-color: #486966;
+  border-radius: 8px;
+  border: none;
+  margin-right: 8px;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons .delete-button {
+  background-color: #bd2a2e;
+  border-radius: 8px;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  html body .container main {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 32px 0;
+  }
+  html body .container main .search {
+    max-width: 600px;
+  }
+  html body .container main .search .search-input {
+    font-size: 16px;
+  }
+  html body .container main .search .search-input::placeholder {
+    font-size: 16px;
+  }
+  html body .container main .products {
+    width: 80%;
+    min-width: 790px;
+  }
+  html body .container main .products .card-product {
+    max-width: 900px;
+    height: 180px;
+  }
+  html body .container main .products .card-product .card-container-1 p {
+    margin-bottom: 16px;
+  }
+  html body .container main .products .card-product .card-container-2 {
+    height: 70%;
+    display: flex;
+    position: relative;
+  }
+  html body .container main .products .card-product .card-container-2 .infos-1 {
+    margin-right: 200px;
+  }
+  html body .container main .products .card-product .card-container-2 .infos-1 p,
+  html body .container main .products .card-product .card-container-2 .infos-2 p {
+    font-size: 16px;
+  }
+  html body .container main .products .card-product .card-container-2 .action-buttons {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  html body .container main .products .card-product .card-container-2 .action-buttons button span {
+    font-size: 16px;
+  }
+  html body .container main .products .card-product .card-container-2 .action-buttons button img {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
