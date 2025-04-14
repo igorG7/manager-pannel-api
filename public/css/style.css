@@ -278,6 +278,10 @@ html body .delete-container {
   position: absolute;
   top: 0;
   z-index: 1;
+  display: none;
+}
+html body .delete-container.active {
+  display: block;
 }
 html body .delete-container .pop-up-delete {
   width: 100%;
