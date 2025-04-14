@@ -1,10 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-html body {
-  background-color: #f9f9f9;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
 html body .container .side-menu {
   width: 0;
   min-width: 0;
@@ -129,6 +123,154 @@ html body .container .side-menu .menu .logout img {
     height: 24px;
   }
 }
+html body .update-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: none;
+}
+html body .update-container .pop-up-update {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 32px;
+  overflow: auto;
+  background-color: white;
+}
+html body .update-container .pop-up-update .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+html body .update-container .pop-up-update .title {
+  width: 100%;
+  text-align: center;
+}
+html body .update-container .pop-up-update .title p {
+  font-size: 20px;
+  color: #3b3936;
+}
+html body .update-container .pop-up-update .title img {
+  width: 28px;
+  height: 28px;
+}
+html body .update-container .pop-up-update .form-container {
+  width: 100%;
+}
+html body .update-container .pop-up-update .form-container .fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  margin: 32px 0;
+}
+html body .update-container .pop-up-update .form-container .fields .field {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 16px;
+  margin: 0 auto 16px;
+}
+html body .update-container .pop-up-update .form-container .fields .field label {
+  color: #3b3936;
+}
+html body .update-container .pop-up-update .form-container .fields .field input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+}
+html body .update-container .pop-up-update .form-container .fields .field .percent-sale {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+html body .update-container .pop-up-update .form-container .fields .field .percent-sale .percentage {
+  width: 30%;
+}
+html body .update-container .pop-up-update .form-container .fields .field .percent-sale .sale {
+  width: 65%;
+}
+html body .update-container .pop-up-update .form-container .buttons {
+  width: 100%;
+}
+html body .update-container .pop-up-update .form-container .buttons button {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+html body .update-container .pop-up-update .form-container .buttons .update-btn {
+  border: none;
+  background-color: #486966;
+  color: #f9f9f9;
+  margin-bottom: 16px;
+}
+html body .update-container .pop-up-update .form-container .buttons .cancel-btn {
+  border: 2px solid #bd2a2e;
+  color: #bd2a2e;
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  html body .update-container {
+    display: none;
+  }
+  html body .update-container .pop-up-update {
+    max-width: 750px;
+    max-height: 520px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  html body .update-container .pop-up-update .close {
+    cursor: pointer;
+  }
+  html body .update-container .pop-up-update .title {
+    display: flex;
+    align-items: center;
+  }
+  html body .update-container .pop-up-update .title p {
+    font-size: 28px;
+  }
+  html body .update-container .pop-up-update .title img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+  html body .update-container .pop-up-update .form-container .fields {
+    grid-template-columns: 45% 45%;
+    gap: 0 10%;
+    margin: 16px 0;
+  }
+  html body .update-container .pop-up-update .form-container .fields .field {
+    max-width: 310px;
+  }
+  html body .update-container .pop-up-update .form-container .fields .field input {
+    height: 45px;
+  }
+  html body .update-container .pop-up-update .form-container .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  html body .update-container .pop-up-update .form-container .buttons button {
+    cursor: pointer;
+    max-width: 310px;
+    height: 45px;
+    margin: 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -150,7 +292,6 @@ html body {
 html body .container {
   width: 100%;
   height: 100%;
-  display: flex;
 }
 html body .container main {
   width: 100%;
@@ -250,6 +391,9 @@ html body .container main .products .card-product .card-container-2 .action-butt
 }
 
 @media (min-width: 1024px) {
+  html body .container {
+    display: flex;
+  }
   html body .container main {
     width: 80%;
     height: 100%;

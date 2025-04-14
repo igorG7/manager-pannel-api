@@ -1,5 +1,6 @@
 @use "variables" as *;
 @use "nav-side-menu";
+@use "pop-up-update";
 
 * {
   margin: 0;
@@ -30,7 +31,6 @@ html {
     .container {
       width: 100%;
       height: 100%;
-      display: flex;
 
       main {
         width: 100%;
@@ -152,6 +152,8 @@ html {
   html {
     body {
       .container {
+        display: flex;
+
         main {
           width: 80%;
           height: 100%;
