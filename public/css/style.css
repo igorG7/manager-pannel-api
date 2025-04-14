@@ -132,6 +132,9 @@ html body .update-container {
   z-index: 1;
   display: none;
 }
+html body .update-container.active {
+  display: block;
+}
 html body .update-container .pop-up-update {
   width: 100%;
   height: 100%;
@@ -222,9 +225,6 @@ html body .update-container .pop-up-update .form-container .buttons .cancel-btn 
 }
 
 @media (min-width: 1024px) {
-  html body .update-container {
-    display: none;
-  }
   html body .update-container .pop-up-update {
     max-width: 750px;
     max-height: 520px;

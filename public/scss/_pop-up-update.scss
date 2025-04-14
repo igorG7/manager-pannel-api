@@ -11,6 +11,10 @@ html {
       z-index: 1;
       display: none;
 
+      &.active {
+        display: block;
+      }
+
       .pop-up-update {
         width: 100%;
         height: 100%;
@@ -123,8 +127,6 @@ html {
   html {
     body {
       .update-container {
-        display: none;
-
         .pop-up-update {
           max-width: 750px;
           max-height: 520px;
