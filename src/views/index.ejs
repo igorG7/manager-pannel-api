@@ -8,31 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <nav class="side-menu">
-        <div class="btn-menu">
-          <img src="/img/menu.svg" alt="Icone Menu" />
-        </div>
-
-        <ul class="menu">
-          <li class="item-menu">
-            <a href="">
-              <img src="/img/list.svg" alt="Icone de Lista" />
-              <span>Lista de Produtos</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="">
-              <img src="/img/plus.svg" alt="Icone de Adição" />
-              <span>Cadastrar</span>
-            </a>
-          </li>
-
-          <li class="item-menu logout">
-            <img src="/img/logout.svg" alt="Icone de Logout" />
-            <span>Desconectar</span>
-          </li>
-        </ul>
-      </nav>
+      <%- include("./includes/nav")%>
 
       <main>
         <div class="search">
@@ -80,112 +56,9 @@
         </div>
       </main>
 
-      <div class="update-container">
-        <div class="pop-up-update">
-          <img src="/img/close.svg" alt="Icone de fechar" class="close" />
-
-          <div class="title">
-            <img src="/img/box.svg" alt="Icone de caixa" />
-            <p>Atualizar Produto</p>
-          </div>
-
-          <form action="" class="form-container">
-            <div class="fields">
-              <div class="field">
-                <label>Produto:</label>
-                <input
-                  type="text"
-                  name="productName"
-                  placeholder="Nome do Produto"
-                />
-              </div>
-
-              <div class="field">
-                <label>Fabricante:</label>
-                <input
-                  type="text"
-                  name="makerName"
-                  placeholder="Nome do Fabricante"
-                />
-              </div>
-
-              <div class="field">
-                <label>Fornecedor:</label>
-                <input
-                  type="text"
-                  name="providerName"
-                  placeholder="Nome do Fornecedor"
-                />
-              </div>
-
-              <div class="field">
-                <label>Estoque:</label>
-                <input type="number" name="quantityStock" placeholder="0" />
-              </div>
-
-              <div class="field">
-                <label>Unidades:</label>
-                <input type="number" name="units" placeholder="0" />
-              </div>
-
-              <div class="field">
-                <label>Valor de compra:</label>
-                <input type="number" name="purchaseValue" placeholder="0,00" />
-              </div>
-
-              <div class="field">
-                <label>Percentual e valor de venda:</label>
-                <div class="percent-sale">
-                  <input
-                    type="number"
-                    class="percentage"
-                    min="0"
-                    max="100"
-                    name="percentage"
-                    placeholder="0%"
-                  />
-                  <input
-                    type="number"
-                    class="sale"
-                    name="saleValue"
-                    placeholder="0,00"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="buttons">
-              <button class="update-btn">Atualizar</button>
-              <button class="cancel-btn">Cancelar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="delete-container">
-        <div class="pop-up-delete">
-          <img src="img/close.svg" alt="" class="close" />
-
-          <div class="title">
-            <img src="img/box.svg" alt="" />
-            <p>Deletar produto</p>
-          </div>
-
-          <div class="text">
-            <p>
-              Após essa ação, esse produto não irá mais existir. Deseja
-              continuar ?
-            </p>
-          </div>
-
-          <div class="buttons">
-            <button class="delete-btn"><span>Deletar</span></button>
-            <button class="cancel-btn">
-              <span>Cancelar</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <%- include("./includes/popup-update")%>
+      <!--  -->
+      <%-include("./includes/popup-delete")%>
     </div>
 
     <script src="/js/main.js"></script>
