@@ -1,0 +1,77 @@
+<div class="update-container">
+  <div class="pop-up-update">
+    <img src="/img/close.svg" alt="Icone de fechar" class="close" />
+
+    <div class="title">
+      <img src="/img/box.svg" alt="Icone de caixa" />
+      <p>Atualizar Produto</p>
+    </div>
+
+    <form action="" class="form-container">
+      <div class="fields">
+        <div class="field">
+          <label>Produto:</label>
+          <input type="text" name="productName" placeholder="Nome do Produto" />
+        </div>
+
+        <div class="field">
+          <label>Fabricante:</label>
+          <input
+            type="text"
+            name="makerName"
+            placeholder="Nome do Fabricante"
+          />
+        </div>
+
+        <div class="field">
+          <label>Fornecedor:</label>
+          <input
+            type="text"
+            name="providerName"
+            placeholder="Nome do Fornecedor"
+          />
+        </div>
+
+        <div class="field">
+          <label>Estoque:</label>
+          <input type="number" name="quantityStock" placeholder="0" />
+        </div>
+
+        <div class="field">
+          <label>Unidades:</label>
+          <input type="number" name="units" placeholder="0" />
+        </div>
+
+        <div class="field">
+          <label>Valor de compra:</label>
+          <input type="number" name="purchaseValue" placeholder="0,00" />
+        </div>
+
+        <div class="field">
+          <label>Percentual e valor de venda:</label>
+          <div class="percent-sale">
+            <input
+              type="number"
+              class="percentage"
+              min="0"
+              max="100"
+              name="percentage"
+              placeholder="0%"
+            />
+            <input
+              type="number"
+              class="sale"
+              name="saleValue"
+              placeholder="0,00"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="update-btn">Atualizar</button>
+        <button class="cancel-btn">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
