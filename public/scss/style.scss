@@ -1,21 +1,15 @@
 @use "variables" as *;
+@use "mixins" as *;
 @use "nav-side-menu";
 @use "pop-up-update";
 @use "pop-up-delete";
+@use "register-product";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: $fontDefault;
-}
-
-// Mixins
-
-@mixin center() {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 html {

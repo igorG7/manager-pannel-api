@@ -14,9 +14,11 @@ const {
 } = require("../middlewares/validateProduct");
 
 const { home } = require("../controllers/homeController");
+const { registerProduct } = require("../controllers/registerProductController");
 // Interface routes
 
 routes.get("/index", home);
+routes.get("/register-product", registerProduct);
 
 // Products routes
 
