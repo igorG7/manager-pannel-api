@@ -501,6 +501,121 @@ html body .container main .register-container .form-container .buttons .clean-bt
     margin: 0;
   }
 }
+html body .container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+html body .container-login main {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+html body .container-login main .flash-messages {
+  width: 100%;
+  max-width: 340px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 0 16px;
+  background-color: #ffcfcf;
+}
+html body .container-login main .flash-messages .message {
+  color: #bd2a2e;
+  margin-left: 8px;
+}
+html body .container-login main .login-adm-container {
+  width: 100%;
+  max-width: 340px;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+html body .container-login main .login-adm-container .form-container {
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+}
+html body .container-login main .login-adm-container .form-container .title {
+  text-align: center;
+}
+html body .container-login main .login-adm-container .form-container .title h1 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #3b3936;
+}
+html body .container-login main .login-adm-container .form-container .fields {
+  width: 100%;
+  margin: 32px 0;
+}
+html body .container-login main .login-adm-container .form-container .fields .field {
+  margin-bottom: 16px;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password {
+  position: relative;
+  width: 100%;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password input {
+  width: 100%;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password img {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  cursor: pointer;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password img.on {
+  display: block;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password img.off {
+  display: none;
+}
+html body .container-login main .login-adm-container .form-container .fields .field label {
+  color: #3b3936;
+}
+html body .container-login main .login-adm-container .form-container .fields .field input {
+  margin: 4px 0;
+  width: 100%;
+  height: 45px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #3b3936;
+}
+html body .container-login main .login-adm-container .form-container .fields .field a {
+  color: #3b3936;
+  font-size: 14px;
+}
+html body .container-login main .login-adm-container .form-container .buttons {
+  width: 100%;
+}
+html body .container-login main .login-adm-container .form-container .buttons .login-btn {
+  width: 100%;
+  height: 45px;
+  margin-top: 16px;
+  background-color: #486966;
+  color: #f9f9f9;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  html body .container-login main .login-adm-container .form-container .title h1 {
+    font-size: 24px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
