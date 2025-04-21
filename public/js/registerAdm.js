@@ -1,28 +1,28 @@
 import { toggleVisibilityPass } from "./util/toggleVisibilityPass.js";
 
-const pass = document.querySelector(".input-pass");
-const showPasswordButton1 = document.querySelector(".eye");
-const hidePasswordButton1 = document.querySelector(".eye-off");
+const inputPasswordConfirm = document.querySelector(".input-pass");
+const showPasswordButton = document.querySelector(".eye");
+const hidePasswordButton = document.querySelector(".eye-off");
 const inputConfirmPassword = document.querySelector(".input-confirm");
 const showPasswordConfirmButton = document.querySelector(".eye-confirm");
 const hidePasswordConfirmButton = document.querySelector(".eye-off-confirm");
 
-hidePasswordButton1.addEventListener("click", (e) =>
+hidePasswordButton.addEventListener("click", (e) =>
   toggleVisibilityPass(
     e,
-    hidePasswordButton1,
-    showPasswordButton1,
-    pass,
+    hidePasswordButton,
+    showPasswordButton,
+    inputPasswordConfirm,
     "text"
   )
 );
 
-showPasswordButton1.addEventListener("click", (e) =>
+showPasswordButton.addEventListener("click", (e) =>
   toggleVisibilityPass(
     e,
-    showPasswordButton1,
-    hidePasswordButton1,
-    pass,
+    showPasswordButton,
+    hidePasswordButton,
+    inputPasswordConfirm,
     "password"
   )
 );
