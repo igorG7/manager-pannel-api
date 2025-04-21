@@ -691,12 +691,10 @@ html body .container-register main .register-adm-container .form-container .fiel
   transform: translateY(-50%);
   position: absolute;
   cursor: pointer;
+  display: none;
 }
 html body .container-register main .register-adm-container .form-container .fields .field .input-password img.on {
   display: block;
-}
-html body .container-register main .register-adm-container .form-container .fields .field .input-password img.off {
-  display: none;
 }
 html body .container-register main .register-adm-container .form-container .fields .field label {
   color: #3b3936;
