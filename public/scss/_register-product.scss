@@ -12,6 +12,7 @@ html {
           padding: 16px;
           margin: 0 auto;
           box-shadow: $shadowElements;
+          border-radius: 8px;
 
           .title {
             width: 100%;
@@ -156,6 +157,10 @@ html {
               .buttons {
                 display: flex;
                 justify-content: space-between;
+
+                .register-btn {
+                  margin-right: 60px;
+                }
 
                 button {
                   cursor: pointer;

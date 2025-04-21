@@ -379,6 +379,7 @@ html body .container main .register-container {
   padding: 16px;
   margin: 0 auto;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 html body .container main .register-container .title {
   width: 100%;
@@ -493,6 +494,9 @@ html body .container main .register-container .form-container .buttons .clean-bt
   html body .container main .register-container .form-container .buttons {
     display: flex;
     justify-content: space-between;
+  }
+  html body .container main .register-container .form-container .buttons .register-btn {
+    margin-right: 60px;
   }
   html body .container main .register-container .form-container .buttons button {
     cursor: pointer;
