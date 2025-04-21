@@ -75,13 +75,10 @@ html {
                     transform: translateY(-50%);
                     position: absolute;
                     cursor: pointer;
+                    display: none;
 
                     &.on {
                       display: block;
-                    }
-
-                    &.off {
-                      display: none;
                     }
                   }
                 }

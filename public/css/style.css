@@ -576,12 +576,10 @@ html body .container-login main .login-adm-container .form-container .fields .fi
   transform: translateY(-50%);
   position: absolute;
   cursor: pointer;
+  display: none;
 }
 html body .container-login main .login-adm-container .form-container .fields .field .input-password img.on {
   display: block;
-}
-html body .container-login main .login-adm-container .form-container .fields .field .input-password img.off {
-  display: none;
 }
 html body .container-login main .login-adm-container .form-container .fields .field label {
   color: #3b3936;
