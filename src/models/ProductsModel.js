@@ -9,6 +9,8 @@ const ProductsSchema = new mongoose.Schema({
   saleValue: { type: Number, require: true, min: 0 },
   quantityStock: { type: Number, require: true, min: 0 },
   units: { type: Number, require: true, min: 0 },
+  modified: { type: Date, require: true },
+  userModified: { type: String, require: true },
 });
 
 const Products = mongoose.model("Products", ProductsSchema);
