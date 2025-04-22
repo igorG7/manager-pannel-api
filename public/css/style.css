@@ -1,0 +1,911 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+html body .container .side-menu {
+  width: 0;
+  min-width: 0;
+  max-width: 270px;
+  height: 100%;
+  visibility: hidden;
+  transition: width 1s, visibility 1s, min-width 1s, padding 1s;
+  background-color: #486966;
+  position: absolute;
+  z-index: 1;
+}
+html body .container .side-menu.active {
+  width: 50%;
+  min-width: 180px;
+  padding: 16px;
+  visibility: visible;
+  transition: width 1s, visibility 1s, min-width 1s, padding 1s;
+}
+html body .container .side-menu .btn-menu {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 16px 16px 0;
+  background-color: #486966;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(98%);
+  visibility: visible;
+}
+html body .container .side-menu .menu {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+html body .container .side-menu .menu .item-menu {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 16px;
+  background-color: #889c9b;
+  border-radius: 8px;
+  border: 1px solid #f9f9f9;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 300ms, opacity 500ms;
+}
+html body .container .side-menu .menu .item-menu.active {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 1.5s, opacity 1.5s;
+}
+html body .container .side-menu .menu .item-menu a {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+html body .container .side-menu .menu .item-menu a span {
+  font-size: 14px;
+  color: #f9f9f9;
+}
+html body .container .side-menu .menu .item-menu a img {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+html body .container .side-menu .menu .logout {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 0;
+}
+html body .container .side-menu .menu .logout span {
+  font-size: 14px;
+  color: #f9f9f9;
+}
+html body .container .side-menu .menu .logout img {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 1024px) {
+  html body .container .side-menu {
+    width: 20%;
+    padding: 32px 16px;
+    visibility: visible;
+    position: static;
+  }
+  html body .container .side-menu .btn-menu {
+    display: none;
+  }
+  html body .container .side-menu .menu .item-menu {
+    height: 60px;
+    visibility: visible;
+    opacity: 1;
+  }
+  html body .container .side-menu .menu .item-menu a span {
+    font-size: 16px;
+  }
+  html body .container .side-menu .menu .item-menu a img {
+    width: 24px;
+    height: 24px;
+  }
+  html body .container .side-menu .menu .logout {
+    cursor: pointer;
+  }
+  html body .container .side-menu .menu .logout span {
+    font-size: 16px;
+  }
+  html body .container .side-menu .menu .logout img {
+    width: 24px;
+    height: 24px;
+  }
+}
+html body .update-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: none;
+}
+html body .update-container.active {
+  display: block;
+}
+html body .update-container .pop-up-update {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 32px;
+  overflow: auto;
+  background-color: white;
+}
+html body .update-container .pop-up-update .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+html body .update-container .pop-up-update .title {
+  width: 100%;
+  text-align: center;
+}
+html body .update-container .pop-up-update .title p {
+  font-size: 20px;
+  color: #3b3936;
+}
+html body .update-container .pop-up-update .title img {
+  width: 28px;
+  height: 28px;
+}
+html body .update-container .pop-up-update .form-container {
+  width: 100%;
+}
+html body .update-container .pop-up-update .form-container .fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  margin: 32px 0;
+}
+html body .update-container .pop-up-update .form-container .fields .field {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 16px;
+  margin: 0 auto 16px;
+}
+html body .update-container .pop-up-update .form-container .fields .field label {
+  color: #3b3936;
+}
+html body .update-container .pop-up-update .form-container .fields .field input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+}
+html body .update-container .pop-up-update .form-container .fields .field .percent-sale {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+html body .update-container .pop-up-update .form-container .fields .field .percent-sale .percentage {
+  width: 30%;
+}
+html body .update-container .pop-up-update .form-container .fields .field .percent-sale .sale {
+  width: 65%;
+}
+html body .update-container .pop-up-update .form-container .buttons {
+  width: 100%;
+}
+html body .update-container .pop-up-update .form-container .buttons button {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+html body .update-container .pop-up-update .form-container .buttons .update-btn {
+  border: none;
+  background-color: #486966;
+  color: #f9f9f9;
+  margin-bottom: 16px;
+}
+html body .update-container .pop-up-update .form-container .buttons .cancel-btn {
+  border: 2px solid #bd2a2e;
+  color: #bd2a2e;
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  html body .update-container .pop-up-update {
+    max-width: 750px;
+    max-height: 520px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  html body .update-container .pop-up-update .close {
+    cursor: pointer;
+  }
+  html body .update-container .pop-up-update .title {
+    display: flex;
+    align-items: center;
+  }
+  html body .update-container .pop-up-update .title p {
+    font-size: 28px;
+  }
+  html body .update-container .pop-up-update .title img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+  html body .update-container .pop-up-update .form-container .fields {
+    grid-template-columns: 45% 45%;
+    gap: 0 10%;
+    margin: 16px 0;
+  }
+  html body .update-container .pop-up-update .form-container .fields .field {
+    max-width: 310px;
+  }
+  html body .update-container .pop-up-update .form-container .fields .field input {
+    height: 45px;
+  }
+  html body .update-container .pop-up-update .form-container .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  html body .update-container .pop-up-update .form-container .buttons button {
+    cursor: pointer;
+    max-width: 310px;
+    height: 45px;
+    margin: 0;
+  }
+}
+html body .delete-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: none;
+}
+html body .delete-container.active {
+  display: block;
+}
+html body .delete-container .pop-up-delete {
+  width: 100%;
+  max-width: 340px;
+  height: 350px;
+  padding: 32px;
+  border-radius: 8px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+}
+html body .delete-container .pop-up-delete .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+html body .delete-container .pop-up-delete .title {
+  width: 100%;
+  text-align: center;
+}
+html body .delete-container .pop-up-delete .title p {
+  font-size: 20px;
+  color: #3b3936;
+}
+html body .delete-container .pop-up-delete .title img {
+  width: 28px;
+  height: 28px;
+}
+html body .delete-container .pop-up-delete .buttons {
+  width: 100%;
+}
+html body .delete-container .pop-up-delete .buttons button {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+html body .delete-container .pop-up-delete .buttons .delete-btn {
+  border: none;
+  background-color: #bd2a2e;
+  color: #f9f9f9;
+  margin-bottom: 16px;
+}
+html body .delete-container .pop-up-delete .buttons .cancel-btn {
+  border: 2px solid #bd2a2e;
+  color: #bd2a2e;
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  html body .delete-container .pop-up-delete {
+    max-width: 400px;
+    max-height: 300px;
+  }
+  html body .delete-container .pop-up-delete .close {
+    cursor: pointer;
+  }
+  html body .delete-container .pop-up-delete .title {
+    display: flex;
+    align-items: center;
+  }
+  html body .delete-container .pop-up-delete .title p {
+    font-size: 28px;
+  }
+  html body .delete-container .pop-up-delete .title img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+  html body .delete-container .pop-up-delete .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  html body .delete-container .pop-up-delete .buttons button {
+    cursor: pointer;
+    max-width: 160px;
+    height: 45px;
+    margin: 0;
+  }
+}
+html body .container main {
+  overflow: auto;
+}
+html body .container main .register-container {
+  width: 80%;
+  background-color: white;
+  padding: 16px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+html body .container main .register-container .title {
+  width: 100%;
+  text-align: center;
+}
+html body .container main .register-container .title p {
+  font-size: 20px;
+  color: #3b3936;
+}
+html body .container main .register-container .title img {
+  width: 28px;
+  height: 28px;
+}
+html body .container main .register-container .form-container .fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  margin: 32px 0;
+}
+html body .container main .register-container .form-container .fields .field {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 16px;
+  margin: 0 auto 16px;
+}
+html body .container main .register-container .form-container .fields .field label {
+  color: #3b3936;
+}
+html body .container main .register-container .form-container .fields .field input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+}
+html body .container main .register-container .form-container .fields .field .percent-sale {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+html body .container main .register-container .form-container .fields .field .percent-sale .percentage {
+  width: 30%;
+}
+html body .container main .register-container .form-container .fields .field .percent-sale .sale {
+  width: 65%;
+}
+html body .container main .register-container .form-container .buttons {
+  width: 100%;
+}
+html body .container main .register-container .form-container .buttons button {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+html body .container main .register-container .form-container .buttons .register-btn {
+  border: none;
+  background-color: #486966;
+  color: #f9f9f9;
+  margin-bottom: 16px;
+}
+html body .container main .register-container .form-container .buttons .clean-btn {
+  border: 2px solid #bd2a2e;
+  color: #bd2a2e;
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  html body .container main {
+    position: relative;
+  }
+  html body .container main .register-container {
+    width: 80%;
+    max-width: 750px;
+    max-height: 520px;
+    padding: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  html body .container main .register-container .title {
+    display: flex;
+    align-items: center;
+  }
+  html body .container main .register-container .title p {
+    font-size: 28px;
+  }
+  html body .container main .register-container .title img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+  html body .container main .register-container .form-container .fields {
+    grid-template-columns: 45% 45%;
+    gap: 0 10%;
+    margin: 16px 0;
+  }
+  html body .container main .register-container .form-container .fields .field {
+    max-width: 310px;
+  }
+  html body .container main .register-container .form-container .fields .field input {
+    height: 45px;
+  }
+  html body .container main .register-container .form-container .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  html body .container main .register-container .form-container .buttons .register-btn {
+    margin-right: 60px;
+  }
+  html body .container main .register-container .form-container .buttons button {
+    cursor: pointer;
+    max-width: 310px;
+    height: 45px;
+    margin: 0;
+  }
+}
+html body .container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+html body .container-login main {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+html body .container-login main .flash-messages {
+  width: 100%;
+  max-width: 340px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 0 16px;
+  background-color: #ffcfcf;
+}
+html body .container-login main .flash-messages .message {
+  color: #bd2a2e;
+  margin-left: 8px;
+}
+html body .container-login main .login-adm-container {
+  width: 100%;
+  max-width: 340px;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+html body .container-login main .login-adm-container .form-container {
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+}
+html body .container-login main .login-adm-container .form-container .title {
+  text-align: center;
+}
+html body .container-login main .login-adm-container .form-container .title h1 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #3b3936;
+}
+html body .container-login main .login-adm-container .form-container .fields {
+  width: 100%;
+  margin: 32px 0;
+}
+html body .container-login main .login-adm-container .form-container .fields .field {
+  margin-bottom: 16px;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password {
+  position: relative;
+  width: 100%;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password input {
+  width: 100%;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password img {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  cursor: pointer;
+  display: none;
+}
+html body .container-login main .login-adm-container .form-container .fields .field .input-password img.on {
+  display: block;
+}
+html body .container-login main .login-adm-container .form-container .fields .field label {
+  color: #3b3936;
+}
+html body .container-login main .login-adm-container .form-container .fields .field input {
+  margin: 4px 0;
+  width: 100%;
+  height: 45px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #3b3936;
+}
+html body .container-login main .login-adm-container .form-container .fields .field a {
+  color: #3b3936;
+  font-size: 14px;
+}
+html body .container-login main .login-adm-container .form-container .buttons {
+  width: 100%;
+}
+html body .container-login main .login-adm-container .form-container .buttons .login-btn {
+  width: 100%;
+  height: 45px;
+  margin-top: 16px;
+  background-color: #486966;
+  color: #f9f9f9;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  html body .container-login main .login-adm-container .form-container .title h1 {
+    font-size: 24px;
+  }
+}
+html body .container-register {
+  padding: 32px 0;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+}
+html body .container-register main {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+html body .container-register main .flash-messages {
+  width: 100%;
+  max-width: 340px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 0 16px;
+  background-color: #ffcfcf;
+}
+html body .container-register main .flash-messages .message {
+  color: #bd2a2e;
+  margin-left: 8px;
+}
+html body .container-register main .register-adm-container {
+  width: 100%;
+  max-width: 340px;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+html body .container-register main .register-adm-container .form-container {
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+}
+html body .container-register main .register-adm-container .form-container .title {
+  text-align: center;
+}
+html body .container-register main .register-adm-container .form-container .title h1 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #3b3936;
+}
+html body .container-register main .register-adm-container .form-container .fields {
+  width: 100%;
+  margin: 32px 0;
+}
+html body .container-register main .register-adm-container .form-container .fields .field {
+  margin-bottom: 16px;
+}
+html body .container-register main .register-adm-container .form-container .fields .field .input-password {
+  position: relative;
+  width: 100%;
+}
+html body .container-register main .register-adm-container .form-container .fields .field .input-password input {
+  width: 100%;
+}
+html body .container-register main .register-adm-container .form-container .fields .field .input-password img {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  cursor: pointer;
+  display: none;
+}
+html body .container-register main .register-adm-container .form-container .fields .field .input-password img.on {
+  display: block;
+}
+html body .container-register main .register-adm-container .form-container .fields .field label {
+  color: #3b3936;
+}
+html body .container-register main .register-adm-container .form-container .fields .field input {
+  margin: 4px 0;
+  width: 100%;
+  height: 45px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #3b3936;
+}
+html body .container-register main .register-adm-container .form-container .fields .field a {
+  color: #3b3936;
+  font-size: 14px;
+}
+html body .container-register main .register-adm-container .form-container .buttons {
+  width: 100%;
+}
+html body .container-register main .register-adm-container .form-container .buttons .register-btn {
+  width: 100%;
+  height: 45px;
+  margin-top: 16px;
+  background-color: #486966;
+  color: #f9f9f9;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  html body .container-register main .register-adm-container .form-container .title h1 {
+    font-size: 24px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "inter";
+}
+
+html {
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+html body {
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+html body .container {
+  width: 100%;
+  height: 100%;
+}
+html body .container main {
+  width: 100%;
+  height: 100%;
+  padding: 32px 0;
+}
+html body .container main .search {
+  width: 80%;
+  max-width: 340px;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+html body .container main .search .search-input {
+  width: 100%;
+  height: 100%;
+  padding: 0 32px 0 16px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  color: #3b3936;
+  font-size: 14px;
+}
+html body .container main .search .search-input::placeholder {
+  font-size: 14px;
+  color: #afafaf;
+}
+html body .container main .search img {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+html body .container main .products {
+  width: 80%;
+  margin: 16px auto 0;
+}
+html body .container main .products .card-product {
+  width: 100%;
+  max-width: 340px;
+  height: 260px;
+  margin: 0 auto 32px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+html body .container main .products .card-product .card-container-1 {
+  width: 100%;
+}
+html body .container main .products .card-product .card-container-1 p {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #3b3936;
+}
+html body .container main .products .card-product .card-container-2 {
+  width: 100%;
+}
+html body .container main .products .card-product .card-container-2 .infos-1 p,
+html body .container main .products .card-product .card-container-2 .infos-2 p {
+  font-size: 14px;
+  color: #3b3936;
+  margin: 4px 0;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons button {
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons button span {
+  color: white;
+  font-size: 14px;
+  margin-left: 8px;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons button img {
+  width: 20px;
+  height: 20px;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons .edit-button {
+  background-color: #486966;
+  border-radius: 8px;
+  border: none;
+  margin-right: 8px;
+}
+html body .container main .products .card-product .card-container-2 .action-buttons .delete-button {
+  background-color: #bd2a2e;
+  border-radius: 8px;
+  border: none;
+}
+
+@media (min-width: 1024px) {
+  html body .container {
+    display: flex;
+  }
+  html body .container main {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 32px 0;
+  }
+  html body .container main .search {
+    max-width: 600px;
+  }
+  html body .container main .search .search-input {
+    font-size: 16px;
+  }
+  html body .container main .search .search-input::placeholder {
+    font-size: 16px;
+  }
+  html body .container main .products {
+    width: 80%;
+    min-width: 790px;
+  }
+  html body .container main .products .card-product {
+    max-width: 900px;
+    height: 180px;
+  }
+  html body .container main .products .card-product .card-container-1 p {
+    margin-bottom: 16px;
+  }
+  html body .container main .products .card-product .card-container-2 {
+    height: 70%;
+    display: flex;
+    position: relative;
+  }
+  html body .container main .products .card-product .card-container-2 .infos-1 {
+    margin-right: 200px;
+  }
+  html body .container main .products .card-product .card-container-2 .infos-1 p,
+  html body .container main .products .card-product .card-container-2 .infos-2 p {
+    font-size: 16px;
+  }
+  html body .container main .products .card-product .card-container-2 .action-buttons {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  html body .container main .products .card-product .card-container-2 .action-buttons button span {
+    font-size: 16px;
+  }
+  html body .container main .products .card-product .card-container-2 .action-buttons button img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

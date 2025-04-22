@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="container">
+      <%- include("./includes/nav")%>
+
+      <main>
+        <div class="search">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Produto, fabricante ou fornecedor"
+          />
+          <img src="/img/search.svg" alt="Icone de Pesquisa" />
+        </div>
+
+        <div class="products">
+          <div class="card-product">
+            <div class="card-container-1">
+              <p class="name-product">Nome</p>
+            </div>
+
+            <div class="card-container-2">
+              <div class="infos-1">
+                <p class="maker">Fabricante:</p>
+                <p class="provider">Fornecedor:</p>
+                <p class="quantity-stock">Estoque:</p>
+                <p class="units">Unidades:</p>
+              </div>
+
+              <div class="infos-2">
+                <p class="purchase-value">Valor de compra:</p>
+                <p class="sale-value">Valor de venda:</p>
+                <p class="percentage">Percentual de lucro:</p>
+              </div>
+
+              <div class="action-buttons">
+                <button class="edit-button">
+                  <img src="/img/pencil.svg" alt="Icone de Caneta" />
+                  <span>Editar</span>
+                </button>
+
+                <button class="delete-button">
+                  <img src="/img/trash.svg" alt="Icone de Lixeira" />
+                  <span>Deletar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <%- include("./includes/popup-update")%>
+      <!--  -->
+      <%-include("./includes/popup-delete")%>
+    </div>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>

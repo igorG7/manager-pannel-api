@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Cadastro Administrador</title>
+  </head>
+  <body>
+    <div class="container-register">
+      <main>
+        <div class="flash-messages">
+          <img src="/img/warning-circle.svg" alt="" />
+
+          <span class="message">E-mail já está em uso.</span>
+        </div>
+
+        <div class="register-adm-container">
+          <form class="form-container">
+            <div class="title">
+              <h1>Cadastro Administrador</h1>
+            </div>
+
+            <div class="fields">
+              <div class="field">
+                <label>Nome Completo:</label>
+
+                <input type="text" name="user_name" />
+              </div>
+
+              <div class="field">
+                <label>E-mail:</label>
+
+                <input type="email" name="email" />
+              </div>
+
+              <div class="field">
+                <label>Senha:</label>
+
+                <div class="input-password">
+                  <input
+                    type="password"
+                    autocomplete="off"
+                    class="input-pass"
+                    name="password"
+                  />
+
+                  <img
+                    src="/img/eye.svg"
+                    alt="Icone de visualizar"
+                    class="eye"
+                  />
+
+                  <img
+                    src="/img/eye-off.svg"
+                    alt="Icone de não-visualizar"
+                    class="eye-off on"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Confirmar Senha:</label>
+
+                <div class="input-password">
+                  <input
+                    type="password"
+                    autocomplete="off"
+                    class="input-confirm"
+                  />
+
+                  <img
+                    src="/img/eye.svg"
+                    alt="Icone de visualizar"
+                    class="eye-confirm"
+                  />
+
+                  <img
+                    src="/img/eye-off.svg"
+                    alt="Icone de não-visualizar"
+                    class="eye-off-confirm on"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="register-btn">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <script src="/js/registerAdm.js" type="module"></script>
+  </body>
+</html>

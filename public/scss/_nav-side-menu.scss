@@ -1,0 +1,159 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+html {
+  body {
+    .container {
+      .side-menu {
+        width: 0;
+        min-width: 0;
+        max-width: 270px;
+        height: 100%;
+        visibility: hidden;
+        transition: width 1s, visibility 1s, min-width 1s, padding 1s;
+        background-color: $darkPaleGreen;
+        position: absolute;
+        z-index: 1;
+
+        &.active {
+          width: 50%;
+          min-width: 180px;
+          padding: 16px;
+          visibility: visible;
+          transition: width 1s, visibility 1s, min-width 1s, padding 1s;
+        }
+
+        .btn-menu {
+          width: 40px;
+          height: 40px;
+          @include center();
+          border-radius: 0 16px 16px 0;
+          background-color: $darkPaleGreen;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transform: translateX(98%);
+          visibility: visible;
+        }
+
+        .menu {
+          list-style: none;
+          width: 100%;
+          height: 100%;
+          max-width: 200px;
+          margin: 0 auto;
+          position: relative;
+
+          .item-menu {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 16px;
+            background-color: $paleGreen;
+            border-radius: 8px;
+            border: 1px solid #f9f9f9;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 300ms, opacity 500ms;
+
+            &.active {
+              visibility: visible;
+              opacity: 1;
+              transition: visibility 1.5s, opacity 1.5s;
+            }
+
+            a {
+              width: 100%;
+              height: 100%;
+              padding: 16px;
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+
+              span {
+                font-size: 14px;
+                color: #f9f9f9;
+              }
+
+              img {
+                margin-right: 8px;
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+
+          .logout {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+
+            span {
+              font-size: 14px;
+              color: #f9f9f9;
+            }
+
+            img {
+              margin-right: 8px;
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    body {
+      .container {
+        .side-menu {
+          width: 20%;
+          padding: 32px 16px;
+          visibility: visible;
+          position: static;
+
+          .btn-menu {
+            display: none;
+          }
+
+          .menu {
+            .item-menu {
+              height: 60px;
+              visibility: visible;
+              opacity: 1;
+
+              a {
+                span {
+                  font-size: 16px;
+                }
+
+                img {
+                  width: 24px;
+                  height: 24px;
+                }
+              }
+            }
+
+            .logout {
+              cursor: pointer;
+
+              span {
+                font-size: 16px;
+              }
+
+              img {
+                width: 24px;
+                height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
