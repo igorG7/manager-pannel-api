@@ -11,8 +11,10 @@
       <main>
         <div class="flash-messages">
           <img src="/img/warning-circle.svg" alt="" />
+
           <span class="message">E-mail ou senha incorretos.</span>
         </div>
+
         <div class="login-adm-container">
           <form class="form-container">
             <div class="title">
@@ -22,23 +24,33 @@
             <div class="fields">
               <div class="field">
                 <label for="">E-mail:</label>
-                <input type="email" />
+                <input type="email" name="email" />
               </div>
+
               <div class="field">
                 <label for="">Senha:</label>
+
                 <div class="input-password">
-                  <input class="input" type="password" autocomplete="off" />
+                  <input
+                    class="input"
+                    type="password"
+                    autocomplete="off"
+                    name="password"
+                  />
+
                   <img
                     src="/img/eye.svg"
                     alt="Icone de visualizar"
                     class="eye"
                   />
+
                   <img
                     src="/img/eye-off.svg"
                     alt="Icone de não-visualizar"
                     class="eye-off on"
                   />
                 </div>
+
                 <a href="">Esqueci minha senha</a>
               </div>
             </div>
