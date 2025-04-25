@@ -31,7 +31,11 @@ exports.getProducts = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
-    const product = new Products(req.body);
+    const body = req.body;
+    body.modified = Date.now();
+    body.userModified = "user teste";
+
+    const product = new Products(body);
     await product.save();
 
     res.status(201).json({ message: "Product registered successfully." });

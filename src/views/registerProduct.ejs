@@ -17,11 +17,12 @@
             <p>Cadastrar Produto</p>
           </div>
 
-          <form action="" class="form-container">
+          <div class="form-container">
             <div class="fields">
               <div class="field">
                 <label>Produto:</label>
                 <input
+                  class="productName"
                   type="text"
                   name="productName"
                   placeholder="Nome do Produto"
@@ -31,6 +32,7 @@
               <div class="field">
                 <label>Fabricante:</label>
                 <input
+                  class="makerName"
                   type="text"
                   name="makerName"
                   placeholder="Nome do Fabricante"
@@ -40,6 +42,7 @@
               <div class="field">
                 <label>Fornecedor:</label>
                 <input
+                  class="providerName"
                   type="text"
                   name="providerName"
                   placeholder="Nome do Fornecedor"
@@ -48,37 +51,56 @@
 
               <div class="field">
                 <label>Estoque:</label>
-                <input type="number" name="quantityStock" placeholder="0" />
+                <input
+                  type="number"
+                  name="quantityStock"
+                  placeholder="0"
+                  class="quantityStock"
+                />
               </div>
 
               <div class="field">
                 <label>Unidades:</label>
-                <input type="number" name="units" placeholder="0" />
+                <input
+                  type="number"
+                  name="units"
+                  placeholder="0"
+                  class="units"
+                />
               </div>
 
               <div class="field">
                 <label>Valor de compra:</label>
-                <input type="number" name="purchaseValue" placeholder="0,00" />
+                <input
+                  type="number"
+                  name="purchaseValue"
+                  placeholder="0,00"
+                  class="purchaseValue"
+                />
               </div>
 
               <div class="field">
-                <label>Percentual e valor de venda:</label>
-                <div class="percent-sale">
-                  <input
-                    type="number"
-                    class="percentage"
-                    min="0"
-                    max="100"
-                    name="percentage"
-                    placeholder="0%"
-                  />
-                  <input
-                    type="number"
-                    class="sale"
-                    name="saleValue"
-                    placeholder="0,00"
-                  />
-                </div>
+                <label>Percentual:</label>
+
+                <input
+                  type="number"
+                  class="percentage"
+                  min="0"
+                  max="100"
+                  name="percentage"
+                  placeholder="0%"
+                />
+              </div>
+
+              <div class="field">
+                <label>Valor de venda:</label>
+
+                <input
+                  type="number"
+                  class="sale"
+                  name="saleValue"
+                  placeholder="0,00"
+                />
               </div>
             </div>
 
@@ -86,11 +108,13 @@
               <button class="register-btn">Cadastrar</button>
               <button class="clean-btn">Limpar campos</button>
             </div>
-          </form>
+          </div>
         </div>
       </main>
     </div>
 
-    <script src="/js/main.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
+    <script src="/js/util/validForm.js" type="module"></script>
+    <script src="/lib/axios/axios.min.js"></script>
   </body>
 </html>
