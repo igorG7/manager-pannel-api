@@ -1,3 +1,7 @@
+import { FlashCard } from "./flashCard.js";
+
+const flash = new FlashCard();
+
 class ValidForm {
   constructor() {
     this.form = document.querySelector(".form-container");
@@ -10,6 +14,8 @@ class ValidForm {
     this.purchaseValue = this.form.querySelector(".purchaseValue");
     this.percentage = this.form.querySelector(".percentage");
     this.saleValue = this.form.querySelector(".sale");
+
+    this.notifyContainer = document.querySelector(".notification-container");
 
     this.loadEvents();
   }
@@ -33,11 +39,27 @@ class ValidForm {
 
   async post(body) {
     try {
-      await axios.post("/products", body);
+      const res = await axios.post("/products", body);
+      const data = res.data;
+
+      const flashSuccess = flash.createFlash(data.status, data.message);
+
+      this.notifyContainer.appendChild(flashSuccess);
+
+      this.time(flashSuccess);
       this.clearFields();
     } catch (error) {
-      console.log(error);
+      let flashErro = flash.createFlash(error.status, error.message);
+
+      this.notifyContainer.appendChild(flashErro);
+      this.time(flashErro);
     }
+  }
+
+  time(flashcard) {
+    setTimeout(() => {
+      flashcard.remove();
+    }, 6000);
   }
 
   handleCleaning() {

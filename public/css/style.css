@@ -371,7 +371,50 @@ html body .delete-container .pop-up-delete .buttons .cancel-btn {
   }
 }
 html body .container main {
-  overflow: auto;
+  overflow-y: auto;
+  min-height: fit-content;
+  position: relative;
+}
+html body .container main .notification-container {
+  width: 80%;
+  max-width: 360px;
+  position: absolute;
+  bottom: 32px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1;
+}
+html body .container main .notification-container .notification {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+html body .container main .notification-container .notification .message {
+  display: flex;
+  align-items: center;
+}
+html body .container main .notification-container .notification .message span {
+  margin-left: 8px;
+}
+html body .container main .notification-container .notification .close {
+  cursor: pointer;
+}
+html body .container main .success {
+  background-color: #889c9b;
+}
+html body .container main .success span {
+  color: #f9f9f9;
+}
+html body .container main .error {
+  background-color: #ffcfcf;
+}
+html body .container main .error span {
+  color: #bd2a2e;
 }
 html body .container main .register-container {
   width: 80%;
@@ -423,21 +466,6 @@ html body .container main .register-container .form-container .fields .field .er
   font-size: 12px;
   color: #bd2a2e;
 }
-html body .container main .register-container .form-container .fields .field .percent-sale {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-html body .container main .register-container .form-container .fields .field .percent-sale .percentage {
-  width: 30%;
-}
-html body .container main .register-container .form-container .fields .field .percent-sale .sale {
-  width: 65%;
-}
-html body .container main .register-container .form-container .fields .field .percent-sale .error-text {
-  font-size: 12px;
-  color: #bd2a2e;
-}
 html body .container main .register-container .form-container .buttons {
   width: 100%;
 }
@@ -465,6 +493,10 @@ html body .container main .register-container .form-container .buttons .clean-bt
 @media (min-width: 1024px) {
   html body .container main {
     position: relative;
+  }
+  html body .container main .notification-container {
+    right: 0%;
+    transform: translateX(-8px);
   }
   html body .container main .register-container {
     width: 80%;

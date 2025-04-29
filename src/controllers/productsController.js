@@ -38,9 +38,12 @@ exports.createProduct = async (req, res) => {
     const product = new Products(body);
     await product.save();
 
-    res.status(201).json({ message: "Product registered successfully." });
+    res
+      .status(201)
+      .json({ status: "success", message: "Product registered successfully." });
   } catch (error) {
     res.status(400).json({
+      status: "error",
       message: "Error registering the product.",
       error: error.message,
     });
