@@ -40,11 +40,11 @@ exports.createProduct = async (req, res) => {
 
     res
       .status(201)
-      .json({ status: "success", message: "Product registered successfully." });
+      .json({ status: "success", message: "Produto cadastrado com sucesso." });
   } catch (error) {
     res.status(400).json({
       status: "error",
-      message: "Error registering the product.",
+      message: "Erro ao cadastrar produto.",
       error: error.message,
     });
   }
