@@ -1,10 +1,14 @@
 exports.validateProductFields = (req, res, next) => {
   if (Object.keys(req.body).length <= 0)
-    return res.status(400).json({ error: "No information received." });
+    return res
+      .status(400)
+      .json({ status: "error", message: "Nenhuma informação foi recebida." });
 
   for (let value of Object.values(req.body)) {
-    if (!value)
-      return res.status(400).json({ error: "All fields must be filled in" });
+    if (!value && value !== 0)
+      return res
+        .status(400)
+        .json({ error: "Valores inválidos ou campos vazios." });
   }
 
   next();
@@ -12,49 +16,45 @@ exports.validateProductFields = (req, res, next) => {
 
 exports.validateData = (req, res, next) => {
   const product = req.body;
-  const invalidFields = [];
 
   if (typeof product.productName !== "string")
-    invalidFields.push("Product Name must be text type");
+    error(res, "'Nome do produto' deve ser um texto.");
 
   if (typeof product.providerName !== "string")
-    invalidFields.push("Provider Name must be text type");
+    error(res, "'Fornecedor' deve ser um texto.");
 
   if (typeof product.makerName !== "string")
-    invalidFields.push("Maker Name must be text type");
+    error(res, "'Fabricante' deve ser um texto.");
 
   if (typeof product.purchaseValue !== "number" || product.purchaseValue <= 0)
-    invalidFields.push(
-      "The purchase price must be numeric and greater than zero"
-    );
+    error(res, "'Valor de compra' deve ser um número maior que zero.");
 
   if (typeof product.saleValue !== "number" || product.saleValue <= 0)
-    invalidFields.push("The sale price must be numeric and greater than zero");
+    error(res, "'Valor de venda' deve ser um número maior que zero.");
 
   if (
     typeof product.quantityStock !== "number" ||
     !Number.isInteger(product.quantityStock)
   )
-    invalidFields.push("Stock must be numeric, greater than zero and integer");
+    error(res, "'Estoque' deve ser um número inteiro.");
 
   if (
     typeof product.units !== "number" ||
     product.units <= 0 ||
     !Number.isInteger(product.units)
   )
-    invalidFields.push("Units must be numeric, greater than zero and integer");
+    error(res, "'Unidades' deve ser um número inteiro e maior que zero.");
 
   if (
     typeof product.percentage !== "number" ||
     !Number.isInteger(product.percentage) ||
     product.percentage <= 0
   )
-    invalidFields.push(
-      "Percentage must be numeric, greater than zero and integer"
-    );
-
-  if (invalidFields.length > 0)
-    return res.status(400).json({ error: `${invalidFields.join(",  ")}` });
+    error(res, "'Percentual' deve ser um número inteiro e maior que zero.");
 
   next();
+};
+
+const error = (res, message) => {
+  return res.status(400).json({ status: "error", message });
 };
