@@ -33,7 +33,6 @@ exports.validateData = (req, res, next) => {
 
   if (
     typeof product.quantityStock !== "number" ||
-    product.quantityStock <= 0 ||
     !Number.isInteger(product.quantityStock)
   )
     invalidFields.push("Stock must be numeric, greater than zero and integer");

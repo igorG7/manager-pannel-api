@@ -19,7 +19,8 @@ export class ProductServices {
       ProductServices.time(flashSuccess);
       FormHandler.clearFields();
     } catch (error) {
-      const flashErro = flash.createFlash(error.status, error.message);
+      const data = error.response.data;
+      const flashErro = flash.createFlash(data.status, data.message);
 
       ProductServices.notifyContainer.appendChild(flashErro);
       ProductServices.time(flashErro);

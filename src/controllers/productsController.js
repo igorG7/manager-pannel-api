@@ -32,6 +32,17 @@ exports.getProducts = async (req, res) => {
 exports.createProduct = async (req, res) => {
   try {
     const body = req.body;
+
+    const checkExistence = await Products.findOne({
+      productName: body.productName,
+      makerName: body.makerName,
+      providerName: body.providerName,
+    });
+
+    if (checkExistence) {
+      throw new Error("Esse produto já existe.");
+    }
+
     body.modified = Date.now();
     body.userModified = "user teste";
 
@@ -44,8 +55,7 @@ exports.createProduct = async (req, res) => {
   } catch (error) {
     res.status(400).json({
       status: "error",
-      message: "Erro ao cadastrar produto.",
-      error: error.message,
+      message: error.message || "Erro ao cadastrar produto.",
     });
   }
 };
