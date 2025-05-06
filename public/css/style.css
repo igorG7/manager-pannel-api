@@ -448,6 +448,26 @@ html body .container main .register-container .form-container .fields .field {
   margin-bottom: 16px;
   margin: 0 auto 16px;
 }
+html body .container main .register-container .form-container .fields .field .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+html body .container main .register-container .form-container .fields .field .checkbox-container .check-units-sale {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+}
+html body .container main .register-container .form-container .fields .field .checkbox-container .label-check {
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+html body .container main .register-container .form-container .fields .field .disabled {
+  cursor: not-allowed;
+  background-color: #d1d1d1;
+}
 html body .container main .register-container .form-container .fields .field label {
   color: #3b3936;
 }

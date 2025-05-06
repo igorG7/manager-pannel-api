@@ -94,6 +94,30 @@ html {
                 margin-bottom: 16px;
                 margin: 0 auto 16px;
 
+                .checkbox-container {
+                  display: flex;
+                  align-items: center;
+                  margin-top: 8px;
+
+                  .check-units-sale {
+                    width: 15px;
+                    height: 15px;
+                    margin: 0;
+                    cursor: pointer;
+                  }
+
+                  .label-check {
+                    font-size: 14px;
+                    margin-left: 4px;
+                    cursor: pointer;
+                  }
+                }
+
+                .disabled {
+                  cursor: not-allowed;
+                  background-color: #d1d1d1;
+                }
+
                 label {
                   color: $darkGray;
                 }

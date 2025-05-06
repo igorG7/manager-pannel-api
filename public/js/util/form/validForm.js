@@ -8,6 +8,7 @@ class ValidForm {
     FormHandler.handleSubmit();
     FormHandler.handleCleaning();
     FormHandler.calculateSaleValue();
+    FormHandler.enableSaleOfUnits();
   }
 }
 

@@ -4,6 +4,7 @@ export class FormValidator {
   static percentage = document.querySelector(".percentage");
   static purchaseValue = document.querySelector(".purchaseValue");
   static saleValue = document.querySelector(".sale");
+  static unitValue = document.querySelector(".unitValue");
 
   static checkEmptyFields() {
     let valid = true;
@@ -14,10 +15,12 @@ export class FormValidator {
       error.remove();
     }
 
-    for (let field of form.querySelectorAll("input")) {
+    for (let field of form.querySelectorAll(".input-field")) {
       field.style.borderColor = "#486966";
 
       if (!field.value) {
+        if (field.classList.contains("disabled")) continue;
+
         FormValidator.error(field, `não pode estar vazio.`);
         valid = false;
       }
@@ -57,13 +60,16 @@ export class FormValidator {
       FormValidator.purchaseValue,
       FormValidator.percentage,
       FormValidator.saleValue,
+      FormValidator.unitValue,
     ];
 
     for (let field of fields) {
+      if (field.classList.contains("disabled")) continue;
       if (field.value === "") continue;
 
       if (field.value <= 0) {
         FormValidator.error(field, `precisa ser maior que zero.`);
+        valid = false;
       }
     }
 

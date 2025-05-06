@@ -41,6 +41,8 @@ export class ProductServices {
       const name = field.getAttribute("name");
       const typeField = field.getAttribute("type");
 
+      if (field.classList.contains("disabled")) continue;
+
       if (typeField === "text") {
         body[name] = String(field.value);
       }

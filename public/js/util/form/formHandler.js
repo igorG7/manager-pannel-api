@@ -5,32 +5,65 @@ export class FormHandler {
   static purchaseValue = document.querySelector(".purchaseValue");
   static percentage = document.querySelector(".percentage");
   static saleValue = document.querySelector(".sale");
+  static checkbox = document.querySelector("#saleOfUnits");
+  static units = document.querySelector(".units");
+  static unitValue = document.querySelector(".unitValue");
 
   static form = document.querySelector(".form-container");
 
   static calculateSaleValue() {
+    FormHandler.percentage.addEventListener("input", FormHandler.calculate);
+    FormHandler.purchaseValue.addEventListener("input", FormHandler.calculate);
+    FormHandler.units.addEventListener("input", FormHandler.calculate);
+  }
+
+  static calculate() {
     const percentage = document.querySelector(".percentage");
     const purchase = document.querySelector(".purchaseValue");
 
-    const calcResult = () => {
-      const result =
-        Number((percentage.value / 100) * purchase.value) +
-        Number(purchase.value);
+    if (percentage.value === "" || purchase.value === "") return;
 
-      FormHandler.saleValue.value = result.toFixed(2);
-    };
+    const result =
+      Number((percentage.value / 100) * purchase.value) +
+      Number(purchase.value);
 
-    FormHandler.percentage.addEventListener("input", calcResult);
-    FormHandler.purchaseValue.addEventListener("input", calcResult);
+    FormHandler.saleValue.value = result.toFixed(2);
+
+    if (!FormHandler.unitValue.classList.contains("disabled")) {
+      const units = document.querySelector(".units");
+      if (Number(units.value) === 0) return;
+
+      const unitValue = result / Number(units.value);
+      FormHandler.unitValue.value = unitValue.toFixed(2);
+    }
   }
 
   static handleSubmit() {
     const registerButton = FormHandler.form.querySelector(".register-btn");
 
     registerButton.addEventListener("click", () => {
-      if (FormValidator.checkEmptyFields() && FormValidator.validateFields()) {
+      const emptyFields = FormValidator.checkEmptyFields();
+      const validateFields = FormValidator.validateFields();
+
+      if (emptyFields && validateFields) {
         ProductServices.post();
       }
+    });
+  }
+
+  static enableSaleOfUnits() {
+    FormHandler.checkbox.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        FormHandler.unitValue.removeAttribute("disabled");
+        FormHandler.unitValue.classList.remove("disabled");
+        FormHandler.calculate();
+
+        return;
+      }
+
+      FormHandler.unitValue.setAttribute("disabled", "disabled");
+      FormHandler.unitValue.classList.add("disabled");
+      FormHandler.unitValue.value = null;
     });
   }
 
@@ -41,7 +74,7 @@ export class FormHandler {
   }
 
   static clearFields() {
-    for (let field of FormHandler.form.querySelectorAll("input")) {
+    for (let field of FormHandler.form.querySelectorAll(".input-field")) {
       field.value = null;
     }
   }

@@ -24,7 +24,7 @@
               <div class="field">
                 <label>Produto:</label>
                 <input
-                  class="productName"
+                  class="productName input-field"
                   type="text"
                   name="productName"
                   placeholder="Nome do Produto"
@@ -34,7 +34,7 @@
               <div class="field">
                 <label>Fabricante:</label>
                 <input
-                  class="makerName"
+                  class="makerName input-field"
                   type="text"
                   name="makerName"
                   placeholder="Nome do Fabricante"
@@ -44,7 +44,7 @@
               <div class="field">
                 <label>Fornecedor:</label>
                 <input
-                  class="providerName"
+                  class="providerName input-field"
                   type="text"
                   name="providerName"
                   placeholder="Nome do Fornecedor"
@@ -57,7 +57,7 @@
                   type="number"
                   name="quantityStock"
                   placeholder="0"
-                  class="quantityStock"
+                  class="quantityStock input-field"
                 />
               </div>
 
@@ -67,7 +67,7 @@
                   type="number"
                   name="units"
                   placeholder="0"
-                  class="units"
+                  class="units input-field"
                 />
               </div>
 
@@ -76,8 +76,8 @@
                 <input
                   type="number"
                   name="purchaseValue"
-                  placeholder="0,00"
-                  class="purchaseValue"
+                  placeholder="R$ 0,00"
+                  class="purchaseValue input-field"
                 />
               </div>
 
@@ -86,7 +86,7 @@
 
                 <input
                   type="number"
-                  class="percentage"
+                  class="percentage input-field"
                   min="0"
                   max="100"
                   name="percentage"
@@ -99,9 +99,32 @@
 
                 <input
                   type="number"
-                  class="sale"
+                  class="sale input-field"
                   name="saleValue"
-                  placeholder="0,00"
+                  placeholder="R$ 0,00"
+                />
+
+                <div class="checkbox-container">
+                  <input
+                    type="checkbox"
+                    id="saleOfUnits"
+                    class="check-units-sale"
+                  />
+                  <label for="saleOfUnits" class="label-check"
+                    >Venda de unidades</label
+                  >
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Valor da unidade:</label>
+
+                <input
+                  type="number"
+                  class="unitValue disabled input-field"
+                  name="unitValue"
+                  placeholder="R$ 0,00"
+                  disabled
                 />
               </div>
             </div>
