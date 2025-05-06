@@ -45,6 +45,15 @@ exports.validateData = (req, res, next) => {
   )
     error(res, "'Unidades' deve ser um número inteiro e maior que zero.");
 
+  if (product.unitValue) {
+    if (
+      typeof product.unitValue !== "number" ||
+      product.unitValue <= 0 ||
+      !Number.isInteger(product.unitValue)
+    )
+      error(res, "'Valor da unidade' deve ser um número maior que zero.");
+  }
+
   if (
     typeof product.percentage !== "number" ||
     !Number.isInteger(product.percentage) ||
