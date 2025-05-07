@@ -370,12 +370,10 @@ html body .delete-container .pop-up-delete .buttons .cancel-btn {
     margin: 0;
   }
 }
-html body .container main {
-  overflow-y: auto;
-  min-height: fit-content;
+html body .container {
   position: relative;
 }
-html body .container main .notification-container {
+html body .container .notification-container {
   width: 80%;
   max-width: 360px;
   position: absolute;
@@ -384,7 +382,7 @@ html body .container main .notification-container {
   transform: translateX(50%);
   z-index: 1;
 }
-html body .container main .notification-container .notification {
+html body .container .notification-container .notification {
   width: 100%;
   height: 50px;
   border-radius: 8px;
@@ -394,29 +392,36 @@ html body .container main .notification-container .notification {
   align-items: center;
   margin-bottom: 8px;
 }
-html body .container main .notification-container .notification .message {
+html body .container .notification-container .notification .message {
   display: flex;
   align-items: center;
 }
-html body .container main .notification-container .notification .message span {
+html body .container .notification-container .notification .message span {
   margin-left: 8px;
 }
-html body .container main .notification-container .notification .close {
+html body .container .notification-container .notification .close {
   cursor: pointer;
 }
-html body .container main .success {
+html body .container .success {
   background-color: #889c9b;
 }
-html body .container main .success span {
+html body .container .success span {
   color: #f9f9f9;
 }
-html body .container main .error {
+html body .container .error {
   background-color: #ffcfcf;
 }
-html body .container main .error span {
+html body .container .error span {
   color: #bd2a2e;
 }
-html body .container main .register-container {
+html body .container .main-register {
+  overflow-y: auto;
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding: 32px 0;
+}
+html body .container .main-register .register-container {
   width: 80%;
   background-color: white;
   padding: 32px;
@@ -424,54 +429,54 @@ html body .container main .register-container {
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-html body .container main .register-container .title {
+html body .container .main-register .register-container .title {
   width: 100%;
   text-align: center;
 }
-html body .container main .register-container .title p {
+html body .container .main-register .register-container .title p {
   font-size: 20px;
   color: #3b3936;
 }
-html body .container main .register-container .title img {
+html body .container .main-register .register-container .title img {
   width: 28px;
   height: 28px;
 }
-html body .container main .register-container .form-container .fields {
+html body .container .main-register .register-container .form-container .fields {
   width: 100%;
   display: grid;
   grid-template-columns: 100%;
   margin: 32px 0;
 }
-html body .container main .register-container .form-container .fields .field {
+html body .container .main-register .register-container .form-container .fields .field {
   max-width: 300px;
   width: 100%;
   margin-bottom: 16px;
   margin: 0 auto 16px;
 }
-html body .container main .register-container .form-container .fields .field .checkbox-container {
+html body .container .main-register .register-container .form-container .fields .field .checkbox-container {
   display: flex;
   align-items: center;
   margin-top: 8px;
 }
-html body .container main .register-container .form-container .fields .field .checkbox-container .check-units-sale {
+html body .container .main-register .register-container .form-container .fields .field .checkbox-container .check-units-sale {
   width: 15px;
   height: 15px;
   margin: 0;
   cursor: pointer;
 }
-html body .container main .register-container .form-container .fields .field .checkbox-container .label-check {
+html body .container .main-register .register-container .form-container .fields .field .checkbox-container .label-check {
   font-size: 14px;
   margin-left: 4px;
   cursor: pointer;
 }
-html body .container main .register-container .form-container .fields .field .disabled {
+html body .container .main-register .register-container .form-container .fields .field .disabled {
   cursor: not-allowed;
   background-color: #d1d1d1;
 }
-html body .container main .register-container .form-container .fields .field label {
+html body .container .main-register .register-container .form-container .fields .field label {
   color: #3b3936;
 }
-html body .container main .register-container .form-container .fields .field input {
+html body .container .main-register .register-container .form-container .fields .field input {
   width: 100%;
   height: 40px;
   border: 2px solid #486966;
@@ -482,14 +487,14 @@ html body .container main .register-container .form-container .fields .field inp
   color: #3b3936;
   margin-top: 4px;
 }
-html body .container main .register-container .form-container .fields .field .error-text {
+html body .container .main-register .register-container .form-container .fields .field .error-text {
   font-size: 12px;
   color: #bd2a2e;
 }
-html body .container main .register-container .form-container .buttons {
+html body .container .main-register .register-container .form-container .buttons {
   width: 100%;
 }
-html body .container main .register-container .form-container .buttons button {
+html body .container .main-register .register-container .form-container .buttons button {
   width: 100%;
   margin: 0 auto;
   display: block;
@@ -498,66 +503,66 @@ html body .container main .register-container .form-container .buttons button {
   font-size: 16px;
   border-radius: 8px;
 }
-html body .container main .register-container .form-container .buttons .register-btn {
+html body .container .main-register .register-container .form-container .buttons .register-btn {
   border: none;
   background-color: #486966;
   color: #f9f9f9;
   margin-bottom: 16px;
 }
-html body .container main .register-container .form-container .buttons .clean-btn {
+html body .container .main-register .register-container .form-container .buttons .clean-btn {
   border: 2px solid #bd2a2e;
   color: #bd2a2e;
   background-color: transparent;
 }
 
 @media (min-width: 1024px) {
-  html body .container main {
+  html body .container .notification-container {
+    right: 0%;
+    transform: translateX(-16px);
+  }
+  html body .container .main-register {
+    width: 80%;
+    margin: 0 auto;
     position: relative;
   }
-  html body .container main .notification-container {
-    right: 0%;
-    transform: translateX(-8px);
-  }
-  html body .container main .register-container {
+  html body .container .main-register .register-container {
     width: 80%;
     max-width: 750px;
     padding: 32px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 0;
   }
-  html body .container main .register-container .title {
+  html body .container .main-register .register-container .title {
     display: flex;
     align-items: center;
   }
-  html body .container main .register-container .title p {
+  html body .container .main-register .register-container .title p {
     font-size: 28px;
   }
-  html body .container main .register-container .title img {
+  html body .container .main-register .register-container .title img {
     width: 40px;
     height: 40px;
     margin-right: 8px;
   }
-  html body .container main .register-container .form-container .fields {
+  html body .container .main-register .register-container .form-container .fields {
     grid-template-columns: 45% 45%;
     gap: 0 10%;
     margin: 16px 0;
   }
-  html body .container main .register-container .form-container .fields .field {
+  html body .container .main-register .register-container .form-container .fields .field {
     max-width: 310px;
   }
-  html body .container main .register-container .form-container .fields .field input {
+  html body .container .main-register .register-container .form-container .fields .field input {
     height: 45px;
   }
-  html body .container main .register-container .form-container .buttons {
+  html body .container .main-register .register-container .form-container .buttons {
     display: flex;
     justify-content: space-between;
   }
-  html body .container main .register-container .form-container .buttons .register-btn {
+  html body .container .main-register .register-container .form-container .buttons .register-btn {
     margin: 0 60px 0 0;
   }
-  html body .container main .register-container .form-container .buttons button {
+  html body .container .main-register .register-container .form-container .buttons button {
     cursor: pointer;
     max-width: 310px;
     height: 45px;
@@ -802,7 +807,6 @@ html body .container-register main .register-adm-container .form-container .butt
 html {
   min-width: 100%;
   height: 100%;
-  min-height: 100%;
 }
 html body {
   background-color: #f9f9f9;
@@ -813,20 +817,21 @@ html body {
 html body .container {
   width: 100%;
   height: 100%;
+  min-height: fit-content;
 }
-html body .container main {
+html body .container .main-home {
   width: 100%;
   height: 100%;
-  padding: 32px 0;
+  padding: 30px 0;
 }
-html body .container main .search {
+html body .container .main-home .search {
   width: 80%;
   max-width: 340px;
   height: 50px;
   margin: 0 auto;
   position: relative;
 }
-html body .container main .search .search-input {
+html body .container .main-home .search .search-input {
   width: 100%;
   height: 100%;
   padding: 0 32px 0 16px;
@@ -836,21 +841,21 @@ html body .container main .search .search-input {
   color: #3b3936;
   font-size: 14px;
 }
-html body .container main .search .search-input::placeholder {
+html body .container .main-home .search .search-input::placeholder {
   font-size: 14px;
   color: #afafaf;
 }
-html body .container main .search img {
+html body .container .main-home .search img {
   position: absolute;
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
 }
-html body .container main .products {
+html body .container .main-home .products {
   width: 80%;
   margin: 16px auto 0;
 }
-html body .container main .products .card-product {
+html body .container .main-home .products .card-product {
   width: 100%;
   max-width: 340px;
   height: 260px;
@@ -860,29 +865,29 @@ html body .container main .products .card-product {
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
 }
-html body .container main .products .card-product .card-container-1 {
+html body .container .main-home .products .card-product .card-container-1 {
   width: 100%;
 }
-html body .container main .products .card-product .card-container-1 p {
+html body .container .main-home .products .card-product .card-container-1 p {
   margin-bottom: 16px;
   font-size: 20px;
   color: #3b3936;
 }
-html body .container main .products .card-product .card-container-2 {
+html body .container .main-home .products .card-product .card-container-2 {
   width: 100%;
 }
-html body .container main .products .card-product .card-container-2 .infos-1 p,
-html body .container main .products .card-product .card-container-2 .infos-2 p {
+html body .container .main-home .products .card-product .card-container-2 .infos-1 p,
+html body .container .main-home .products .card-product .card-container-2 .infos-2 p {
   font-size: 14px;
   color: #3b3936;
   margin: 4px 0;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons {
+html body .container .main-home .products .card-product .card-container-2 .action-buttons {
   margin-top: 16px;
   display: flex;
   justify-content: space-between;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons button {
+html body .container .main-home .products .card-product .card-container-2 .action-buttons button {
   width: 120px;
   height: 30px;
   cursor: pointer;
@@ -890,22 +895,22 @@ html body .container main .products .card-product .card-container-2 .action-butt
   justify-content: center;
   align-items: center;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons button span {
+html body .container .main-home .products .card-product .card-container-2 .action-buttons button span {
   color: white;
   font-size: 14px;
   margin-left: 8px;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons button img {
+html body .container .main-home .products .card-product .card-container-2 .action-buttons button img {
   width: 20px;
   height: 20px;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons .edit-button {
+html body .container .main-home .products .card-product .card-container-2 .action-buttons .edit-button {
   background-color: #486966;
   border-radius: 8px;
   border: none;
   margin-right: 8px;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons .delete-button {
+html body .container .main-home .products .card-product .card-container-2 .action-buttons .delete-button {
   background-color: #bd2a2e;
   border-radius: 8px;
   border: none;
@@ -915,53 +920,53 @@ html body .container main .products .card-product .card-container-2 .action-butt
   html body .container {
     display: flex;
   }
-  html body .container main {
+  html body .container .main-home {
     width: 80%;
     height: 100%;
     margin: 0 auto;
     padding: 32px 0;
   }
-  html body .container main .search {
+  html body .container .main-home .search {
     max-width: 600px;
   }
-  html body .container main .search .search-input {
+  html body .container .main-home .search .search-input {
     font-size: 16px;
   }
-  html body .container main .search .search-input::placeholder {
+  html body .container .main-home .search .search-input::placeholder {
     font-size: 16px;
   }
-  html body .container main .products {
+  html body .container .main-home .products {
     width: 80%;
     min-width: 790px;
   }
-  html body .container main .products .card-product {
+  html body .container .main-home .products .card-product {
     max-width: 900px;
     height: 180px;
   }
-  html body .container main .products .card-product .card-container-1 p {
+  html body .container .main-home .products .card-product .card-container-1 p {
     margin-bottom: 16px;
   }
-  html body .container main .products .card-product .card-container-2 {
+  html body .container .main-home .products .card-product .card-container-2 {
     height: 70%;
     display: flex;
     position: relative;
   }
-  html body .container main .products .card-product .card-container-2 .infos-1 {
+  html body .container .main-home .products .card-product .card-container-2 .infos-1 {
     margin-right: 200px;
   }
-  html body .container main .products .card-product .card-container-2 .infos-1 p,
-  html body .container main .products .card-product .card-container-2 .infos-2 p {
+  html body .container .main-home .products .card-product .card-container-2 .infos-1 p,
+  html body .container .main-home .products .card-product .card-container-2 .infos-2 p {
     font-size: 16px;
   }
-  html body .container main .products .card-product .card-container-2 .action-buttons {
+  html body .container .main-home .products .card-product .card-container-2 .action-buttons {
     position: absolute;
     right: 0;
     bottom: 0;
   }
-  html body .container main .products .card-product .card-container-2 .action-buttons button span {
+  html body .container .main-home .products .card-product .card-container-2 .action-buttons button span {
     font-size: 16px;
   }
-  html body .container main .products .card-product .card-container-2 .action-buttons button img {
+  html body .container .main-home .products .card-product .card-container-2 .action-buttons button img {
     width: 22px;
     height: 22px;
   }
