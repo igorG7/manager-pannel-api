@@ -15,6 +15,10 @@ export class FormHandler {
     FormHandler.percentage.addEventListener("input", FormHandler.calculate);
     FormHandler.purchaseValue.addEventListener("input", FormHandler.calculate);
     FormHandler.units.addEventListener("input", FormHandler.calculate);
+    FormHandler.saleValue.addEventListener(
+      "input",
+      FormHandler.calculateUnitValue
+    );
   }
 
   static calculate() {
@@ -30,12 +34,17 @@ export class FormHandler {
     FormHandler.saleValue.value = result.toFixed(2);
 
     if (!FormHandler.unitValue.classList.contains("disabled")) {
-      const units = document.querySelector(".units");
-      if (Number(units.value) === 0) return;
-
-      const unitValue = result / Number(units.value);
-      FormHandler.unitValue.value = unitValue.toFixed(2);
+      FormHandler.calculateUnitValue();
     }
+  }
+
+  static calculateUnitValue() {
+    const units = document.querySelector(".units");
+    const result = document.querySelector(".sale");
+    if (Number(units.value) === 0) return;
+
+    const unitValue = Number(result.value) / Number(units.value);
+    FormHandler.unitValue.value = unitValue.toFixed(2);
   }
 
   static handleSubmit() {
@@ -56,7 +65,7 @@ export class FormHandler {
       if (e.target.checked) {
         FormHandler.unitValue.removeAttribute("disabled");
         FormHandler.unitValue.classList.remove("disabled");
-        FormHandler.calculate();
+        FormHandler.calculateUnitValue();
 
         return;
       }
