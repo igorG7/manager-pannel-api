@@ -34,7 +34,7 @@ export class ProductServices {
   }
 
   static createObject() {
-    const fields = ProductServices.form.querySelectorAll("input");
+    const fields = ProductServices.form.querySelectorAll(".input-field");
     const body = {};
 
     for (let field of fields) {
@@ -42,6 +42,10 @@ export class ProductServices {
       const typeField = field.getAttribute("type");
 
       if (field.classList.contains("disabled")) continue;
+
+      if (field.getAttribute("id") === "typePackaging") {
+        body[name] = String(field.value);
+      }
 
       if (typeField === "text") {
         body[name] = String(field.value);

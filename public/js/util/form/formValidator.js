@@ -5,6 +5,7 @@ export class FormValidator {
   static purchaseValue = document.querySelector(".purchaseValue");
   static saleValue = document.querySelector(".sale");
   static unitValue = document.querySelector(".unitValue");
+  static unitQuantity = document.querySelector(".unitQuantity");
 
   static checkEmptyFields() {
     let valid = true;
@@ -18,8 +19,22 @@ export class FormValidator {
     for (let field of form.querySelectorAll(".input-field")) {
       field.style.borderColor = "#486966";
 
+      if (field.getAttribute("id") === "typePackaging") {
+        const options = Array.from(field.querySelectorAll("option")).map(
+          (item) => item.value
+        );
+        options.shift();
+
+        if (!options.includes(field.value)) {
+          FormValidator.error(field, `Deve ter uma opção selecionada.`);
+          valid = false;
+          continue;
+        }
+      }
+
       if (!field.value) {
         if (field.classList.contains("disabled")) continue;
+        if (field.classList.contains("unitQuantity")) continue;
 
         FormValidator.error(field, `não pode estar vazio.`);
         valid = false;
@@ -36,6 +51,7 @@ export class FormValidator {
       FormValidator.quantityStock,
       FormValidator.units,
       FormValidator.percentage,
+      FormValidator.unitQuantity,
     ];
 
     for (let field of fields) {
