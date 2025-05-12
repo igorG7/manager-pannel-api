@@ -31,14 +31,31 @@ exports.getProducts = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
-    const product = new Products(req.body);
+    const body = req.body;
+
+    const checkExistence = await Products.findOne({
+      productName: body.productName,
+      makerName: body.makerName,
+      providerName: body.providerName,
+    });
+
+    if (checkExistence) {
+      throw new Error("Esse produto já existe.");
+    }
+
+    body.modified = Date.now();
+    body.userModified = "user teste";
+
+    const product = new Products(body);
     await product.save();
 
-    res.status(201).json({ message: "Product registered successfully." });
+    res
+      .status(201)
+      .json({ status: "success", message: "Produto cadastrado com sucesso." });
   } catch (error) {
     res.status(400).json({
-      message: "Error registering the product.",
-      error: error.message,
+      status: "error",
+      message: error.message || "Erro ao cadastrar produto.",
     });
   }
 };

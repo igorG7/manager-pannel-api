@@ -3,13 +3,69 @@
 html {
   body {
     .container {
-      main {
-        overflow: auto;
+      position: relative;
+
+      .notification-container {
+        width: 80%;
+        max-width: 360px;
+        position: absolute;
+        bottom: 32px;
+        right: 50%;
+        transform: translateX(50%);
+        z-index: 1;
+
+        .notification {
+          width: 100%;
+          height: 50px;
+          border-radius: 8px;
+          padding: 0 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+
+          .message {
+            display: flex;
+            align-items: center;
+
+            span {
+              margin-left: 8px;
+            }
+          }
+
+          .close {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .success {
+        background-color: $paleGreen;
+
+        span {
+          color: #f9f9f9;
+        }
+      }
+
+      .error {
+        background-color: $lightPaleRed;
+
+        span {
+          color: $paleRed;
+        }
+      }
+
+      .main-register {
+        overflow-y: auto;
+        height: auto;
+        width: 100%;
+        position: relative;
+        padding: 32px 0;
 
         .register-container {
           width: 80%;
           background-color: white;
-          padding: 16px;
+          padding: 32px;
           margin: 0 auto;
           box-shadow: $shadowElements;
           border-radius: 8px;
@@ -29,6 +85,11 @@ html {
             }
           }
 
+          .description {
+            margin: 8px 0;
+            color: $darkGray;
+          }
+
           .form-container {
             .fields {
               width: 100%;
@@ -41,6 +102,30 @@ html {
                 width: 100%;
                 margin-bottom: 16px;
                 margin: 0 auto 16px;
+
+                .checkbox-container {
+                  display: flex;
+                  align-items: center;
+                  margin-top: 8px;
+
+                  .check-units-sale {
+                    width: 15px;
+                    height: 15px;
+                    margin: 0;
+                    cursor: pointer;
+                  }
+
+                  .label-check {
+                    font-size: 14px;
+                    margin-left: 4px;
+                    cursor: pointer;
+                  }
+                }
+
+                .disabled {
+                  cursor: not-allowed;
+                  background-color: #d1d1d1;
+                }
 
                 label {
                   color: $darkGray;
@@ -58,18 +143,24 @@ html {
                   margin-top: 4px;
                 }
 
-                .percent-sale {
+                .error-text {
+                  font-size: 12px;
+                  color: $paleRed;
+                  display: block;
+                  margin: 2px 0;
+                }
+
+                select {
                   width: 100%;
-                  display: flex;
-                  justify-content: space-between;
-
-                  .percentage {
-                    width: 30%;
-                  }
-
-                  .sale {
-                    width: 65%;
-                  }
+                  height: 40px;
+                  border: 2px solid $darkPaleGreen;
+                  border-radius: 8px;
+                  padding: 0 8px;
+                  box-shadow: $shadowElements;
+                  font-size: 16px;
+                  color: $darkGray;
+                  margin-top: 4px;
+                  cursor: pointer;
                 }
               }
             }
@@ -111,19 +202,22 @@ html {
   html {
     body {
       .container {
-        main {
+        .notification-container {
+          right: 0%;
+          transform: translateX(-16px);
+        }
+
+        .main-register {
+          width: 80%;
+          margin: 0 auto;
           position: relative;
 
           .register-container {
             width: 80%;
             max-width: 750px;
-            max-height: 520px;
             padding: 32px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
+            position: relative;
+            top: 0;
             .title {
               display: flex;
               align-items: center;
@@ -151,6 +245,10 @@ html {
                   input {
                     height: 45px;
                   }
+
+                  select {
+                    height: 45px;
+                  }
                 }
               }
 
@@ -159,7 +257,7 @@ html {
                 justify-content: space-between;
 
                 .register-btn {
-                  margin-right: 60px;
+                  margin: 0 60px 0 0;
                 }
 
                 button {
