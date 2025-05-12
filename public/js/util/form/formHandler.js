@@ -41,7 +41,9 @@ export class FormHandler {
   static calculateUnitValue() {
     const units = document.querySelector(".units");
     const result = document.querySelector(".sale");
+
     if (Number(units.value) === 0) return;
+    if (FormHandler.unitValue.classList.contains("disabled")) return;
 
     const unitValue = Number(result.value) / Number(units.value);
     FormHandler.unitValue.value = unitValue.toFixed(2);
