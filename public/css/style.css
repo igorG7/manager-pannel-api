@@ -441,6 +441,10 @@ html body .container .main-register .register-container .title img {
   width: 28px;
   height: 28px;
 }
+html body .container .main-register .register-container .description {
+  margin: 8px 0;
+  color: #3b3936;
+}
 html body .container .main-register .register-container .form-container .fields {
   width: 100%;
   display: grid;
