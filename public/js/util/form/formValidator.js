@@ -90,13 +90,52 @@ export class FormValidator {
     }
 
     if (!FormValidator.integer()) valid = false;
+    if (!FormValidator.smallestZero()) valid = false;
+    if (!FormValidator.checkSaleValue()) valid = false;
+
+    return valid;
+  }
+
+  static checkSaleValue() {
+    let valid = true;
+
+    if (FormValidator.saleValue.value < FormValidator.purchaseValue.value) {
+      FormValidator.error(
+        FormValidator.saleValue,
+        `não pode ser menor do que "Valor de compra".`
+      );
+      valid = false;
+    }
+
+    if (FormValidator.unitValue.value > FormValidator.saleValue.value) {
+      FormValidator.error(
+        FormValidator.unitValue,
+        `não pode ser maior do que "Valor de venda".`
+      );
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  static smallestZero() {
+    let valid = true;
+
+    const fields = [FormValidator.unitQuantity, FormValidator.quantityStock];
+
+    for (let field of fields) {
+      if (field.value < 0) {
+        FormValidator.error(field, `Não pode ser menor do que zero.`);
+        valid = false;
+      }
+    }
 
     return valid;
   }
 
   static error(field, message) {
     const span = document.createElement("span");
-    const label = field.previousElementSibling.textContent.replace(/:/, "");
+    const label = field.previousElementSibling.textContent.replace(/[:*]/g, "");
 
     field.style.borderColor = "#bd2a2e";
     span.textContent = `"${label}" ${message}`;
