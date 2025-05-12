@@ -60,7 +60,7 @@ export class FormValidator {
       if (field.value === "" || field.value == 0) continue;
 
       if (!Number.isInteger(valueConverted)) {
-        FormValidator.error(field, `"precisa ser um número inteiro.`);
+        FormValidator.error(field, `precisa ser um número inteiro.`);
         valid = false;
       }
     }
@@ -135,11 +135,13 @@ export class FormValidator {
 
   static error(field, message) {
     const span = document.createElement("span");
+    const br = document.createElement("br");
     const label = field.previousElementSibling.textContent.replace(/[:*]/g, "");
 
     field.style.borderColor = "#bd2a2e";
     span.textContent = `"${label}" ${message}`;
     span.classList.add("error-text");
+    span.insertAdjacentElement("afterend", br);
     field.insertAdjacentElement("afterend", span);
   }
 }
