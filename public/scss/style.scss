@@ -72,12 +72,18 @@ html {
           .card-product {
             width: 100%;
             max-width: 340px;
-            height: 260px;
+            height: fit-content;
+            min-height: 280px;
             margin: 0 auto 32px;
             padding: 16px;
             border-radius: 8px;
             box-shadow: $shadowElements;
             background-color: #ffffff;
+            cursor: pointer;
+
+            &:hover {
+              border: 2px solid $paleGreen;
+            }
 
             .card-container-1 {
               width: 100%;
@@ -100,42 +106,14 @@ html {
                   margin: 4px 0;
                 }
               }
+            }
 
-              .action-buttons {
-                margin-top: 16px;
-                display: flex;
-                justify-content: space-between;
+            .card-container-3 {
+              margin-top: 8px;
 
-                button {
-                  width: 120px;
-                  height: 30px;
-                  cursor: pointer;
-                  @include center;
-
-                  span {
-                    color: white;
-                    font-size: 14px;
-                    margin-left: 8px;
-                  }
-
-                  img {
-                    width: 20px;
-                    height: 20px;
-                  }
-                }
-
-                .edit-button {
-                  background-color: $darkPaleGreen;
-                  border-radius: 8px;
-                  border: none;
-                  margin-right: 8px;
-                }
-
-                .delete-button {
-                  background-color: $paleRed;
-                  border-radius: 8px;
-                  border: none;
-                }
+              .last-modified {
+                font-size: 12px;
+                color: #a0a0a0;
               }
             }
           }
@@ -175,7 +153,7 @@ html {
 
             .card-product {
               max-width: 900px;
-              height: 180px;
+              min-height: 200px;
 
               .card-container-1 {
                 p {
@@ -196,23 +174,6 @@ html {
                 .infos-2 {
                   p {
                     font-size: 16px;
-                  }
-                }
-
-                .action-buttons {
-                  position: absolute;
-                  right: 0;
-                  bottom: 0;
-
-                  button {
-                    span {
-                      font-size: 16px;
-                    }
-
-                    img {
-                      width: 22px;
-                      height: 22px;
-                    }
                   }
                 }
               }

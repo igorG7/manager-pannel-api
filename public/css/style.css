@@ -879,12 +879,17 @@ html body .container .main-home .products {
 html body .container .main-home .products .card-product {
   width: 100%;
   max-width: 340px;
-  height: 260px;
+  height: fit-content;
+  min-height: 280px;
   margin: 0 auto 32px;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+  cursor: pointer;
+}
+html body .container .main-home .products .card-product:hover {
+  border: 2px solid #889c9b;
 }
 html body .container .main-home .products .card-product .card-container-1 {
   width: 100%;
@@ -903,38 +908,12 @@ html body .container .main-home .products .card-product .card-container-2 .infos
   color: #3b3936;
   margin: 4px 0;
 }
-html body .container .main-home .products .card-product .card-container-2 .action-buttons {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
+html body .container .main-home .products .card-product .card-container-3 {
+  margin-top: 8px;
 }
-html body .container .main-home .products .card-product .card-container-2 .action-buttons button {
-  width: 120px;
-  height: 30px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-html body .container .main-home .products .card-product .card-container-2 .action-buttons button span {
-  color: white;
-  font-size: 14px;
-  margin-left: 8px;
-}
-html body .container .main-home .products .card-product .card-container-2 .action-buttons button img {
-  width: 20px;
-  height: 20px;
-}
-html body .container .main-home .products .card-product .card-container-2 .action-buttons .edit-button {
-  background-color: #486966;
-  border-radius: 8px;
-  border: none;
-  margin-right: 8px;
-}
-html body .container .main-home .products .card-product .card-container-2 .action-buttons .delete-button {
-  background-color: #bd2a2e;
-  border-radius: 8px;
-  border: none;
+html body .container .main-home .products .card-product .card-container-3 .last-modified {
+  font-size: 12px;
+  color: #a0a0a0;
 }
 
 @media (min-width: 1024px) {
@@ -962,7 +941,7 @@ html body .container .main-home .products .card-product .card-container-2 .actio
   }
   html body .container .main-home .products .card-product {
     max-width: 900px;
-    height: 180px;
+    min-height: 200px;
   }
   html body .container .main-home .products .card-product .card-container-1 p {
     margin-bottom: 16px;
@@ -978,18 +957,6 @@ html body .container .main-home .products .card-product .card-container-2 .actio
   html body .container .main-home .products .card-product .card-container-2 .infos-1 p,
   html body .container .main-home .products .card-product .card-container-2 .infos-2 p {
     font-size: 16px;
-  }
-  html body .container .main-home .products .card-product .card-container-2 .action-buttons {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-  html body .container .main-home .products .card-product .card-container-2 .action-buttons button span {
-    font-size: 16px;
-  }
-  html body .container .main-home .products .card-product .card-container-2 .action-buttons button img {
-    width: 22px;
-    height: 22px;
   }
 }
 
