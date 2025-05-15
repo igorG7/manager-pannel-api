@@ -20,35 +20,7 @@
           <img src="/img/search.svg" alt="Icone de Pesquisa" />
         </div>
 
-        <div class="products">
-          <div class="card-product">
-            <div class="card-container-1">
-              <p class="name-product">Nome</p>
-            </div>
-
-            <div class="card-container-2">
-              <div class="infos-1">
-                <p class="maker">Fabricante:</p>
-                <p class="provider">Fornecedor:</p>
-                <p class="quantity-stock">Estoque:</p>
-                <p>Tipo de embalagem:</p>
-                <p class="units">Unidades por embalagem:</p>
-              </div>
-
-              <div class="infos-2">
-                <p class="units">Quantidade por unidade:</p>
-                <p class="purchase-value">Valor de compra:</p>
-                <p class="percentage">Percentual de lucro:</p>
-                <p class="sale-value">Valor de venda:</p>
-                <p>Valor da unidade:</p>
-              </div>
-            </div>
-
-            <div class="card-container-3">
-              <p class="last-modified">Mofidicado por: user | 11-22-3333</p>
-            </div>
-          </div>
-        </div>
+        <div class="products"></div>
       </main>
 
       <%- include("./includes/popup-update")%>
@@ -57,5 +29,7 @@
     </div>
 
     <script src="/js/main.js"></script>
+    <script src="/lib/axios/axios.min.js"></script>
+    <script src="/js/pages/list_products/listProduct.js" type="module"></script>
   </body>
 </html>
