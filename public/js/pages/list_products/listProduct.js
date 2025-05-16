@@ -11,7 +11,8 @@ const getProducts = async (event) => {
     const products = response.data.data;
     products.forEach((data) => new Card(data));
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data);
+    new Card();
   }
 };
 

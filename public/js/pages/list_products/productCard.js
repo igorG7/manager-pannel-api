@@ -21,7 +21,9 @@ export class Card {
   ];
 
   appendCard() {
-    Card.productList.appendChild(Card.createElement(this.data));
+    this.data
+      ? Card.productList.appendChild(Card.createElement(this.data))
+      : Card.productList.appendChild(Card.emptyResults());
   }
 
   static divElement() {
@@ -34,6 +36,17 @@ export class Card {
     const p = document.createElement("p");
     p.textContent = `${label}  ${value ?? "N/D"}`;
     return p;
+  }
+
+  static emptyResults() {
+    const div = Card.divElement("empty");
+    const p = Card.pElement("Nenhum produto foi encontrado.");
+    const img = document.createElement("img");
+    img.setAttribute("src", "/img/face-confused.svg");
+
+    div.appendChild(p);
+    div.appendChild(img);
+    return div;
   }
 
   static createElement(data) {

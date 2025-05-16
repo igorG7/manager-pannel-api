@@ -70,6 +70,26 @@ html {
           width: 80%;
           margin: 16px auto 0;
 
+          .empty {
+            text-align: center;
+            background-color: #ffffff;
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            height: 50px;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 32px auto;
+            box-shadow: $shadowElements;
+            @include center();
+
+            p {
+              color: $darkGray;
+              text-align: center;
+              margin-right: 4px;
+            }
+          }
+
           .card-product {
             width: 100%;
             max-width: 340px;
