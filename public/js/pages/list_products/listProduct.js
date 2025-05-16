@@ -5,7 +5,7 @@ const getProducts = async (event) => {
     const list = document.querySelector(".products");
     list.innerHTML = "";
 
-    const value = event?.target.value;
+    const value = event?.target.value.trim().replace(/\s+/g, " ");
     const response = await axios.get(query(value));
 
     const products = response.data.data;
