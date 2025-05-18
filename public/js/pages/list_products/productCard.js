@@ -3,6 +3,7 @@ export class Card {
     this.data = data;
 
     this.appendCard();
+    this.accessProduct();
   }
 
   static productList = document.querySelector(".products");
@@ -24,6 +25,16 @@ export class Card {
     this.data
       ? Card.productList.appendChild(Card.createElement(this.data))
       : Card.productList.appendChild(Card.emptyResults());
+  }
+
+  accessProduct() {
+    const cards = document.querySelectorAll(".card-product");
+
+    cards.forEach((card) => {
+      card.addEventListener("click", (e) => {
+        window.location.href = `/control-product?_id=${this.data._id}`;
+      });
+    });
   }
 
   static divElement() {
