@@ -17,6 +17,7 @@ const { home } = require("../controllers/homeController");
 const { registerProduct } = require("../controllers/registerProductController");
 const { loginAdm } = require("../controllers/loginAdmController");
 const { registerAdm } = require("../controllers/registerAdmController");
+const { controlProduct } = require("../controllers/controlProductController");
 
 // Interface routes
 
@@ -24,6 +25,7 @@ routes.get("/index", home);
 routes.get("/register-product", registerProduct);
 routes.get("/login-administrator", loginAdm);
 routes.get("/register-administrator-dashboard", registerAdm);
+routes.get("/control-product", controlProduct);
 
 // Products routes
 

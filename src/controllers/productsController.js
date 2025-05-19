@@ -12,7 +12,7 @@ exports.getProducts = async (req, res) => {
           makerName: { $regex: req.query.makerName || "", $options: "i" },
         },
       ],
-    });
+    }).sort({ productName: 1 });
 
     if (!products.length) {
       return res.status(404).json({ message: "No products found." });
