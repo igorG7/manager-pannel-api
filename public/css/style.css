@@ -593,6 +593,7 @@ html body .container-register main .register-adm-container .form-container .butt
 }
 .product-container .description {
   margin: 8px 0;
+  text-align: center;
   color: #3b3936;
 }
 .product-container .form-container .fields {
@@ -671,7 +672,7 @@ html body .container-register main .register-adm-container .form-container .butt
   font-size: 16px;
   border-radius: 8px;
 }
-.product-container .form-container .buttons .register-btn {
+.product-container .form-container .buttons .submit-btn {
   border: none;
   background-color: #486966;
   color: #f9f9f9;
@@ -703,6 +704,9 @@ html body .container-register main .register-adm-container .form-container .butt
     height: 40px;
     margin-right: 8px;
   }
+  .product-container .description {
+    text-align: start;
+  }
   .product-container .form-container .fields {
     grid-template-columns: 45% 45%;
     gap: 0 10%;
@@ -721,7 +725,7 @@ html body .container-register main .register-adm-container .form-container .butt
     display: flex;
     justify-content: space-between;
   }
-  .product-container .form-container .buttons .register-btn {
+  .product-container .form-container .buttons .submit-btn {
     margin: 0 60px 0 0;
   }
   .product-container .form-container .buttons button {

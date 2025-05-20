@@ -2,7 +2,11 @@
   <div class="title-container">
     <div class="title">
       <img src="/img/box.svg" alt="Icone de caixa" />
+      <% if(tab === "control") { %>
+      <p>Atualizar Produto</p>
+      <% } else { %>
       <p>Cadastrar Produto</p>
+      <% } %>
     </div>
 
     <p class="description">Campos indicados com * devem ser preenchidos.</p>
@@ -140,7 +144,11 @@
       </div>
 
       <div class="buttons">
-        <button class="register-btn">Cadastrar</button>
+        <% if(tab === "control") { %>
+        <button class="submit-btn update">Atualizar</button>
+        <% } else { %>
+        <button class="submit-btn register">Cadastrar</button>
+        <% } %>
         <button class="clean-btn">Limpar campos</button>
       </div>
     </div>

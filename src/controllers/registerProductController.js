@@ -1,3 +1,3 @@
 exports.registerProduct = (req, res) => {
-  res.render("registerProduct");
+  res.render("registerProduct", { tab: "register-product" });
 };
