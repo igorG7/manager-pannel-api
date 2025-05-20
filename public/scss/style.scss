@@ -1,11 +1,13 @@
 @use "variables" as *;
 @use "mixins" as *;
 @use "nav-side-menu";
-@use "pop-up-update";
-@use "pop-up-delete";
+//@use "pop-up-update";
+//@use "pop-up-delete";
 @use "register-product";
 @use "login-adm";
 @use "register-adm";
+@use "form-product";
+@use "control-product";
 
 * {
   margin: 0;

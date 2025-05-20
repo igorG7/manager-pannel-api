@@ -123,253 +123,6 @@ html body .container .side-menu .menu .logout img {
     height: 24px;
   }
 }
-html body .update-container {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.322);
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  display: none;
-}
-html body .update-container.active {
-  display: block;
-}
-html body .update-container .pop-up-update {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding: 32px;
-  overflow: auto;
-  background-color: white;
-}
-html body .update-container .pop-up-update .close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-}
-html body .update-container .pop-up-update .title {
-  width: 100%;
-  text-align: center;
-}
-html body .update-container .pop-up-update .title p {
-  font-size: 20px;
-  color: #3b3936;
-}
-html body .update-container .pop-up-update .title img {
-  width: 28px;
-  height: 28px;
-}
-html body .update-container .pop-up-update .form-container {
-  width: 100%;
-}
-html body .update-container .pop-up-update .form-container .fields {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 100%;
-  margin: 32px 0;
-}
-html body .update-container .pop-up-update .form-container .fields .field {
-  max-width: 300px;
-  width: 100%;
-  margin-bottom: 16px;
-  margin: 0 auto 16px;
-}
-html body .update-container .pop-up-update .form-container .fields .field label {
-  color: #3b3936;
-}
-html body .update-container .pop-up-update .form-container .fields .field input {
-  width: 100%;
-  height: 40px;
-  border: 2px solid #486966;
-  border-radius: 8px;
-  padding: 0 16px;
-  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  color: #3b3936;
-  margin-top: 4px;
-}
-html body .update-container .pop-up-update .form-container .fields .field .percent-sale {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-html body .update-container .pop-up-update .form-container .fields .field .percent-sale .percentage {
-  width: 30%;
-}
-html body .update-container .pop-up-update .form-container .fields .field .percent-sale .sale {
-  width: 65%;
-}
-html body .update-container .pop-up-update .form-container .buttons {
-  width: 100%;
-}
-html body .update-container .pop-up-update .form-container .buttons button {
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-  max-width: 300px;
-  height: 40px;
-  font-size: 16px;
-  border-radius: 8px;
-}
-html body .update-container .pop-up-update .form-container .buttons .update-btn {
-  border: none;
-  background-color: #486966;
-  color: #f9f9f9;
-  margin-bottom: 16px;
-}
-html body .update-container .pop-up-update .form-container .buttons .cancel-btn {
-  border: 2px solid #bd2a2e;
-  color: #bd2a2e;
-  background-color: transparent;
-}
-
-@media (min-width: 1024px) {
-  html body .update-container .pop-up-update {
-    max-width: 750px;
-    max-height: 520px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  html body .update-container .pop-up-update .close {
-    cursor: pointer;
-  }
-  html body .update-container .pop-up-update .title {
-    display: flex;
-    align-items: center;
-  }
-  html body .update-container .pop-up-update .title p {
-    font-size: 28px;
-  }
-  html body .update-container .pop-up-update .title img {
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
-  }
-  html body .update-container .pop-up-update .form-container .fields {
-    grid-template-columns: 45% 45%;
-    gap: 0 10%;
-    margin: 16px 0;
-  }
-  html body .update-container .pop-up-update .form-container .fields .field {
-    max-width: 310px;
-  }
-  html body .update-container .pop-up-update .form-container .fields .field input {
-    height: 45px;
-  }
-  html body .update-container .pop-up-update .form-container .buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  html body .update-container .pop-up-update .form-container .buttons button {
-    cursor: pointer;
-    max-width: 310px;
-    height: 45px;
-    margin: 0;
-  }
-}
-html body .delete-container {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.322);
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  display: none;
-}
-html body .delete-container.active {
-  display: block;
-}
-html body .delete-container .pop-up-delete {
-  width: 100%;
-  max-width: 340px;
-  height: 350px;
-  padding: 32px;
-  border-radius: 8px;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
-}
-html body .delete-container .pop-up-delete .close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-}
-html body .delete-container .pop-up-delete .title {
-  width: 100%;
-  text-align: center;
-}
-html body .delete-container .pop-up-delete .title p {
-  font-size: 20px;
-  color: #3b3936;
-}
-html body .delete-container .pop-up-delete .title img {
-  width: 28px;
-  height: 28px;
-}
-html body .delete-container .pop-up-delete .buttons {
-  width: 100%;
-}
-html body .delete-container .pop-up-delete .buttons button {
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-  max-width: 300px;
-  height: 40px;
-  font-size: 16px;
-  border-radius: 8px;
-}
-html body .delete-container .pop-up-delete .buttons .delete-btn {
-  border: none;
-  background-color: #bd2a2e;
-  color: #f9f9f9;
-  margin-bottom: 16px;
-}
-html body .delete-container .pop-up-delete .buttons .cancel-btn {
-  border: 2px solid #bd2a2e;
-  color: #bd2a2e;
-  background-color: transparent;
-}
-
-@media (min-width: 1024px) {
-  html body .delete-container .pop-up-delete {
-    max-width: 400px;
-    max-height: 300px;
-  }
-  html body .delete-container .pop-up-delete .close {
-    cursor: pointer;
-  }
-  html body .delete-container .pop-up-delete .title {
-    display: flex;
-    align-items: center;
-  }
-  html body .delete-container .pop-up-delete .title p {
-    font-size: 28px;
-  }
-  html body .delete-container .pop-up-delete .title img {
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
-  }
-  html body .delete-container .pop-up-delete .buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  html body .delete-container .pop-up-delete .buttons button {
-    cursor: pointer;
-    max-width: 160px;
-    height: 45px;
-    margin: 0;
-  }
-}
 html body .container {
   position: relative;
 }
@@ -818,6 +571,205 @@ html body .container-register main .register-adm-container .form-container .butt
     font-size: 24px;
   }
 }
+.product-container {
+  width: 80%;
+  background-color: white;
+  padding: 32px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.product-container .title-container .title {
+  width: 100%;
+  text-align: center;
+}
+.product-container .title-container .title p {
+  font-size: 20px;
+  color: #3b3936;
+}
+.product-container .title-container .title img {
+  width: 28px;
+  height: 28px;
+}
+.product-container .description {
+  margin: 8px 0;
+  color: #3b3936;
+}
+.product-container .form-container .fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  margin: 32px 0;
+}
+.product-container .form-container .fields .field {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 16px;
+  margin: 0 auto 16px;
+}
+.product-container .form-container .fields .field .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.product-container .form-container .fields .field .checkbox-container .check-units-sale {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+}
+.product-container .form-container .fields .field .checkbox-container .label-check {
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+.product-container .form-container .fields .field .disabled {
+  cursor: not-allowed;
+  background-color: #d1d1d1;
+}
+.product-container .form-container .fields .field label {
+  color: #3b3936;
+}
+.product-container .form-container .fields .field input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+}
+.product-container .form-container .fields .field .error-text {
+  font-size: 12px;
+  color: #bd2a2e;
+  display: block;
+  margin: 2px 0;
+}
+.product-container .form-container .fields .field select {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 8px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+  cursor: pointer;
+}
+.product-container .form-container .buttons {
+  width: 100%;
+}
+.product-container .form-container .buttons button {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+.product-container .form-container .buttons .register-btn {
+  border: none;
+  background-color: #486966;
+  color: #f9f9f9;
+  margin-bottom: 16px;
+}
+.product-container .form-container .buttons .clean-btn {
+  border: 2px solid #bd2a2e;
+  color: #bd2a2e;
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .product-container {
+    width: 80%;
+    max-width: 750px;
+    padding: 32px;
+    position: relative;
+    top: 0;
+  }
+  .product-container .title-container .title {
+    display: flex;
+    align-items: center;
+  }
+  .product-container .title-container .title p {
+    font-size: 28px;
+  }
+  .product-container .title-container .title img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+  .product-container .form-container .fields {
+    grid-template-columns: 45% 45%;
+    gap: 0 10%;
+    margin: 16px 0;
+  }
+  .product-container .form-container .fields .field {
+    max-width: 310px;
+  }
+  .product-container .form-container .fields .field input {
+    height: 45px;
+  }
+  .product-container .form-container .fields .field select {
+    height: 45px;
+  }
+  .product-container .form-container .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  .product-container .form-container .buttons .register-btn {
+    margin: 0 60px 0 0;
+  }
+  .product-container .form-container .buttons button {
+    cursor: pointer;
+    max-width: 310px;
+    height: 45px;
+    margin: 0;
+  }
+}
+html body .container {
+  position: relative;
+}
+html body .container .main-product {
+  overflow-y: auto;
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding: 32px 0;
+}
+html body .container .main-product .delete-container1 {
+  width: 80%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 32px auto 0;
+  padding: 16px;
+  max-width: 350px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+}
+html body .container .main-product .delete-container1 p {
+  color: #3b3936;
+  font-size: 24px;
+  text-align: center;
+}
+html body .container .main-product .delete-container1 .delete-button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: #bd2a2e;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;

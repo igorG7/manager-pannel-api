@@ -1,22 +1,28 @@
-<div class="update-container">
-  <div class="pop-up-update">
-    <img src="/img/close.svg" alt="Icone de fechar" class="close" />
-
+<div class="product-container">
+  <div class="title-container">
     <div class="title">
       <img src="/img/box.svg" alt="Icone de caixa" />
-      <p>Atualizar Produto</p>
+      <p>Cadastrar Produto</p>
     </div>
 
-    <form action="" class="form-container">
+    <p class="description">Campos indicados com * devem ser preenchidos.</p>
+
+    <div class="form-container">
       <div class="fields">
         <div class="field">
-          <label>Produto:</label>
-          <input type="text" name="productName" placeholder="Nome do Produto" />
+          <label>Produto:*</label>
+          <input
+            class="productName input-field"
+            type="text"
+            name="productName"
+            placeholder="Nome do Produto"
+          />
         </div>
 
         <div class="field">
-          <label>Fabricante:</label>
+          <label>Fabricante:*</label>
           <input
+            class="makerName input-field"
             type="text"
             name="makerName"
             placeholder="Nome do Fabricante"
@@ -24,8 +30,9 @@
         </div>
 
         <div class="field">
-          <label>Fornecedor:</label>
+          <label>Fornecedor:*</label>
           <input
+            class="providerName input-field"
             type="text"
             name="providerName"
             placeholder="Nome do Fornecedor"
@@ -33,45 +40,109 @@
         </div>
 
         <div class="field">
-          <label>Estoque:</label>
-          <input type="number" name="quantityStock" placeholder="0" />
+          <label>Estoque:*</label>
+          <input
+            type="number"
+            name="quantityStock"
+            placeholder="0"
+            class="quantityStock input-field"
+            min="0"
+          />
         </div>
 
         <div class="field">
-          <label>Unidades:</label>
-          <input type="number" name="units" placeholder="0" />
+          <label>Tipo de embalagem:*</label>
+
+          <select name="typePackaging" id="typePackaging" class="input-field">
+            <option value="">Selecionar opção</option>
+            <option value="Caixa">Caixa</option>
+            <option value="Pacote">Pacote</option>
+          </select>
         </div>
 
         <div class="field">
-          <label>Valor de compra:</label>
-          <input type="number" name="purchaseValue" placeholder="0,00" />
+          <label>Unidades por embalagem:*</label>
+          <input
+            type="number"
+            name="units"
+            placeholder="0"
+            min="0"
+            class="units input-field"
+          />
         </div>
 
         <div class="field">
-          <label>Percentual e valor de venda:</label>
-          <div class="percent-sale">
-            <input
-              type="number"
-              class="percentage"
-              min="0"
-              max="100"
-              name="percentage"
-              placeholder="0%"
-            />
-            <input
-              type="number"
-              class="sale"
-              name="saleValue"
-              placeholder="0,00"
-            />
+          <label>Quantidade por unidade:</label>
+          <input
+            type="number"
+            name="unitQuantity"
+            placeholder="0"
+            class="unitQuantity input-field"
+            min="0"
+          />
+        </div>
+
+        <div class="field">
+          <label>Valor de compra:*</label>
+          <input
+            type="number"
+            name="purchaseValue"
+            placeholder="R$ 0,00"
+            class="purchaseValue input-field"
+            min="0"
+          />
+        </div>
+
+        <div class="field">
+          <label>Percentual:*</label>
+
+          <input
+            type="number"
+            class="percentage input-field"
+            min="0"
+            max="100"
+            name="percentage"
+            placeholder="0%"
+          />
+        </div>
+
+        <div class="field">
+          <label>Valor de venda:*</label>
+
+          <input
+            type="number"
+            class="sale input-field"
+            name="saleValue"
+            placeholder="R$ 0,00"
+            min="0"
+          />
+
+          <div class="checkbox-container">
+            <input type="checkbox" id="saleOfUnits" class="check-units-sale" />
+            <label for="saleOfUnits" class="label-check"
+              >Venda de unidades</label
+            >
           </div>
+        </div>
+
+        <div class="field">
+          <label>Valor da unidade:</label>
+
+          <input
+            type="number"
+            class="unitValue disabled input-field"
+            name="unitValue"
+            placeholder="R$ 0,00"
+            min="0"
+            disabled
+          />
         </div>
       </div>
 
       <div class="buttons">
-        <button class="update-btn">Atualizar</button>
-        <button class="cancel-btn">Cancelar</button>
+        <button class="register-btn">Cadastrar</button>
+        <button class="clean-btn">Limpar campos</button>
       </div>
-    </form>
+    </div>
   </div>
 </div>
