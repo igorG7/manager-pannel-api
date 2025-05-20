@@ -50,14 +50,16 @@ export class FormHandler {
   }
 
   static handleSubmit() {
-    const registerButton = FormHandler.form.querySelector(".register-btn");
+    const submitButton = FormHandler.form.querySelector(".submit-btn");
 
-    registerButton.addEventListener("click", () => {
+    submitButton.addEventListener("click", () => {
       const emptyFields = FormValidator.checkEmptyFields();
       const validateFields = FormValidator.validateFields();
 
       if (emptyFields && validateFields) {
-        ProductServices.post();
+        submitButton.classList.contains("update")
+          ? ProductServices.put()
+          : ProductServices.post();
       }
     });
   }

@@ -58,4 +58,21 @@ export class ProductServices {
 
     return body;
   }
+
+  static put = async (id) => {
+    try {
+      const res = await axios.put(`/products/${id}`);
+      const data = res.data;
+
+      const flashSuccess = flash.createFlash(data.status, data.message);
+      ProductServices.notifyContainer.appendChild(flashSuccess);
+      ProductServices.time(flashSuccess);
+    } catch (error) {
+      const data = error.response.data;
+      const flashErro = flash.createFlash(data.status, data.message);
+
+      ProductServices.notifyContainer.appendChild(flashErro);
+      ProductServices.time(flashErro);
+    }
+  };
 }
