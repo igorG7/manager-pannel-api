@@ -11,6 +11,22 @@ export class FormHandler {
 
   static form = document.querySelector(".form-container");
 
+  static async populateFields(id) {
+    const fields = FormHandler.form.querySelectorAll(".input-field");
+    const data = await ProductServices.getById(id);
+
+    fields.forEach((field) => {
+      const nameField = field.getAttribute("name");
+
+      if (data.unitValue) {
+        FormHandler.checkbox.checked = true;
+        FormHandler.unitValue.classList.remove("disabled");
+      }
+
+      field.value = data[nameField];
+    });
+  }
+
   static calculateSaleValue() {
     FormHandler.percentage.addEventListener("input", FormHandler.calculate);
     FormHandler.purchaseValue.addEventListener("input", FormHandler.calculate);
@@ -49,7 +65,7 @@ export class FormHandler {
     FormHandler.unitValue.value = unitValue.toFixed(2);
   }
 
-  static handleSubmit() {
+  static handleSubmit(id) {
     const submitButton = FormHandler.form.querySelector(".submit-btn");
 
     submitButton.addEventListener("click", () => {
@@ -58,7 +74,7 @@ export class FormHandler {
 
       if (emptyFields && validateFields) {
         submitButton.classList.contains("update")
-          ? ProductServices.put()
+          ? ProductServices.put(id)
           : ProductServices.post();
       }
     });

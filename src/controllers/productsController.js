@@ -29,6 +29,21 @@ exports.getProducts = async (req, res) => {
   }
 };
 
+exports.findProductbyId = async (req, res) => {
+  try {
+    const product = await Products.findById(req.params.id);
+
+    if (!product)
+      return res.status(404).json({ message: "Produto não encontrado" });
+
+    res.status(200).json({ product });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching products", error: error.message });
+  }
+};
+
 exports.createProduct = async (req, res) => {
   try {
     const body = req.body;
@@ -62,15 +77,26 @@ exports.createProduct = async (req, res) => {
 
 exports.updateProducts = async (req, res) => {
   try {
-    const product = await Products.findByIdAndUpdate(req.params.id, req.body, {
+    const body = req.body;
+
+    body.modified = Date.now();
+    body.userModified = "user teste";
+
+    const product = await Products.findByIdAndUpdate(req.params.id, body, {
       new: true,
     });
 
-    if (!product) return res.status(404).json({ message: "Product not found" });
+    if (!product)
+      return res.status(404).json({ message: "Produto não encontrado" });
 
-    res.status(200).json({ message: "Product updated successfuly.", product });
+    res
+      .status(200)
+      .json({ status: "success", message: "Produto atualizado com sucesso" });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({
+      status: "error",
+      message: error.message || "Erro ao atualizar produto",
+    });
   }
 };
 

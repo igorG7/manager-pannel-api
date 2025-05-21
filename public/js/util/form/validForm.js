@@ -1,8 +1,8 @@
 import { FormHandler } from "./formHandler.js";
 export class ValidForm {
   constructor(id) {
-    this.loadEvents();
     this.id = id ?? "";
+    this.loadEvents();
   }
 
   loadEvents() {
@@ -10,5 +10,6 @@ export class ValidForm {
     FormHandler.handleCleaning();
     FormHandler.calculateSaleValue();
     FormHandler.enableSaleOfUnits();
+    FormHandler.populateFields(this.id);
   }
 }

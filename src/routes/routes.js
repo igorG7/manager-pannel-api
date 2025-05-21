@@ -3,6 +3,7 @@ const routes = express.Router();
 
 const {
   getProducts,
+  findProductbyId,
   createProduct,
   updateProducts,
   deleteProduct,
@@ -30,6 +31,7 @@ routes.get("/control-product", controlProduct);
 // Products routes
 
 routes.get("/products", getProducts);
+routes.get("/product-id/:id", findProductbyId);
 routes.post("/products", validateProductFields, validateData, createProduct);
 routes.delete("/products/:id", deleteProduct);
 routes.put(
