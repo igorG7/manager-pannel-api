@@ -3,7 +3,6 @@ export class Card {
     this.data = data;
 
     this.appendCard();
-    this.accessProduct();
   }
 
   static productList = document.querySelector(".products");
@@ -22,18 +21,19 @@ export class Card {
   ];
 
   appendCard() {
-    this.data
-      ? Card.productList.appendChild(Card.createElement(this.data))
-      : Card.productList.appendChild(Card.emptyResults());
+    if (this.data) {
+      const card = Card.createElement(this.data);
+      Card.productList.appendChild(card);
+      this.accessProduct(card);
+      return;
+    }
+
+    Card.productList.appendChild(Card.emptyResults());
   }
 
-  accessProduct() {
-    const cards = document.querySelectorAll(".card-product");
-
-    cards.forEach((card) => {
-      card.addEventListener("click", (e) => {
-        window.location.href = `/control-product?_id=${this.data._id}`;
-      });
+  accessProduct(card) {
+    card.addEventListener("click", () => {
+      window.location.href = `/control-product?_id=${this.data._id}`;
     });
   }
 
