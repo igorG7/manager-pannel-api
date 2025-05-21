@@ -87,7 +87,9 @@ exports.updateProducts = async (req, res) => {
     });
 
     if (!product)
-      return res.status(404).json({ message: "Produto não encontrado" });
+      return res
+        .status(404)
+        .json({ status: "error", message: "Produto não encontrado" });
 
     res
       .status(200)

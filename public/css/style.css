@@ -126,47 +126,6 @@ html body .container .side-menu .menu .logout img {
 html body .container {
   position: relative;
 }
-html body .container .notification-container {
-  width: 80%;
-  max-width: 360px;
-  position: absolute;
-  bottom: 32px;
-  right: 50%;
-  transform: translateX(50%);
-  z-index: 1;
-}
-html body .container .notification-container .notification {
-  width: 100%;
-  height: 50px;
-  border-radius: 8px;
-  padding: 0 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-html body .container .notification-container .notification .message {
-  display: flex;
-  align-items: center;
-}
-html body .container .notification-container .notification .message span {
-  margin-left: 8px;
-}
-html body .container .notification-container .notification .close {
-  cursor: pointer;
-}
-html body .container .success {
-  background-color: #889c9b;
-}
-html body .container .success span {
-  color: #f9f9f9;
-}
-html body .container .error {
-  background-color: #ffcfcf;
-}
-html body .container .error span {
-  color: #bd2a2e;
-}
 html body .container .main-register {
   overflow-y: auto;
   height: auto;
@@ -795,6 +754,54 @@ html body .container .main-product .delete-container1 .delete-button1 {
   html body .container .main-product .delete-container1 .delete-button1 {
     max-width: 200px;
     height: 45px;
+  }
+}
+.notification-container {
+  width: 80%;
+  max-width: 360px;
+  position: absolute;
+  bottom: 32px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1;
+}
+.notification-container .notification {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.notification-container .notification .message {
+  display: flex;
+  align-items: center;
+}
+.notification-container .notification .message span {
+  margin-left: 8px;
+}
+.notification-container .notification.success {
+  background-color: #889c9b;
+}
+.notification-container .notification.success span {
+  color: #f9f9f9;
+}
+.notification-container .notification.error {
+  background-color: #ffcfcf;
+}
+.notification-container .notification.error span {
+  color: #bd2a2e;
+}
+.notification-container .notification .close {
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  html body .container .notification-container {
+    right: 0%;
+    transform: translateX(-16px);
   }
 }
 * {

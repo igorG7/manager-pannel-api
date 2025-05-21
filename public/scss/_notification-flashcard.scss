@@ -1,0 +1,64 @@
+@use "variables" as *;
+
+.notification-container {
+  width: 80%;
+  max-width: 360px;
+  position: absolute;
+  bottom: 32px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1;
+
+  .notification {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    .message {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 8px;
+      }
+    }
+
+    &.success {
+      background-color: $paleGreen;
+
+      span {
+        color: #f9f9f9;
+      }
+    }
+
+    &.error {
+      background-color: $lightPaleRed;
+
+      span {
+        color: $paleRed;
+      }
+    }
+
+    .close {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    body {
+      .container {
+        .notification-container {
+          right: 0%;
+          transform: translateX(-16px);
+        }
+      }
+    }
+  }
+}
