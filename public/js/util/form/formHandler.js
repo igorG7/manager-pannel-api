@@ -23,7 +23,7 @@ export class FormHandler {
         FormHandler.unitValue.classList.remove("disabled");
       }
 
-      field.value = data[nameField];
+      field.value = data?.[nameField] ?? "";
     });
   }
 
