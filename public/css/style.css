@@ -126,7 +126,7 @@ html body .container .side-menu .menu .logout img {
 html body.lock {
   overflow: hidden;
 }
-html body .delete-container {
+html body .popup-delete-container {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.322);
@@ -135,10 +135,10 @@ html body .delete-container {
   z-index: 1;
   display: none;
 }
-html body .delete-container.active {
+html body .popup-delete-container.active {
   display: block;
 }
-html body .delete-container .pop-up-delete {
+html body .popup-delete-container .pop-up-delete {
   width: 100%;
   max-width: 340px;
   height: 350px;
@@ -153,81 +153,79 @@ html body .delete-container .pop-up-delete {
   justify-content: space-between;
   background-color: white;
 }
-html body .delete-container .pop-up-delete .close {
+html body .popup-delete-container .pop-up-delete .close {
   position: absolute;
   top: 16px;
   right: 16px;
 }
-html body .delete-container .pop-up-delete .title {
+html body .popup-delete-container .pop-up-delete .title {
   width: 100%;
   text-align: center;
 }
-html body .delete-container .pop-up-delete .title p {
+html body .popup-delete-container .pop-up-delete .title p {
   font-size: 20px;
   color: #3b3936;
 }
-html body .delete-container .pop-up-delete .title img {
+html body .popup-delete-container .pop-up-delete .title img {
   width: 28px;
   height: 28px;
 }
-html body .delete-container .pop-up-delete .text p {
+html body .popup-delete-container .pop-up-delete .text p {
   text-align: center;
 }
-html body .delete-container .pop-up-delete .buttons-popup {
+html body .popup-delete-container .pop-up-delete .buttons-popup {
   width: 100%;
 }
-html body .delete-container .pop-up-delete .buttons-popup button {
+html body .popup-delete-container .pop-up-delete .buttons-popup button {
   width: 100%;
   margin: 0 auto;
   display: block;
-  max-width: 300px;
   height: 40px;
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
 }
-html body .delete-container .pop-up-delete .buttons-popup .confirm-delete {
+html body .popup-delete-container .pop-up-delete .buttons-popup .confirm-delete {
   border: none;
   background-color: #bd2a2e;
   color: #f9f9f9;
   margin-bottom: 16px;
 }
-html body .delete-container .pop-up-delete .buttons-popup .cancel-btn {
+html body .popup-delete-container .pop-up-delete .buttons-popup .cancel-btn {
   border: 2px solid #bd2a2e;
   color: #bd2a2e;
   background-color: transparent;
 }
 
 @media (min-width: 1024px) {
-  html body .delete-container .pop-up-delete {
+  html body .popup-delete-container .pop-up-delete {
     max-width: 400px;
     max-height: 300px;
   }
-  html body .delete-container .pop-up-delete .close {
+  html body .popup-delete-container .pop-up-delete .close {
     cursor: pointer;
   }
-  html body .delete-container .pop-up-delete .title {
+  html body .popup-delete-container .pop-up-delete .title {
     display: flex;
     align-items: center;
   }
-  html body .delete-container .pop-up-delete .title p {
+  html body .popup-delete-container .pop-up-delete .title p {
     font-size: 28px;
   }
-  html body .delete-container .pop-up-delete .title img {
+  html body .popup-delete-container .pop-up-delete .title img {
     width: 40px;
     height: 40px;
     margin-right: 8px;
   }
-  html body .delete-container .pop-up-delete .text p {
+  html body .popup-delete-container .pop-up-delete .text p {
     text-align: start;
   }
-  html body .delete-container .pop-up-delete .buttons {
+  html body .popup-delete-container .pop-up-delete .buttons {
     display: flex;
     justify-content: space-between;
   }
-  html body .delete-container .pop-up-delete .buttons button {
+  html body .popup-delete-container .pop-up-delete .buttons button {
     cursor: pointer;
-    max-width: 160px;
     height: 45px;
     margin: 0;
   }
@@ -813,7 +811,7 @@ html body .container .main-product {
   position: relative;
   padding: 32px 0;
 }
-html body .container .main-product .delete-container1 {
+html body .container .main-product .delete-container {
   width: 80%;
   height: 120px;
   display: flex;
@@ -826,12 +824,12 @@ html body .container .main-product .delete-container1 {
   background-color: white;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
 }
-html body .container .main-product .delete-container1 p {
+html body .container .main-product .delete-container p {
   color: #3b3936;
   font-size: 20px;
   text-align: center;
 }
-html body .container .main-product .delete-container1 .delete-button1 {
+html body .container .main-product .delete-container .delete-button {
   width: 100%;
   height: 40px;
   border: none;
@@ -851,16 +849,16 @@ html body .container .main-product .delete-container1 .delete-button1 {
     height: 100%;
     margin: 0 auto;
   }
-  html body .container .main-product .delete-container1 {
+  html body .container .main-product .delete-container {
     padding: 16px 32px;
     flex-direction: row;
     align-items: center;
     max-width: 750px;
   }
-  html body .container .main-product .delete-container1 p {
+  html body .container .main-product .delete-container p {
     font-size: 24px;
   }
-  html body .container .main-product .delete-container1 .delete-button1 {
+  html body .container .main-product .delete-container .delete-button {
     max-width: 200px;
     height: 45px;
   }
