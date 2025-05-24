@@ -10,6 +10,9 @@ export class ValidForm {
     FormHandler.handleCleaning();
     FormHandler.calculateSaleValue();
     FormHandler.enableSaleOfUnits();
+  }
+
+  handlePopulateFields() {
     FormHandler.populateFields(this.id);
   }
 }
