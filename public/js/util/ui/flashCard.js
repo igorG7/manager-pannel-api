@@ -58,4 +58,10 @@ export class FlashCard {
       if (e.target.classList.contains("close")) element.remove();
     });
   }
+
+  time(flashcard) {
+    setTimeout(() => {
+      flashcard.remove();
+    }, 6000);
+  }
 }

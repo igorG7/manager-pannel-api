@@ -1,15 +1,15 @@
 import { FormHandler } from "./formHandler.js";
-class ValidForm {
-  constructor() {
+export class ValidForm {
+  constructor(id) {
+    this.id = id ?? "";
     this.loadEvents();
   }
 
   loadEvents() {
-    FormHandler.handleSubmit();
+    FormHandler.handleSubmit(this.id);
     FormHandler.handleCleaning();
     FormHandler.calculateSaleValue();
     FormHandler.enableSaleOfUnits();
+    FormHandler.populateFields(this.id);
   }
 }
-
-const form = new ValidForm();

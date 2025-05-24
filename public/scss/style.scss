@@ -1,11 +1,13 @@
 @use "variables" as *;
 @use "mixins" as *;
 @use "nav-side-menu";
-@use "pop-up-update";
 @use "pop-up-delete";
 @use "register-product";
 @use "login-adm";
 @use "register-adm";
+@use "form-product";
+@use "control-product";
+@use "notification-flashcard";
 
 * {
   margin: 0;
@@ -22,6 +24,7 @@ html {
     background-color: #f9f9f9;
     width: 100%;
     height: 100%;
+    min-height: fit-content;
     position: relative;
 
     .container {
