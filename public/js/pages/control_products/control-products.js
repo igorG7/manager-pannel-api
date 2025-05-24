@@ -12,6 +12,8 @@ const notifyContainer = document.querySelector(".notification-container");
 const form = new ValidForm(id);
 const flashCard = new FlashCard();
 
+form.handlePopulateFields();
+
 const deleteButton = document.querySelector(".delete-button");
 
 deleteButton.addEventListener("click", () => {
