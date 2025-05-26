@@ -107,7 +107,10 @@ export class FormValidator {
       valid = false;
     }
 
-    if (FormValidator.unitValue.value > FormValidator.saleValue.value) {
+    if (
+      Number(FormValidator.unitValue.value) >
+      Number(FormValidator.saleValue.value)
+    ) {
       FormValidator.error(
         FormValidator.unitValue,
         `não pode ser maior do que "Valor de venda".`
