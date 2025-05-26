@@ -11,6 +11,8 @@ const flashcard = new FlashCard();
 export class FormHandler {
   static form = document.querySelector(".form-container");
   static notifyContainer = document.querySelector(".notification-container");
+  static checkbox = document.querySelector("#saleOfUnits");
+  static unitValue = document.querySelector(".unitValue");
 
   static async populateFields(id) {
     const fields = FormHandler.form.querySelectorAll(".input-field");
