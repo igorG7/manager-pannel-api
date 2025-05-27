@@ -20,6 +20,8 @@ const { loginAdm } = require("../controllers/loginAdmController");
 const { registerAdm } = require("../controllers/registerAdmController");
 const { controlProduct } = require("../controllers/controlProductController");
 
+const { registerUser } = require("../controllers/usersController");
+
 // Interface routes
 
 routes.get("/index", home);
@@ -40,5 +42,9 @@ routes.put(
   validateData,
   updateProducts
 );
+
+// Users routes
+
+routes.post("/users/register", registerUser);
 
 module.exports = routes;
