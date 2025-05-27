@@ -24,6 +24,7 @@ export class FormHandler {
       if (data.unitValue) {
         FormHandler.checkbox.checked = true;
         FormHandler.unitValue.classList.remove("disabled");
+        FormHandler.unitValue.removeAttribute("disabled")
       }
 
       field.value = data?.[nameField] ?? "";

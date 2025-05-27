@@ -99,7 +99,7 @@ export class FormValidator {
   static checkSaleValue() {
     let valid = true;
 
-    if (FormValidator.saleValue.value < FormValidator.purchaseValue.value) {
+    if (Number(FormValidator.saleValue.value) < Number(FormValidator.purchaseValue.value)) {
       FormValidator.error(
         FormValidator.saleValue,
         `não pode ser menor do que "Valor de compra".`
