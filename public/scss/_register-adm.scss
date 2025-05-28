@@ -35,7 +35,7 @@ html {
 
         .register-adm-container {
           width: 100%;
-          max-width: 340px;
+          max-width: 450px;
           height: fit-content;
           background-color: white;
           box-shadow: $shadowElements;
@@ -56,12 +56,24 @@ html {
               }
             }
 
+            .description {
+              margin: 16px 0;
+              text-align: center;
+              color: $darkGray;
+            }
+
             .fields {
               width: 100%;
               margin: 32px 0;
 
               .field {
                 margin-bottom: 16px;
+
+                .error-text {
+                  color: $paleRed;
+                  font-size: 12px;
+                  margin: 2px 0;
+                }
 
                 .input-password {
                   position: relative;
@@ -83,6 +95,10 @@ html {
                       display: block;
                     }
                   }
+                }
+
+                small {
+                  color: $darkGray;
                 }
 
                 label {

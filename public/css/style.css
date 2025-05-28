@@ -556,7 +556,7 @@ html body .container-register main .flash-messages .message {
 }
 html body .container-register main .register-adm-container {
   width: 100%;
-  max-width: 340px;
+  max-width: 450px;
   height: fit-content;
   background-color: white;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
@@ -575,12 +575,22 @@ html body .container-register main .register-adm-container .form-container .titl
   font-weight: normal;
   color: #3b3936;
 }
+html body .container-register main .register-adm-container .form-container .description {
+  margin: 16px 0;
+  text-align: center;
+  color: #3b3936;
+}
 html body .container-register main .register-adm-container .form-container .fields {
   width: 100%;
   margin: 32px 0;
 }
 html body .container-register main .register-adm-container .form-container .fields .field {
   margin-bottom: 16px;
+}
+html body .container-register main .register-adm-container .form-container .fields .field .error-text {
+  color: #bd2a2e;
+  font-size: 12px;
+  margin: 2px 0;
 }
 html body .container-register main .register-adm-container .form-container .fields .field .input-password {
   position: relative;
@@ -599,6 +609,9 @@ html body .container-register main .register-adm-container .form-container .fiel
 }
 html body .container-register main .register-adm-container .form-container .fields .field .input-password img.on {
   display: block;
+}
+html body .container-register main .register-adm-container .form-container .fields .field small {
+  color: #3b3936;
 }
 html body .container-register main .register-adm-container .form-container .fields .field label {
   color: #3b3936;
