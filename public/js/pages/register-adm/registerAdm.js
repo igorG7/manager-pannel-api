@@ -1,5 +1,5 @@
 import { toggleVisibilityPass } from "../../util/ui/toggleVisibilityPass.js";
-import { Register } from "../../util/auth-form/registerClass.js";
+import { Register } from "../../util/auth-form/RegisterClass.js";
 
 const inputPassword = document.querySelector(".input-pass");
 const showPass = document.querySelector(".eye");

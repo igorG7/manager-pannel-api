@@ -9,10 +9,14 @@ exports.registerUser = async (req, res) => {
     );
 
     if (await existingUser(email))
-      return res.status(400).json({ message: "Este e-mail já está em uso" });
+      return res
+        .status(400)
+        .json({ status: "error", message: "Este e-mail já está em uso" });
 
     if (flag === false)
-      return res.status(400).json({ message: "E-mail ou senha inválidos" });
+      return res
+        .status(400)
+        .json({ status: "error", message: "E-mail ou senha inválidos" });
 
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
@@ -27,10 +31,15 @@ exports.registerUser = async (req, res) => {
     const user = new Users(body);
     await user.save();
 
-    res.status(201).json({ message: "Usuário cadastrado com sucesso" });
+    res
+      .status(201)
+      .json({ status: "success", message: "Usuário cadastrado com sucesso" });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Não foi possível realizar o cadastro" });
+    res.status(500).json({
+      status: "error",
+      message: "Não foi possível realizar o cadastro",
+    });
   }
 };
 

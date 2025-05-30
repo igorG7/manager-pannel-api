@@ -22,4 +22,9 @@ export class FormUI {
     const fields = document.querySelectorAll("input");
     fields.forEach((field) => (field.style.borderColor = "#486966"));
   }
+
+  static clearFields() {
+    const fields = document.querySelectorAll("input");
+    fields.forEach((field) => (field.value = ""));
+  }
 }

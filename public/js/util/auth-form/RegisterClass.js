@@ -1,7 +1,10 @@
 import { ValidateField } from "./ValidateClass.js";
 import { FormUI } from "./FormUiClass.js";
 import { registerUser } from "../../services/authServices.js";
+import { FlashCard } from "../ui/flashCard.js";
 
+const flashCard = new FlashCard();
+const notifyContainer = document.querySelector(".notification-container");
 export class Register {
   async handleSubmit() {
     FormUI.clearError();
@@ -21,8 +24,23 @@ export class Register {
         role: "administrator",
       };
 
-      console.log(body);
-      await registerUser(body);
+      const response = await registerUser(body);
+
+      const flashResponse = flashCard.createFlash(
+        response.status,
+        response.message
+      );
+
+      flashCard.time(flashResponse);
+      notifyContainer.appendChild(flashResponse);
+
+      if (response.status === "success") {
+        FormUI.clearFields();
+
+        setTimeout(() => {
+          window.location.href = "/login-administrator";
+        }, 2500);
+      }
     }
   }
 
