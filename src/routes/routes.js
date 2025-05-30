@@ -21,6 +21,7 @@ const { registerAdm } = require("../controllers/registerAdmController");
 const { controlProduct } = require("../controllers/controlProductController");
 
 const { registerUser } = require("../controllers/usersController");
+const { validationBodyRegister } = require("../middlewares/usersMiddleware");
 
 // Interface routes
 
@@ -45,6 +46,6 @@ routes.put(
 
 // Users routes
 
-routes.post("/users/register", registerUser);
+routes.post("/users/register", validationBodyRegister, registerUser);
 
 module.exports = routes;

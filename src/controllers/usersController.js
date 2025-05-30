@@ -4,28 +4,21 @@ const validator = require("validator");
 
 exports.registerUser = async (req, res) => {
   try {
-    const { flag, name, email, password, role } = validationBodyToRegister(
-      req.body
-    );
+    const { userName, email, password, role } = req.body;
 
     if (await existingUser(email))
       return res
         .status(400)
         .json({ status: "error", message: "Este e-mail já está em uso" });
 
-    if (flag === false)
-      return res
-        .status(400)
-        .json({ status: "error", message: "E-mail ou senha inválidos" });
-
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
     const body = {
-      userName: name,
-      email: email,
+      userName: validator.blacklist(userName, "\\<>/&;*'-"),
+      email: email.trim().toLowerCase(),
       password: hash,
-      role: role,
+      role: validator.blacklist(role, "\\<>/&;*'-"),
     };
 
     const user = new Users(body);
@@ -41,21 +34,6 @@ exports.registerUser = async (req, res) => {
       message: "Não foi possível realizar o cadastro",
     });
   }
-};
-
-const validationBodyToRegister = (body) => {
-  let isEmail = validator.isEmail(body.email);
-  let strongPasswordassword = validator.isStrongPassword(body.password);
-
-  if (isEmail && strongPasswordassword) {
-    let name = validator.blacklist(body.userName, "\\<>/&;*'-");
-    let role = validator.blacklist(body.role, "\\<>/&;*'-");
-    let email = validator.trim(body.email).toLowerCase();
-
-    return { flag: true, name, email, role, password: body.password };
-  }
-
-  return { flag: false };
 };
 
 const existingUser = async (email) => {
