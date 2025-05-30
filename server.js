@@ -4,10 +4,20 @@ const path = require("path");
 const helmet = require("helmet");
 const csrf = require("csurf");
 const connectDB = require("./src/config/mongodbConfig");
+const session = require("express-session");
 const app = express();
 
 app.use(helmet());
 connectDB(app);
+
+app.use(
+  session({
+    secret: "user-dash",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // secure: true
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
