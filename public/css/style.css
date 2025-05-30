@@ -539,21 +539,6 @@ html body .container-register main {
   align-items: center;
   flex-direction: column;
 }
-html body .container-register main .flash-messages {
-  width: 100%;
-  max-width: 340px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  padding: 0 16px;
-  background-color: #ffcfcf;
-}
-html body .container-register main .flash-messages .message {
-  color: #bd2a2e;
-  margin-left: 8px;
-}
 html body .container-register main .register-adm-container {
   width: 100%;
   max-width: 450px;
@@ -879,8 +864,8 @@ html body .container .main-product .delete-container .delete-button {
 .notification-container {
   width: 80%;
   max-width: 360px;
-  position: absolute;
-  bottom: 32px;
+  position: fixed;
+  bottom: 16px;
   right: 50%;
   transform: translateX(50%);
   z-index: 1;
@@ -919,7 +904,7 @@ html body .container .main-product .delete-container .delete-button {
 }
 
 @media (min-width: 1024px) {
-  html body .container .notification-container {
+  .notification-container {
     right: 0%;
     transform: translateX(-16px);
   }

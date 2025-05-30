@@ -16,23 +16,6 @@ html {
         @include center;
         flex-direction: column;
 
-        .flash-messages {
-          width: 100%;
-          max-width: 340px;
-          height: 45px;
-          display: flex;
-          align-items: center;
-          margin-bottom: 16px;
-          border-radius: 8px;
-          padding: 0 16px;
-          background-color: $lightPaleRed;
-
-          .message {
-            color: $paleRed;
-            margin-left: 8px;
-          }
-        }
-
         .register-adm-container {
           width: 100%;
           max-width: 450px;
