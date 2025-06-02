@@ -9,16 +9,10 @@
   <body>
     <div class="container-login">
       <main>
-        <div class="flash-messages">
-          <img src="/img/warning-circle.svg" alt="" />
-
-          <span class="message">E-mail ou senha incorretos.</span>
-        </div>
-
         <div class="login-adm-container">
-          <form class="form-container">
+          <form class="form-container" method="post" action="/admin/login">
             <div class="title">
-              <h1>Login Administrador</h1>
+              <h1>Login de Administrador</h1>
             </div>
 
             <div class="fields">
@@ -63,6 +57,6 @@
       </main>
     </div>
 
-    <script src="/js/loginAdm.js" type="module"></script>
+    <script src="/js/pages/login-adm/loginAdm.js" type="module"></script>
   </body>
 </html>
