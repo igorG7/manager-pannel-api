@@ -7,6 +7,8 @@ const connectDB = require("./src/config/mongodbConfig");
 const session = require("express-session");
 const app = express();
 
+const { user } = require("./src/middlewares/globalsMiddleware");
+
 app.use(helmet());
 connectDB(app);
 
@@ -29,6 +31,7 @@ app.use(
 );
 
 //app.use(csrf());
+app.use(user);
 app.use(routes);
 
 app.set("view engine", "ejs");
