@@ -40,3 +40,36 @@ const existingUser = async (email) => {
   const user = await Users.findOne({ email });
   return user ? user : false;
 };
+
+exports.loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await existingUser(email.toLowerCase());
+    const comparePass = await bcrypt.compare(password, user.password);
+
+    if (!user || !comparePass)
+      return res
+        .status(400)
+        .json({ status: "error", message: "Credenciais de acesso inválidas" });
+
+    req.session.user = {
+      id: user._id,
+      userName: user.userName,
+      role: user.role,
+    };
+
+    if (user.role === "administrator") {
+      req.session.save(function () {
+        return res.redirect("/index");
+      });
+    }
+
+    res.status(403).json({ message: "Error, acesso negado." });
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "Erro ao tentar realizar login. Tente novamente mais tarde.",
+    });
+  }
+};
