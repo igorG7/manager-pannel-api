@@ -55,7 +55,7 @@ exports.createProduct = async (req, res) => {
     }
 
     body.modified = Date.now();
-    body.userModified = "user teste";
+    body.userModified = res.user.userName;
 
     const product = new Products(body);
     await product.save();
@@ -82,7 +82,7 @@ exports.updateProducts = async (req, res) => {
     }
 
     body.modified = Date.now();
-    body.userModified = "user teste";
+    body.userModified = res.user.userName;
 
     const product = await Products.findByIdAndUpdate(req.params.id, body, {
       new: true,
