@@ -8,9 +8,10 @@
   </head>
   <body>
     <div class="container-login">
+      <div class="notification-container"></div>
       <main>
         <div class="login-adm-container">
-          <form class="form-container" method="post" action="/admin/login">
+          <form class="form-login-container">
             <div class="title">
               <h1>Login de Administrador</h1>
             </div>
@@ -18,7 +19,7 @@
             <div class="fields">
               <div class="field">
                 <label for="">E-mail:</label>
-                <input type="email" name="email" />
+                <input type="email" name="email" class="email" />
               </div>
 
               <div class="field">
@@ -26,7 +27,7 @@
 
                 <div class="input-password">
                   <input
-                    class="input"
+                    class="input password"
                     type="password"
                     autocomplete="off"
                     name="password"
@@ -57,6 +58,8 @@
       </main>
     </div>
 
+    <script src="/lib/validator/validator.min.js"></script>
+    <script src="/lib/axios/axios.min.js"></script>
     <script src="/js/pages/login-adm/loginAdm.js" type="module"></script>
   </body>
 </html>

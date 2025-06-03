@@ -424,21 +424,6 @@ html body .container-login main {
   align-items: center;
   flex-direction: column;
 }
-html body .container-login main .flash-messages {
-  width: 100%;
-  max-width: 340px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  padding: 0 16px;
-  background-color: #ffcfcf;
-}
-html body .container-login main .flash-messages .message {
-  color: #bd2a2e;
-  margin-left: 8px;
-}
 html body .container-login main .login-adm-container {
   width: 100%;
   max-width: 340px;
@@ -447,34 +432,40 @@ html body .container-login main .login-adm-container {
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-html body .container-login main .login-adm-container .form-container {
+html body .container-login main .login-adm-container .form-login-container {
   width: 100%;
   height: 100%;
   padding: 32px;
 }
-html body .container-login main .login-adm-container .form-container .title {
+html body .container-login main .login-adm-container .form-login-container .title {
   text-align: center;
 }
-html body .container-login main .login-adm-container .form-container .title h1 {
+html body .container-login main .login-adm-container .form-login-container .title h1 {
   font-size: 20px;
   font-weight: normal;
   color: #3b3936;
 }
-html body .container-login main .login-adm-container .form-container .fields {
+html body .container-login main .login-adm-container .form-login-container .fields {
   width: 100%;
   margin: 32px 0;
 }
-html body .container-login main .login-adm-container .form-container .fields .field {
+html body .container-login main .login-adm-container .form-login-container .fields .field {
   margin-bottom: 16px;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password {
+html body .container-login main .login-adm-container .form-login-container .fields .field .error-text {
+  font-size: 12px;
+  color: #bd2a2e;
+  display: block;
+  margin: 2px 0;
+}
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password {
   position: relative;
   width: 100%;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password input {
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password input {
   width: 100%;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password img {
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password img {
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
@@ -482,13 +473,13 @@ html body .container-login main .login-adm-container .form-container .fields .fi
   cursor: pointer;
   display: none;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password img.on {
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password img.on {
   display: block;
 }
-html body .container-login main .login-adm-container .form-container .fields .field label {
+html body .container-login main .login-adm-container .form-login-container .fields .field label {
   color: #3b3936;
 }
-html body .container-login main .login-adm-container .form-container .fields .field input {
+html body .container-login main .login-adm-container .form-login-container .fields .field input {
   margin: 4px 0;
   width: 100%;
   height: 45px;
@@ -498,14 +489,14 @@ html body .container-login main .login-adm-container .form-container .fields .fi
   font-size: 16px;
   color: #3b3936;
 }
-html body .container-login main .login-adm-container .form-container .fields .field a {
+html body .container-login main .login-adm-container .form-login-container .fields .field a {
   color: #3b3936;
   font-size: 14px;
 }
-html body .container-login main .login-adm-container .form-container .buttons {
+html body .container-login main .login-adm-container .form-login-container .buttons {
   width: 100%;
 }
-html body .container-login main .login-adm-container .form-container .buttons .login-btn {
+html body .container-login main .login-adm-container .form-login-container .buttons .login-btn {
   width: 100%;
   height: 45px;
   margin-top: 16px;
@@ -518,7 +509,7 @@ html body .container-login main .login-adm-container .form-container .buttons .l
 }
 
 @media (min-width: 1024px) {
-  html body .container-login main .login-adm-container .form-container .title h1 {
+  html body .container-login main .login-adm-container .form-login-container .title h1 {
     font-size: 24px;
   }
 }
