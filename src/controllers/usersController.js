@@ -80,3 +80,9 @@ exports.loginUser = async (req, res) => {
     });
   }
 };
+
+exports.logout = async (req, res) => {
+  req.session.destroy(function () {
+    res.redirect("/login-administrator");
+  });
+};

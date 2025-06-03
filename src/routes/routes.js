@@ -20,7 +20,11 @@ const { loginAdm } = require("../controllers/loginAdmController");
 const { registerAdm } = require("../controllers/registerAdmController");
 const { controlProduct } = require("../controllers/controlProductController");
 
-const { registerUser, loginUser } = require("../controllers/usersController");
+const {
+  registerUser,
+  loginUser,
+  logout,
+} = require("../controllers/usersController");
 const usersMid = require("../middlewares/usersMiddleware");
 
 // Interface routes
@@ -30,6 +34,8 @@ routes.get("/register-product", usersMid.controlPermissions, registerProduct);
 routes.get("/login-administrator", loginAdm);
 routes.get("/register-administrator-dashboard", registerAdm);
 routes.get("/control-product", usersMid.controlPermissions, controlProduct);
+
+routes.get("/logout", logout);
 
 // Products routes
 
