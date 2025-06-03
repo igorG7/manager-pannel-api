@@ -38,7 +38,7 @@ exports.registerUser = async (req, res) => {
 
 const existingUser = async (email) => {
   const user = await Users.findOne({ email });
-  return user ? user : false;
+  return user;
 };
 
 exports.loginUser = async (req, res) => {
@@ -46,9 +46,15 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await existingUser(email.toLowerCase());
+
+    if (!user)
+      return res
+        .status(400)
+        .json({ status: "error", message: "Credenciais de acesso inválidas" });
+
     const comparePass = await bcrypt.compare(password, user.password);
 
-    if (!user || !comparePass)
+    if (!comparePass)
       return res
         .status(400)
         .json({ status: "error", message: "Credenciais de acesso inválidas" });
@@ -61,11 +67,12 @@ exports.loginUser = async (req, res) => {
 
     if (user.role === "administrator") {
       req.session.save(function () {
-        return res.redirect("/index");
+        return res.status(200).json({
+          redirect: "/index",
+          status: "success",
+        });
       });
     }
-
-    res.status(403).json({ message: "Error, acesso negado." });
   } catch (error) {
     res.status(500).json({
       status: "error",
