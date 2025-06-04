@@ -3,8 +3,8 @@
 .notification-container {
   width: 80%;
   max-width: 360px;
-  position: absolute;
-  bottom: 32px;
+  position: fixed;
+  bottom: 16px;
   right: 50%;
   transform: translateX(50%);
   z-index: 1;
@@ -51,14 +51,8 @@
 }
 
 @media (min-width: 1024px) {
-  html {
-    body {
-      .container {
-        .notification-container {
-          right: 0%;
-          transform: translateX(-16px);
-        }
-      }
-    }
+  .notification-container {
+    right: 0%;
+    transform: translateX(-16px);
   }
 }

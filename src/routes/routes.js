@@ -20,13 +20,22 @@ const { loginAdm } = require("../controllers/loginAdmController");
 const { registerAdm } = require("../controllers/registerAdmController");
 const { controlProduct } = require("../controllers/controlProductController");
 
+const {
+  registerUser,
+  loginUser,
+  logout,
+} = require("../controllers/usersController");
+const usersMid = require("../middlewares/usersMiddleware");
+
 // Interface routes
 
-routes.get("/index", home);
-routes.get("/register-product", registerProduct);
+routes.get("/index", usersMid.controlPermissions, home);
+routes.get("/register-product", usersMid.controlPermissions, registerProduct);
 routes.get("/login-administrator", loginAdm);
 routes.get("/register-administrator-dashboard", registerAdm);
-routes.get("/control-product", controlProduct);
+routes.get("/control-product", usersMid.controlPermissions, controlProduct);
+
+routes.get("/logout", logout);
 
 // Products routes
 
@@ -40,5 +49,10 @@ routes.put(
   validateData,
   updateProducts
 );
+
+// Users routes
+
+routes.post("/users/register", usersMid.validationBodyRegister, registerUser);
+routes.post("/admin/login", loginUser);
 
 module.exports = routes;
