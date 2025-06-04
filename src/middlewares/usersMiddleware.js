@@ -14,3 +14,13 @@ exports.validationBodyRegister = (req, res, next) => {
 
   next();
 };
+
+exports.controlPermissions = (req, res, next) => {
+  const user = res.locals.user;
+
+  if (!user) return res.redirect("/login-administrator");
+  if (user.role !== "administrator")
+    return res.status(403).json({ message: "Erro 403: Acesso negado." });
+
+  next();
+};
