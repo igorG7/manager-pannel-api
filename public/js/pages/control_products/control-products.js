@@ -1,6 +1,11 @@
 import { ValidForm } from "../../util/form/validForm.js";
 import { deleteProduct } from "../../services/productServices.js";
 import { FlashCard } from "../../util/ui/flashCard.js";
+import { toggleSideMenu } from "../../util/ui/toggleSideMenu.js";
+import { logoutEvent } from "../../util/ui/logoutEvent.js";
+
+toggleSideMenu();
+logoutEvent();
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("_id");
