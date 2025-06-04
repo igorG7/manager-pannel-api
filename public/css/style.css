@@ -919,6 +919,52 @@ html body .container .main-product .delete-container .delete-button {
     transform: translateX(-16px);
   }
 }
+body .error-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .error-container .error {
+  width: 80%;
+  max-width: 550px;
+  height: 200px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .error-container .error .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .error-container .error .error-message img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 16px;
+}
+body .error-container .error .error-message h1 {
+  color: #3b3936;
+  font-size: 20px;
+}
+
+@media (min-width: 1024px) {
+  body .error-container .error .error-message {
+    flex-direction: row;
+  }
+  body .error-container .error .error-message img {
+    margin-right: 32px;
+  }
+  body .error-container .error .error-message h1 {
+    font-size: 28px;
+  }
+}
 * {
   margin: 0;
   padding: 0;

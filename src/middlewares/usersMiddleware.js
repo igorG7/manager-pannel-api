@@ -20,7 +20,10 @@ exports.controlPermissions = (req, res, next) => {
 
   if (!user) return res.redirect("/login-administrator");
   if (user.role !== "administrator")
-    return res.status(403).json({ message: "Erro 403: Acesso negado." });
+    return res.render("includes/error", {
+      error: "403",
+      message: "Acesso negado.",
+    });
 
   next();
 };
