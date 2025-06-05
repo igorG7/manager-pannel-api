@@ -68,7 +68,7 @@ exports.loginUser = async (req, res) => {
     if (user.role === "administrator") {
       req.session.save(function () {
         return res.status(200).json({
-          redirect: "/index",
+          redirect: "/produtos",
           status: "success",
         });
       });
@@ -83,6 +83,6 @@ exports.loginUser = async (req, res) => {
 
 exports.logout = async (req, res) => {
   req.session.destroy(function () {
-    res.redirect("/login-administrator");
+    res.redirect("/admin/login");
   });
 };

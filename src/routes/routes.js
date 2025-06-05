@@ -29,11 +29,11 @@ const usersMid = require("../middlewares/usersMiddleware");
 
 // Interface routes
 
-routes.get("/index", usersMid.controlPermissions, home);
-routes.get("/register-product", usersMid.controlPermissions, registerProduct);
-routes.get("/login-administrator", loginAdm);
-routes.get("/register-administrator-dashboard", registerAdm);
-routes.get("/control-product", usersMid.controlPermissions, controlProduct);
+routes.get("/produtos", usersMid.controlPermissions, home);
+routes.get("/produtos/novo", usersMid.controlPermissions, registerProduct);
+routes.get("/admin/login", loginAdm);
+routes.get("/admin/cadastrar", registerAdm);
+routes.get("/produtos/controle", usersMid.controlPermissions, controlProduct);
 
 routes.get("/logout", logout);
 

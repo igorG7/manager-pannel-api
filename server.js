@@ -40,6 +40,6 @@ app.set("views", path.resolve(__dirname, "src", "views"));
 app.on("Ready", () => {
   app.listen(3000, () => {
     console.log("Server started");
-    console.log("Running in: http://localhost:3000/index");
+    console.log("Running in: http://localhost:3000/produtos");
   });
 });

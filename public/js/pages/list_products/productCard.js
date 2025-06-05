@@ -33,7 +33,7 @@ export class Card {
 
   accessProduct(card) {
     card.addEventListener("click", () => {
-      window.location.href = `/control-product?_id=${this.data._id}`;
+      window.location.href = `/produtos/controle?_id=${this.data._id}`;
     });
   }
 

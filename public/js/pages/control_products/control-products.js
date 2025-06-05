@@ -49,6 +49,6 @@ confirmButton.addEventListener("click", async () => {
 
   flashCard.time(flashResponse);
   setTimeout(() => {
-    window.location.href = "/index";
+    window.location.href = "/produtos";
   }, 2500);
 });

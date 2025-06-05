@@ -18,7 +18,7 @@ exports.validationBodyRegister = (req, res, next) => {
 exports.controlPermissions = (req, res, next) => {
   const user = res.locals.user;
 
-  if (!user) return res.redirect("/login-administrator");
+  if (!user) return res.redirect("/admin/login");
   if (user.role !== "administrator")
     return res.render("includes/error", {
       error: "403",

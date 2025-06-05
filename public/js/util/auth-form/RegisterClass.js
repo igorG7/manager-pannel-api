@@ -38,7 +38,7 @@ export class Register {
         FormUI.clearFields();
 
         setTimeout(() => {
-          window.location.href = "/login-administrator";
+          window.location.href = "/admin/login";
         }, 2500);
       }
     }
