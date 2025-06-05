@@ -8,6 +8,7 @@ const session = require("express-session");
 const app = express();
 
 const { user } = require("./src/middlewares/globalsMiddleware");
+const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
 connectDB(app);
@@ -38,8 +39,8 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "src", "views"));
 
 app.on("Ready", () => {
-  app.listen(3000, () => {
+  app.listen(PORT, () => {
     console.log("Server started");
-    console.log("Running in: http://localhost:3000/produtos");
+    console.log(`Running in: http://localhost:${PORT}/produtos`);
   });
 });
