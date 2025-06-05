@@ -32,8 +32,13 @@ app.use(
 );
 
 //app.use(csrf());
+
 app.use(user);
 app.use(routes);
+
+app.get("/", (req, res) => {
+  res.redirect("/produtos");
+});
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "src", "views"));
