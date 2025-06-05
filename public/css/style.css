@@ -394,7 +394,7 @@ html body .container .main-register .register-container .form-container .buttons
     position: relative;
   }
   html body .container .main-register .register-container {
-    width: 80%;
+    width: 90%;
     max-width: 750px;
     padding: 32px;
     position: relative;
@@ -865,7 +865,7 @@ html body .container .main-product .delete-container .delete-button {
     display: flex;
   }
   html body .container .main-product {
-    width: 80%;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
   }
@@ -1103,7 +1103,7 @@ html body .container .main-home .products .card-product .card-container-3 .last-
     display: flex;
   }
   html body .container .main-home {
-    width: 80%;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
     padding: 32px 0;
