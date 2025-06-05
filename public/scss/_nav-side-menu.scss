@@ -146,6 +146,11 @@ html {
           visibility: visible;
           position: static;
 
+          .user {
+            visibility: visible;
+            opacity: 1;
+          }
+
           .btn-menu {
             display: none;
           }

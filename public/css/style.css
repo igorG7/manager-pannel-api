@@ -124,6 +124,10 @@ html body .container .side-menu .menu .logout img {
     visibility: visible;
     position: static;
   }
+  html body .container .side-menu .user {
+    visibility: visible;
+    opacity: 1;
+  }
   html body .container .side-menu .btn-menu {
     display: none;
   }
