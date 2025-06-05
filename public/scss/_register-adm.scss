@@ -16,26 +16,9 @@ html {
         @include center;
         flex-direction: column;
 
-        .flash-messages {
-          width: 100%;
-          max-width: 340px;
-          height: 45px;
-          display: flex;
-          align-items: center;
-          margin-bottom: 16px;
-          border-radius: 8px;
-          padding: 0 16px;
-          background-color: $lightPaleRed;
-
-          .message {
-            color: $paleRed;
-            margin-left: 8px;
-          }
-        }
-
         .register-adm-container {
           width: 100%;
-          max-width: 340px;
+          max-width: 450px;
           height: fit-content;
           background-color: white;
           box-shadow: $shadowElements;
@@ -56,12 +39,24 @@ html {
               }
             }
 
+            .description {
+              margin: 16px 0;
+              text-align: center;
+              color: $darkGray;
+            }
+
             .fields {
               width: 100%;
               margin: 32px 0;
 
               .field {
                 margin-bottom: 16px;
+
+                .error-text {
+                  color: $paleRed;
+                  font-size: 12px;
+                  margin: 2px 0;
+                }
 
                 .input-password {
                   position: relative;
@@ -83,6 +78,10 @@ html {
                       display: block;
                     }
                   }
+                }
+
+                small {
+                  color: $darkGray;
                 }
 
                 label {

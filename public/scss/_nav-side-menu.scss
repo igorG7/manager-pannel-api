@@ -12,8 +12,11 @@ html {
         visibility: hidden;
         transition: width 1s, visibility 1s, min-width 1s, padding 1s;
         background-color: $darkPaleGreen;
-        position: absolute;
+        position: fixed;
         z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         &.active {
           width: 50%;
@@ -21,6 +24,32 @@ html {
           padding: 16px;
           visibility: visible;
           transition: width 1s, visibility 1s, min-width 1s, padding 1s;
+        }
+
+        .user {
+          width: 100%;
+          height: 10%;
+          height: 10%;
+          @include center();
+          flex-direction: column;
+          visibility: hidden;
+          opacity: 0;
+          transition: visibility 200ms, opacity 400ms;
+
+          &.active {
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 2s, opacity 2s;
+          }
+
+          img {
+            width: 35px;
+            height: 35px;
+          }
+
+          p {
+            color: white;
+          }
         }
 
         .btn-menu {
@@ -39,7 +68,7 @@ html {
         .menu {
           list-style: none;
           width: 100%;
-          height: 100%;
+          height: 85%;
           max-width: 200px;
           margin: 0 auto;
           position: relative;
@@ -116,6 +145,11 @@ html {
           padding: 32px 16px;
           visibility: visible;
           position: static;
+
+          .user {
+            visibility: visible;
+            opacity: 1;
+          }
 
           .btn-menu {
             display: none;

@@ -1,0 +1,203 @@
+@use "variables" as *;
+
+.product-container {
+  width: 80%;
+  background-color: white;
+  padding: 32px;
+  margin: 0 auto;
+  box-shadow: $shadowElements;
+  border-radius: 8px;
+
+  .title-container {
+    .title {
+      width: 100%;
+      text-align: center;
+
+      p {
+        font-size: 20px;
+        color: $darkGray;
+      }
+
+      img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  .description {
+    margin: 8px 0;
+    text-align: center;
+    color: $darkGray;
+  }
+
+  .form-container {
+    .fields {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 100%;
+      margin: 32px 0;
+
+      .field {
+        max-width: 300px;
+        width: 100%;
+        margin-bottom: 16px;
+        margin: 0 auto 16px;
+
+        .checkbox-container {
+          display: flex;
+          align-items: center;
+          margin-top: 8px;
+
+          .check-units-sale {
+            width: 15px;
+            height: 15px;
+            margin: 0;
+            cursor: pointer;
+          }
+
+          .label-check {
+            font-size: 14px;
+            margin-left: 4px;
+            cursor: pointer;
+          }
+        }
+
+        .disabled {
+          cursor: not-allowed;
+          background-color: #d1d1d1;
+        }
+
+        label {
+          color: $darkGray;
+        }
+
+        input {
+          width: 100%;
+          height: 40px;
+          border: 2px solid $darkPaleGreen;
+          border-radius: 8px;
+          padding: 0 16px;
+          box-shadow: $shadowElements;
+          font-size: 16px;
+          color: $darkGray;
+          margin-top: 4px;
+        }
+
+        .error-text {
+          font-size: 12px;
+          color: $paleRed;
+          display: block;
+          margin: 2px 0;
+        }
+
+        select {
+          width: 100%;
+          height: 40px;
+          border: 2px solid $darkPaleGreen;
+          border-radius: 8px;
+          padding: 0 8px;
+          box-shadow: $shadowElements;
+          font-size: 16px;
+          color: $darkGray;
+          margin-top: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .buttons {
+      width: 100%;
+
+      button {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        max-width: 300px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 8px;
+      }
+
+      .submit-btn {
+        border: none;
+        background-color: $darkPaleGreen;
+        color: #f9f9f9;
+        margin-bottom: 16px;
+      }
+
+      .clean-btn {
+        border: 2px solid $paleRed;
+        color: $paleRed;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-container {
+    width: 80%;
+    max-width: 750px;
+    padding: 32px;
+    position: relative;
+    top: 0;
+
+    .title-container {
+      .title {
+        display: flex;
+        align-items: center;
+
+        p {
+          font-size: 28px;
+        }
+
+        img {
+          width: 40px;
+          height: 40px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .description {
+      text-align: start;
+    }
+
+    .form-container {
+      .fields {
+        grid-template-columns: 45% 45%;
+        gap: 0 10%;
+        margin: 16px 0;
+
+        .field {
+          max-width: 310px;
+
+          input {
+            height: 45px;
+          }
+
+          select {
+            height: 45px;
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+
+        .submit-btn {
+          margin: 0 60px 0 0;
+        }
+
+        button {
+          cursor: pointer;
+          max-width: 310px;
+          height: 45px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

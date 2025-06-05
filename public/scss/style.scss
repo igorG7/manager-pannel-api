@@ -1,11 +1,14 @@
 @use "variables" as *;
 @use "mixins" as *;
 @use "nav-side-menu";
-@use "pop-up-update";
 @use "pop-up-delete";
 @use "register-product";
 @use "login-adm";
 @use "register-adm";
+@use "form-product";
+@use "control-product";
+@use "notification-flashcard";
+@use "error-403";
 
 * {
   margin: 0;
@@ -17,22 +20,24 @@
 html {
   min-width: 100%;
   height: 100%;
-  min-height: 100%;
 
   body {
     background-color: #f9f9f9;
     width: 100%;
     height: 100%;
+    min-height: fit-content;
     position: relative;
 
     .container {
       width: 100%;
       height: 100%;
+      min-height: fit-content;
 
-      main {
+      .main-home {
         width: 100%;
         height: 100%;
-        padding: 32px 0;
+        padding: 30px 0;
+        overflow-y: auto;
 
         .search {
           width: 80%;
@@ -69,15 +74,41 @@ html {
           width: 80%;
           margin: 16px auto 0;
 
+          .empty {
+            text-align: center;
+            background-color: #ffffff;
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            height: 50px;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 32px auto;
+            box-shadow: $shadowElements;
+            @include center();
+
+            p {
+              color: $darkGray;
+              text-align: center;
+              margin-right: 4px;
+            }
+          }
+
           .card-product {
             width: 100%;
             max-width: 340px;
-            height: 260px;
+            height: fit-content;
+            min-height: 280px;
             margin: 0 auto 32px;
             padding: 16px;
             border-radius: 8px;
             box-shadow: $shadowElements;
             background-color: #ffffff;
+            cursor: pointer;
+
+            &:hover {
+              border: 2px solid $paleGreen;
+            }
 
             .card-container-1 {
               width: 100%;
@@ -91,51 +122,22 @@ html {
 
             .card-container-2 {
               width: 100%;
+              display: grid;
+              grid-template-columns: 100%;
 
-              .infos-1,
-              .infos-2 {
-                p {
-                  font-size: 14px;
-                  color: $darkGray;
-                  margin: 4px 0;
-                }
+              p {
+                font-size: 14px;
+                color: $darkGray;
+                margin: 4px 0;
               }
+            }
 
-              .action-buttons {
-                margin-top: 16px;
-                display: flex;
-                justify-content: space-between;
+            .card-container-3 {
+              margin-top: 8px;
 
-                button {
-                  width: 120px;
-                  height: 30px;
-                  cursor: pointer;
-                  @include center;
-
-                  span {
-                    color: white;
-                    font-size: 14px;
-                    margin-left: 8px;
-                  }
-
-                  img {
-                    width: 20px;
-                    height: 20px;
-                  }
-                }
-
-                .edit-button {
-                  background-color: $darkPaleGreen;
-                  border-radius: 8px;
-                  border: none;
-                  margin-right: 8px;
-                }
-
-                .delete-button {
-                  background-color: $paleRed;
-                  border-radius: 8px;
-                  border: none;
-                }
+              .last-modified {
+                font-size: 12px;
+                color: #a0a0a0;
               }
             }
           }
@@ -151,8 +153,8 @@ html {
       .container {
         display: flex;
 
-        main {
-          width: 80%;
+        .main-home {
+          width: 90%;
           height: 100%;
           margin: 0 auto;
           padding: 32px 0;
@@ -175,7 +177,7 @@ html {
 
             .card-product {
               max-width: 900px;
-              height: 180px;
+              min-height: 200px;
 
               .card-container-1 {
                 p {
@@ -185,35 +187,12 @@ html {
 
               .card-container-2 {
                 height: 70%;
-                display: flex;
                 position: relative;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: auto;
 
-                .infos-1 {
-                  margin-right: 200px;
-                }
-
-                .infos-1,
-                .infos-2 {
-                  p {
-                    font-size: 16px;
-                  }
-                }
-
-                .action-buttons {
-                  position: absolute;
-                  right: 0;
-                  bottom: 0;
-
-                  button {
-                    span {
-                      font-size: 16px;
-                    }
-
-                    img {
-                      width: 22px;
-                      height: 22px;
-                    }
-                  }
+                p {
+                  font-size: 16px;
                 }
               }
             }

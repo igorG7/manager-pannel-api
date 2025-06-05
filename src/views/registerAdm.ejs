@@ -8,34 +8,39 @@
   </head>
   <body>
     <div class="container-register">
+      <div class="notification-container"></div>
+
       <main>
-        <div class="flash-messages">
-          <img src="/img/warning-circle.svg" alt="" />
-
-          <span class="message">E-mail já está em uso.</span>
-        </div>
-
         <div class="register-adm-container">
-          <form class="form-container">
+          <div class="form-container">
             <div class="title">
-              <h1>Cadastro Administrador</h1>
+              <h1>Cadastro de Administrador</h1>
+            </div>
+
+            <div class="description">
+              <p>Preencha todos os campos indicados com <strong>*</strong>.</p>
+              <br />
+              <p>
+                Você será redirecionado para o login após o envio bem-sucedido
+                do formulário.
+              </p>
             </div>
 
             <div class="fields">
               <div class="field">
-                <label>Nome Completo:</label>
+                <label>Nome Completo:*</label>
 
-                <input type="text" name="user_name" />
+                <input type="text" name="userName" class="user-name" />
               </div>
 
               <div class="field">
-                <label>E-mail:</label>
+                <label>E-mail:*</label>
 
-                <input type="email" name="email" />
+                <input type="email" name="email" class="email" />
               </div>
 
               <div class="field">
-                <label>Senha:</label>
+                <label>Senha:*</label>
 
                 <div class="input-password">
                   <input
@@ -57,10 +62,16 @@
                     class="eye-off on"
                   />
                 </div>
+
+                <small>
+                  A senha deve conter pelo menos 8 caracteres, incluindo uma
+                  letra maiúscula, uma letra minúscula, um número e um caractere
+                  especial (como !, @, #, $, %, etc).
+                </small>
               </div>
 
               <div class="field">
-                <label>Confirmar Senha:</label>
+                <label>Confirmar Senha:*</label>
 
                 <div class="input-password">
                   <input
@@ -87,11 +98,13 @@
             <div class="buttons">
               <button class="register-btn">Cadastrar</button>
             </div>
-          </form>
+          </div>
         </div>
       </main>
     </div>
 
-    <script src="/js/registerAdm.js" type="module"></script>
+    <script src="/lib/validator/validator.min.js"></script>
+    <script src="/lib/axios/axios.min.js"></script>
+    <script src="/js/pages/register-adm/registerAdm.js" type="module"></script>
   </body>
 </html>

@@ -7,8 +7,11 @@ html body .container .side-menu {
   visibility: hidden;
   transition: width 1s, visibility 1s, min-width 1s, padding 1s;
   background-color: #486966;
-  position: absolute;
+  position: fixed;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 html body .container .side-menu.active {
   width: 50%;
@@ -16,6 +19,30 @@ html body .container .side-menu.active {
   padding: 16px;
   visibility: visible;
   transition: width 1s, visibility 1s, min-width 1s, padding 1s;
+}
+html body .container .side-menu .user {
+  width: 100%;
+  height: 10%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 200ms, opacity 400ms;
+}
+html body .container .side-menu .user.active {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 2s, opacity 2s;
+}
+html body .container .side-menu .user img {
+  width: 35px;
+  height: 35px;
+}
+html body .container .side-menu .user p {
+  color: white;
 }
 html body .container .side-menu .btn-menu {
   width: 40px;
@@ -34,7 +61,7 @@ html body .container .side-menu .btn-menu {
 html body .container .side-menu .menu {
   list-style: none;
   width: 100%;
-  height: 100%;
+  height: 85%;
   max-width: 200px;
   margin: 0 auto;
   position: relative;
@@ -97,6 +124,10 @@ html body .container .side-menu .menu .logout img {
     visibility: visible;
     position: static;
   }
+  html body .container .side-menu .user {
+    visibility: visible;
+    opacity: 1;
+  }
   html body .container .side-menu .btn-menu {
     display: none;
   }
@@ -123,167 +154,22 @@ html body .container .side-menu .menu .logout img {
     height: 24px;
   }
 }
-html body .update-container {
+html body.lock {
+  overflow: hidden;
+}
+html body .popup-delete-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.322);
   position: absolute;
-  top: 0;
+  bottom: 0;
   z-index: 1;
   display: none;
 }
-html body .update-container.active {
+html body .popup-delete-container.active {
   display: block;
 }
-html body .update-container .pop-up-update {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding: 32px;
-  overflow: auto;
-  background-color: white;
-}
-html body .update-container .pop-up-update .close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-}
-html body .update-container .pop-up-update .title {
-  width: 100%;
-  text-align: center;
-}
-html body .update-container .pop-up-update .title p {
-  font-size: 20px;
-  color: #3b3936;
-}
-html body .update-container .pop-up-update .title img {
-  width: 28px;
-  height: 28px;
-}
-html body .update-container .pop-up-update .form-container {
-  width: 100%;
-}
-html body .update-container .pop-up-update .form-container .fields {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 100%;
-  margin: 32px 0;
-}
-html body .update-container .pop-up-update .form-container .fields .field {
-  max-width: 300px;
-  width: 100%;
-  margin-bottom: 16px;
-  margin: 0 auto 16px;
-}
-html body .update-container .pop-up-update .form-container .fields .field label {
-  color: #3b3936;
-}
-html body .update-container .pop-up-update .form-container .fields .field input {
-  width: 100%;
-  height: 40px;
-  border: 2px solid #486966;
-  border-radius: 8px;
-  padding: 0 16px;
-  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  color: #3b3936;
-  margin-top: 4px;
-}
-html body .update-container .pop-up-update .form-container .fields .field .percent-sale {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-html body .update-container .pop-up-update .form-container .fields .field .percent-sale .percentage {
-  width: 30%;
-}
-html body .update-container .pop-up-update .form-container .fields .field .percent-sale .sale {
-  width: 65%;
-}
-html body .update-container .pop-up-update .form-container .buttons {
-  width: 100%;
-}
-html body .update-container .pop-up-update .form-container .buttons button {
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-  max-width: 300px;
-  height: 40px;
-  font-size: 16px;
-  border-radius: 8px;
-}
-html body .update-container .pop-up-update .form-container .buttons .update-btn {
-  border: none;
-  background-color: #486966;
-  color: #f9f9f9;
-  margin-bottom: 16px;
-}
-html body .update-container .pop-up-update .form-container .buttons .cancel-btn {
-  border: 2px solid #bd2a2e;
-  color: #bd2a2e;
-  background-color: transparent;
-}
-
-@media (min-width: 1024px) {
-  html body .update-container .pop-up-update {
-    max-width: 750px;
-    max-height: 520px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  html body .update-container .pop-up-update .close {
-    cursor: pointer;
-  }
-  html body .update-container .pop-up-update .title {
-    display: flex;
-    align-items: center;
-  }
-  html body .update-container .pop-up-update .title p {
-    font-size: 28px;
-  }
-  html body .update-container .pop-up-update .title img {
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
-  }
-  html body .update-container .pop-up-update .form-container .fields {
-    grid-template-columns: 45% 45%;
-    gap: 0 10%;
-    margin: 16px 0;
-  }
-  html body .update-container .pop-up-update .form-container .fields .field {
-    max-width: 310px;
-  }
-  html body .update-container .pop-up-update .form-container .fields .field input {
-    height: 45px;
-  }
-  html body .update-container .pop-up-update .form-container .buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  html body .update-container .pop-up-update .form-container .buttons button {
-    cursor: pointer;
-    max-width: 310px;
-    height: 45px;
-    margin: 0;
-  }
-}
-html body .delete-container {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.322);
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  display: none;
-}
-html body .delete-container.active {
-  display: block;
-}
-html body .delete-container .pop-up-delete {
+html body .popup-delete-container .pop-up-delete {
   width: 100%;
   max-width: 340px;
   height: 350px;
@@ -298,117 +184,153 @@ html body .delete-container .pop-up-delete {
   justify-content: space-between;
   background-color: white;
 }
-html body .delete-container .pop-up-delete .close {
+html body .popup-delete-container .pop-up-delete .close {
   position: absolute;
   top: 16px;
   right: 16px;
 }
-html body .delete-container .pop-up-delete .title {
+html body .popup-delete-container .pop-up-delete .title {
   width: 100%;
   text-align: center;
 }
-html body .delete-container .pop-up-delete .title p {
+html body .popup-delete-container .pop-up-delete .title p {
   font-size: 20px;
   color: #3b3936;
 }
-html body .delete-container .pop-up-delete .title img {
+html body .popup-delete-container .pop-up-delete .title img {
   width: 28px;
   height: 28px;
 }
-html body .delete-container .pop-up-delete .buttons {
+html body .popup-delete-container .pop-up-delete .text p {
+  text-align: center;
+}
+html body .popup-delete-container .pop-up-delete .buttons-popup {
   width: 100%;
 }
-html body .delete-container .pop-up-delete .buttons button {
+html body .popup-delete-container .pop-up-delete .buttons-popup button {
   width: 100%;
   margin: 0 auto;
   display: block;
-  max-width: 300px;
   height: 40px;
   font-size: 16px;
   border-radius: 8px;
+  cursor: pointer;
 }
-html body .delete-container .pop-up-delete .buttons .delete-btn {
+html body .popup-delete-container .pop-up-delete .buttons-popup .confirm-delete {
   border: none;
   background-color: #bd2a2e;
   color: #f9f9f9;
   margin-bottom: 16px;
 }
-html body .delete-container .pop-up-delete .buttons .cancel-btn {
+html body .popup-delete-container .pop-up-delete .buttons-popup .cancel-btn {
   border: 2px solid #bd2a2e;
   color: #bd2a2e;
   background-color: transparent;
 }
 
 @media (min-width: 1024px) {
-  html body .delete-container .pop-up-delete {
+  html body .popup-delete-container .pop-up-delete {
     max-width: 400px;
     max-height: 300px;
   }
-  html body .delete-container .pop-up-delete .close {
+  html body .popup-delete-container .pop-up-delete .close {
     cursor: pointer;
   }
-  html body .delete-container .pop-up-delete .title {
+  html body .popup-delete-container .pop-up-delete .title {
     display: flex;
     align-items: center;
   }
-  html body .delete-container .pop-up-delete .title p {
+  html body .popup-delete-container .pop-up-delete .title p {
     font-size: 28px;
   }
-  html body .delete-container .pop-up-delete .title img {
+  html body .popup-delete-container .pop-up-delete .title img {
     width: 40px;
     height: 40px;
     margin-right: 8px;
   }
-  html body .delete-container .pop-up-delete .buttons {
+  html body .popup-delete-container .pop-up-delete .text p {
+    text-align: start;
+  }
+  html body .popup-delete-container .pop-up-delete .buttons {
     display: flex;
     justify-content: space-between;
   }
-  html body .delete-container .pop-up-delete .buttons button {
+  html body .popup-delete-container .pop-up-delete .buttons button {
     cursor: pointer;
-    max-width: 160px;
     height: 45px;
     margin: 0;
   }
 }
-html body .container main {
-  overflow: auto;
+html body .container {
+  position: relative;
 }
-html body .container main .register-container {
+html body .container .main-register {
+  overflow-y: auto;
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding: 32px 0;
+}
+html body .container .main-register .register-container {
   width: 80%;
   background-color: white;
-  padding: 16px;
+  padding: 32px;
   margin: 0 auto;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-html body .container main .register-container .title {
+html body .container .main-register .register-container .title {
   width: 100%;
   text-align: center;
 }
-html body .container main .register-container .title p {
+html body .container .main-register .register-container .title p {
   font-size: 20px;
   color: #3b3936;
 }
-html body .container main .register-container .title img {
+html body .container .main-register .register-container .title img {
   width: 28px;
   height: 28px;
 }
-html body .container main .register-container .form-container .fields {
+html body .container .main-register .register-container .description {
+  margin: 8px 0;
+  color: #3b3936;
+}
+html body .container .main-register .register-container .form-container .fields {
   width: 100%;
   display: grid;
   grid-template-columns: 100%;
   margin: 32px 0;
 }
-html body .container main .register-container .form-container .fields .field {
+html body .container .main-register .register-container .form-container .fields .field {
   max-width: 300px;
   width: 100%;
   margin-bottom: 16px;
   margin: 0 auto 16px;
 }
-html body .container main .register-container .form-container .fields .field label {
+html body .container .main-register .register-container .form-container .fields .field .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+html body .container .main-register .register-container .form-container .fields .field .checkbox-container .check-units-sale {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+}
+html body .container .main-register .register-container .form-container .fields .field .checkbox-container .label-check {
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+html body .container .main-register .register-container .form-container .fields .field .disabled {
+  cursor: not-allowed;
+  background-color: #d1d1d1;
+}
+html body .container .main-register .register-container .form-container .fields .field label {
   color: #3b3936;
 }
-html body .container main .register-container .form-container .fields .field input {
+html body .container .main-register .register-container .form-container .fields .field input {
   width: 100%;
   height: 40px;
   border: 2px solid #486966;
@@ -419,21 +341,28 @@ html body .container main .register-container .form-container .fields .field inp
   color: #3b3936;
   margin-top: 4px;
 }
-html body .container main .register-container .form-container .fields .field .percent-sale {
+html body .container .main-register .register-container .form-container .fields .field .error-text {
+  font-size: 12px;
+  color: #bd2a2e;
+  display: block;
+  margin: 2px 0;
+}
+html body .container .main-register .register-container .form-container .fields .field select {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 8px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+  cursor: pointer;
 }
-html body .container main .register-container .form-container .fields .field .percent-sale .percentage {
-  width: 30%;
-}
-html body .container main .register-container .form-container .fields .field .percent-sale .sale {
-  width: 65%;
-}
-html body .container main .register-container .form-container .buttons {
+html body .container .main-register .register-container .form-container .buttons {
   width: 100%;
 }
-html body .container main .register-container .form-container .buttons button {
+html body .container .main-register .register-container .form-container .buttons button {
   width: 100%;
   margin: 0 auto;
   display: block;
@@ -442,63 +371,69 @@ html body .container main .register-container .form-container .buttons button {
   font-size: 16px;
   border-radius: 8px;
 }
-html body .container main .register-container .form-container .buttons .register-btn {
+html body .container .main-register .register-container .form-container .buttons .register-btn {
   border: none;
   background-color: #486966;
   color: #f9f9f9;
   margin-bottom: 16px;
 }
-html body .container main .register-container .form-container .buttons .clean-btn {
+html body .container .main-register .register-container .form-container .buttons .clean-btn {
   border: 2px solid #bd2a2e;
   color: #bd2a2e;
   background-color: transparent;
 }
 
 @media (min-width: 1024px) {
-  html body .container main {
+  html body .container .notification-container {
+    right: 0%;
+    transform: translateX(-16px);
+  }
+  html body .container .main-register {
+    width: 80%;
+    margin: 0 auto;
     position: relative;
   }
-  html body .container main .register-container {
-    width: 80%;
+  html body .container .main-register .register-container {
+    width: 90%;
     max-width: 750px;
-    max-height: 520px;
     padding: 32px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 0;
   }
-  html body .container main .register-container .title {
+  html body .container .main-register .register-container .title {
     display: flex;
     align-items: center;
   }
-  html body .container main .register-container .title p {
+  html body .container .main-register .register-container .title p {
     font-size: 28px;
   }
-  html body .container main .register-container .title img {
+  html body .container .main-register .register-container .title img {
     width: 40px;
     height: 40px;
     margin-right: 8px;
   }
-  html body .container main .register-container .form-container .fields {
+  html body .container .main-register .register-container .form-container .fields {
     grid-template-columns: 45% 45%;
     gap: 0 10%;
     margin: 16px 0;
   }
-  html body .container main .register-container .form-container .fields .field {
+  html body .container .main-register .register-container .form-container .fields .field {
     max-width: 310px;
   }
-  html body .container main .register-container .form-container .fields .field input {
+  html body .container .main-register .register-container .form-container .fields .field input {
     height: 45px;
   }
-  html body .container main .register-container .form-container .buttons {
+  html body .container .main-register .register-container .form-container .fields .field select {
+    height: 45px;
+  }
+  html body .container .main-register .register-container .form-container .buttons {
     display: flex;
     justify-content: space-between;
   }
-  html body .container main .register-container .form-container .buttons .register-btn {
-    margin-right: 60px;
+  html body .container .main-register .register-container .form-container .buttons .register-btn {
+    margin: 0 60px 0 0;
   }
-  html body .container main .register-container .form-container .buttons button {
+  html body .container .main-register .register-container .form-container .buttons button {
     cursor: pointer;
     max-width: 310px;
     height: 45px;
@@ -520,21 +455,6 @@ html body .container-login main {
   align-items: center;
   flex-direction: column;
 }
-html body .container-login main .flash-messages {
-  width: 100%;
-  max-width: 340px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  padding: 0 16px;
-  background-color: #ffcfcf;
-}
-html body .container-login main .flash-messages .message {
-  color: #bd2a2e;
-  margin-left: 8px;
-}
 html body .container-login main .login-adm-container {
   width: 100%;
   max-width: 340px;
@@ -543,34 +463,40 @@ html body .container-login main .login-adm-container {
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-html body .container-login main .login-adm-container .form-container {
+html body .container-login main .login-adm-container .form-login-container {
   width: 100%;
   height: 100%;
   padding: 32px;
 }
-html body .container-login main .login-adm-container .form-container .title {
+html body .container-login main .login-adm-container .form-login-container .title {
   text-align: center;
 }
-html body .container-login main .login-adm-container .form-container .title h1 {
+html body .container-login main .login-adm-container .form-login-container .title h1 {
   font-size: 20px;
   font-weight: normal;
   color: #3b3936;
 }
-html body .container-login main .login-adm-container .form-container .fields {
+html body .container-login main .login-adm-container .form-login-container .fields {
   width: 100%;
   margin: 32px 0;
 }
-html body .container-login main .login-adm-container .form-container .fields .field {
+html body .container-login main .login-adm-container .form-login-container .fields .field {
   margin-bottom: 16px;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password {
+html body .container-login main .login-adm-container .form-login-container .fields .field .error-text {
+  font-size: 12px;
+  color: #bd2a2e;
+  display: block;
+  margin: 2px 0;
+}
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password {
   position: relative;
   width: 100%;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password input {
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password input {
   width: 100%;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password img {
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password img {
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
@@ -578,13 +504,13 @@ html body .container-login main .login-adm-container .form-container .fields .fi
   cursor: pointer;
   display: none;
 }
-html body .container-login main .login-adm-container .form-container .fields .field .input-password img.on {
+html body .container-login main .login-adm-container .form-login-container .fields .field .input-password img.on {
   display: block;
 }
-html body .container-login main .login-adm-container .form-container .fields .field label {
+html body .container-login main .login-adm-container .form-login-container .fields .field label {
   color: #3b3936;
 }
-html body .container-login main .login-adm-container .form-container .fields .field input {
+html body .container-login main .login-adm-container .form-login-container .fields .field input {
   margin: 4px 0;
   width: 100%;
   height: 45px;
@@ -594,14 +520,14 @@ html body .container-login main .login-adm-container .form-container .fields .fi
   font-size: 16px;
   color: #3b3936;
 }
-html body .container-login main .login-adm-container .form-container .fields .field a {
+html body .container-login main .login-adm-container .form-login-container .fields .field a {
   color: #3b3936;
   font-size: 14px;
 }
-html body .container-login main .login-adm-container .form-container .buttons {
+html body .container-login main .login-adm-container .form-login-container .buttons {
   width: 100%;
 }
-html body .container-login main .login-adm-container .form-container .buttons .login-btn {
+html body .container-login main .login-adm-container .form-login-container .buttons .login-btn {
   width: 100%;
   height: 45px;
   margin-top: 16px;
@@ -614,7 +540,7 @@ html body .container-login main .login-adm-container .form-container .buttons .l
 }
 
 @media (min-width: 1024px) {
-  html body .container-login main .login-adm-container .form-container .title h1 {
+  html body .container-login main .login-adm-container .form-login-container .title h1 {
     font-size: 24px;
   }
 }
@@ -635,24 +561,9 @@ html body .container-register main {
   align-items: center;
   flex-direction: column;
 }
-html body .container-register main .flash-messages {
-  width: 100%;
-  max-width: 340px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  padding: 0 16px;
-  background-color: #ffcfcf;
-}
-html body .container-register main .flash-messages .message {
-  color: #bd2a2e;
-  margin-left: 8px;
-}
 html body .container-register main .register-adm-container {
   width: 100%;
-  max-width: 340px;
+  max-width: 450px;
   height: fit-content;
   background-color: white;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
@@ -671,12 +582,22 @@ html body .container-register main .register-adm-container .form-container .titl
   font-weight: normal;
   color: #3b3936;
 }
+html body .container-register main .register-adm-container .form-container .description {
+  margin: 16px 0;
+  text-align: center;
+  color: #3b3936;
+}
 html body .container-register main .register-adm-container .form-container .fields {
   width: 100%;
   margin: 32px 0;
 }
 html body .container-register main .register-adm-container .form-container .fields .field {
   margin-bottom: 16px;
+}
+html body .container-register main .register-adm-container .form-container .fields .field .error-text {
+  color: #bd2a2e;
+  font-size: 12px;
+  margin: 2px 0;
 }
 html body .container-register main .register-adm-container .form-container .fields .field .input-password {
   position: relative;
@@ -695,6 +616,9 @@ html body .container-register main .register-adm-container .form-container .fiel
 }
 html body .container-register main .register-adm-container .form-container .fields .field .input-password img.on {
   display: block;
+}
+html body .container-register main .register-adm-container .form-container .fields .field small {
+  color: #3b3936;
 }
 html body .container-register main .register-adm-container .form-container .fields .field label {
   color: #3b3936;
@@ -733,6 +657,326 @@ html body .container-register main .register-adm-container .form-container .butt
     font-size: 24px;
   }
 }
+.product-container {
+  width: 80%;
+  background-color: white;
+  padding: 32px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.product-container .title-container .title {
+  width: 100%;
+  text-align: center;
+}
+.product-container .title-container .title p {
+  font-size: 20px;
+  color: #3b3936;
+}
+.product-container .title-container .title img {
+  width: 28px;
+  height: 28px;
+}
+.product-container .description {
+  margin: 8px 0;
+  text-align: center;
+  color: #3b3936;
+}
+.product-container .form-container .fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  margin: 32px 0;
+}
+.product-container .form-container .fields .field {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 16px;
+  margin: 0 auto 16px;
+}
+.product-container .form-container .fields .field .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.product-container .form-container .fields .field .checkbox-container .check-units-sale {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  cursor: pointer;
+}
+.product-container .form-container .fields .field .checkbox-container .label-check {
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+.product-container .form-container .fields .field .disabled {
+  cursor: not-allowed;
+  background-color: #d1d1d1;
+}
+.product-container .form-container .fields .field label {
+  color: #3b3936;
+}
+.product-container .form-container .fields .field input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 16px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+}
+.product-container .form-container .fields .field .error-text {
+  font-size: 12px;
+  color: #bd2a2e;
+  display: block;
+  margin: 2px 0;
+}
+.product-container .form-container .fields .field select {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #486966;
+  border-radius: 8px;
+  padding: 0 8px;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #3b3936;
+  margin-top: 4px;
+  cursor: pointer;
+}
+.product-container .form-container .buttons {
+  width: 100%;
+}
+.product-container .form-container .buttons button {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+.product-container .form-container .buttons .submit-btn {
+  border: none;
+  background-color: #486966;
+  color: #f9f9f9;
+  margin-bottom: 16px;
+}
+.product-container .form-container .buttons .clean-btn {
+  border: 2px solid #bd2a2e;
+  color: #bd2a2e;
+  background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .product-container {
+    width: 80%;
+    max-width: 750px;
+    padding: 32px;
+    position: relative;
+    top: 0;
+  }
+  .product-container .title-container .title {
+    display: flex;
+    align-items: center;
+  }
+  .product-container .title-container .title p {
+    font-size: 28px;
+  }
+  .product-container .title-container .title img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+  }
+  .product-container .description {
+    text-align: start;
+  }
+  .product-container .form-container .fields {
+    grid-template-columns: 45% 45%;
+    gap: 0 10%;
+    margin: 16px 0;
+  }
+  .product-container .form-container .fields .field {
+    max-width: 310px;
+  }
+  .product-container .form-container .fields .field input {
+    height: 45px;
+  }
+  .product-container .form-container .fields .field select {
+    height: 45px;
+  }
+  .product-container .form-container .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  .product-container .form-container .buttons .submit-btn {
+    margin: 0 60px 0 0;
+  }
+  .product-container .form-container .buttons button {
+    cursor: pointer;
+    max-width: 310px;
+    height: 45px;
+    margin: 0;
+  }
+}
+html body .container {
+  position: relative;
+}
+html body .container .main-product {
+  overflow-y: auto;
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding: 32px 0;
+}
+html body .container .main-product .delete-container {
+  width: 80%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 32px auto 0;
+  padding: 16px 32px;
+  max-width: 350px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+}
+html body .container .main-product .delete-container p {
+  color: #3b3936;
+  font-size: 20px;
+  text-align: center;
+}
+html body .container .main-product .delete-container .delete-button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: #bd2a2e;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  html body .container {
+    display: flex;
+  }
+  html body .container .main-product {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  html body .container .main-product .delete-container {
+    padding: 16px 32px;
+    flex-direction: row;
+    align-items: center;
+    max-width: 750px;
+  }
+  html body .container .main-product .delete-container p {
+    font-size: 24px;
+  }
+  html body .container .main-product .delete-container .delete-button {
+    max-width: 200px;
+    height: 45px;
+  }
+}
+.notification-container {
+  width: 80%;
+  max-width: 360px;
+  position: fixed;
+  bottom: 16px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1;
+}
+.notification-container .notification {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.notification-container .notification .message {
+  display: flex;
+  align-items: center;
+}
+.notification-container .notification .message span {
+  margin-left: 8px;
+}
+.notification-container .notification.success {
+  background-color: #889c9b;
+}
+.notification-container .notification.success span {
+  color: #f9f9f9;
+}
+.notification-container .notification.error {
+  background-color: #ffcfcf;
+}
+.notification-container .notification.error span {
+  color: #bd2a2e;
+}
+.notification-container .notification .close {
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .notification-container {
+    right: 0%;
+    transform: translateX(-16px);
+  }
+}
+body .error-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .error-container .error {
+  width: 80%;
+  max-width: 550px;
+  height: 200px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .error-container .error .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .error-container .error .error-message img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 16px;
+}
+body .error-container .error .error-message h1 {
+  color: #3b3936;
+  font-size: 20px;
+}
+
+@media (min-width: 1024px) {
+  body .error-container .error .error-message {
+    flex-direction: row;
+  }
+  body .error-container .error .error-message img {
+    margin-right: 32px;
+  }
+  body .error-container .error .error-message h1 {
+    font-size: 28px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -743,31 +987,33 @@ html body .container-register main .register-adm-container .form-container .butt
 html {
   min-width: 100%;
   height: 100%;
-  min-height: 100%;
 }
 html body {
   background-color: #f9f9f9;
   width: 100%;
   height: 100%;
+  min-height: fit-content;
   position: relative;
 }
 html body .container {
   width: 100%;
   height: 100%;
+  min-height: fit-content;
 }
-html body .container main {
+html body .container .main-home {
   width: 100%;
   height: 100%;
-  padding: 32px 0;
+  padding: 30px 0;
+  overflow-y: auto;
 }
-html body .container main .search {
+html body .container .main-home .search {
   width: 80%;
   max-width: 340px;
   height: 50px;
   margin: 0 auto;
   position: relative;
 }
-html body .container main .search .search-input {
+html body .container .main-home .search .search-input {
   width: 100%;
   height: 100%;
   padding: 0 32px 0 16px;
@@ -777,134 +1023,119 @@ html body .container main .search .search-input {
   color: #3b3936;
   font-size: 14px;
 }
-html body .container main .search .search-input::placeholder {
+html body .container .main-home .search .search-input::placeholder {
   font-size: 14px;
   color: #afafaf;
 }
-html body .container main .search img {
+html body .container .main-home .search img {
   position: absolute;
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
 }
-html body .container main .products {
+html body .container .main-home .products {
   width: 80%;
   margin: 16px auto 0;
 }
-html body .container main .products .card-product {
+html body .container .main-home .products .empty {
+  text-align: center;
+  background-color: #ffffff;
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 32px auto;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body .container .main-home .products .empty p {
+  color: #3b3936;
+  text-align: center;
+  margin-right: 4px;
+}
+html body .container .main-home .products .card-product {
   width: 100%;
   max-width: 340px;
-  height: 260px;
+  height: fit-content;
+  min-height: 280px;
   margin: 0 auto 32px;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+  cursor: pointer;
 }
-html body .container main .products .card-product .card-container-1 {
+html body .container .main-home .products .card-product:hover {
+  border: 2px solid #889c9b;
+}
+html body .container .main-home .products .card-product .card-container-1 {
   width: 100%;
 }
-html body .container main .products .card-product .card-container-1 p {
+html body .container .main-home .products .card-product .card-container-1 p {
   margin-bottom: 16px;
   font-size: 20px;
   color: #3b3936;
 }
-html body .container main .products .card-product .card-container-2 {
+html body .container .main-home .products .card-product .card-container-2 {
   width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
 }
-html body .container main .products .card-product .card-container-2 .infos-1 p,
-html body .container main .products .card-product .card-container-2 .infos-2 p {
+html body .container .main-home .products .card-product .card-container-2 p {
   font-size: 14px;
   color: #3b3936;
   margin: 4px 0;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons {
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
+html body .container .main-home .products .card-product .card-container-3 {
+  margin-top: 8px;
 }
-html body .container main .products .card-product .card-container-2 .action-buttons button {
-  width: 120px;
-  height: 30px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-html body .container main .products .card-product .card-container-2 .action-buttons button span {
-  color: white;
-  font-size: 14px;
-  margin-left: 8px;
-}
-html body .container main .products .card-product .card-container-2 .action-buttons button img {
-  width: 20px;
-  height: 20px;
-}
-html body .container main .products .card-product .card-container-2 .action-buttons .edit-button {
-  background-color: #486966;
-  border-radius: 8px;
-  border: none;
-  margin-right: 8px;
-}
-html body .container main .products .card-product .card-container-2 .action-buttons .delete-button {
-  background-color: #bd2a2e;
-  border-radius: 8px;
-  border: none;
+html body .container .main-home .products .card-product .card-container-3 .last-modified {
+  font-size: 12px;
+  color: #a0a0a0;
 }
 
 @media (min-width: 1024px) {
   html body .container {
     display: flex;
   }
-  html body .container main {
-    width: 80%;
+  html body .container .main-home {
+    width: 90%;
     height: 100%;
     margin: 0 auto;
     padding: 32px 0;
   }
-  html body .container main .search {
+  html body .container .main-home .search {
     max-width: 600px;
   }
-  html body .container main .search .search-input {
+  html body .container .main-home .search .search-input {
     font-size: 16px;
   }
-  html body .container main .search .search-input::placeholder {
+  html body .container .main-home .search .search-input::placeholder {
     font-size: 16px;
   }
-  html body .container main .products {
+  html body .container .main-home .products {
     width: 80%;
     min-width: 790px;
   }
-  html body .container main .products .card-product {
+  html body .container .main-home .products .card-product {
     max-width: 900px;
-    height: 180px;
+    min-height: 200px;
   }
-  html body .container main .products .card-product .card-container-1 p {
+  html body .container .main-home .products .card-product .card-container-1 p {
     margin-bottom: 16px;
   }
-  html body .container main .products .card-product .card-container-2 {
+  html body .container .main-home .products .card-product .card-container-2 {
     height: 70%;
-    display: flex;
     position: relative;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
   }
-  html body .container main .products .card-product .card-container-2 .infos-1 {
-    margin-right: 200px;
-  }
-  html body .container main .products .card-product .card-container-2 .infos-1 p,
-  html body .container main .products .card-product .card-container-2 .infos-2 p {
+  html body .container .main-home .products .card-product .card-container-2 p {
     font-size: 16px;
-  }
-  html body .container main .products .card-product .card-container-2 .action-buttons {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-  html body .container main .products .card-product .card-container-2 .action-buttons button span {
-    font-size: 16px;
-  }
-  html body .container main .products .card-product .card-container-2 .action-buttons button img {
-    width: 22px;
-    height: 22px;
   }
 }
 
