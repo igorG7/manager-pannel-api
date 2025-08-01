@@ -1,5 +1,7 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+
+dotenv.config();
 
 const connectDB = (app) => {
   mongoose
@@ -11,4 +13,4 @@ const connectDB = (app) => {
     .catch((error) => console.log("Could not connect to database", error));
 };
 
-module.exports = connectDB;
+export default connectDB;
