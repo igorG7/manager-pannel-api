@@ -7,7 +7,9 @@ import { user } from "./src/middlewares/globalsMiddleware.js";
 import session from "./src/config/sessionConfig.js";
 import connectDB from "./src/config/mongodbConfig.js";
 
+import renders from "./src/controllers/renders.js";
 import productRoutes from "./src/routes/productRoutes.js";
+import usersRoutes from "./src/routes/usersRoutes.js";
 
 class App {
   constructor() {
@@ -18,7 +20,9 @@ class App {
   }
 
   routes() {
+    this.app.use(renders);
     this.app.use("/products/", productRoutes);
+    this.app.use("/users/", usersRoutes);
   }
 
   middlewares() {
@@ -26,6 +30,14 @@ class App {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use(express.static(resolve("./", "public")));
+    this.app.use(
+      "/lib/axios",
+      express.static("./" + "/node_modules/axios/dist")
+    );
+    this.app.use(
+      "/lib/validator",
+      express.static("./" + "/node_modules/validator")
+    );
     this.app.use(user);
   }
 
