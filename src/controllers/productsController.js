@@ -1,5 +1,13 @@
 import Products from "../models/ProductsModel.js";
 
+export const controlProduct = (req, res) => {
+  res.render("product", { tab: "control" });
+};
+
+export const registerProduct = (req, res) => {
+  res.render("registerProduct", { tab: "register-product" });
+};
+
 export const getProducts = async (req, res) => {
   try {
     const products = await Products.find({
