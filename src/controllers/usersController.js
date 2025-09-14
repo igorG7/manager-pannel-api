@@ -1,8 +1,16 @@
-const Users = require("../models/UsersModel");
-const bcrypt = require("bcryptjs");
-const validator = require("validator");
+import Users from "../models/UsersModel.js";
+import bcrypt from "bcryptjs";
+import validator from "validator";
 
-exports.registerUser = async (req, res) => {
+export const registerAdm = (req, res) => {
+  res.render("registerAdm");
+};
+
+export const loginAdm = (req, res) => {
+  res.render("loginAdm");
+};
+
+export const registerUser = async (req, res) => {
   try {
     const { userName, email, password, role } = req.body;
 
@@ -41,7 +49,7 @@ const existingUser = async (email) => {
   return user;
 };
 
-exports.loginUser = async (req, res) => {
+export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -77,11 +85,12 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({
       status: "error",
       message: "Erro ao tentar realizar login. Tente novamente mais tarde.",
+      error,
     });
   }
 };
 
-exports.logout = async (req, res) => {
+export const logout = async (req, res) => {
   req.session.destroy(function () {
     res.redirect("/admin/login");
   });
