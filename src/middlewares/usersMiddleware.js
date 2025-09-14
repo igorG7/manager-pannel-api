@@ -1,6 +1,6 @@
-const validator = require("validator");
+import validator from "validator";
 
-exports.validationBodyRegister = (req, res, next) => {
+export const validationBodyRegister = (req, res, next) => {
   const body = req.body;
 
   const isEmail = validator.isEmail(body.email);
@@ -15,7 +15,7 @@ exports.validationBodyRegister = (req, res, next) => {
   next();
 };
 
-exports.controlPermissions = (req, res, next) => {
+export const controlPermissions = (req, res, next) => {
   const user = res.locals.user;
 
   if (!user) return res.redirect("/admin/login");
