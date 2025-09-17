@@ -10,7 +10,7 @@ export const registerUser = async (body) => {
 
 export const loginAdm = async (body) => {
   try {
-    const response = await axios.post("/admin/login", body);
+    const response = await axios.post("/users/login", body);
     return response.data;
   } catch (error) {
     const data = error.response.data;
