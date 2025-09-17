@@ -4,7 +4,7 @@ import { resolve } from "path";
 import helmet from "helmet";
 import { user } from "./src/middlewares/globalsMiddleware.js";
 
-import session from "./src/config/sessionConfig.js";
+import sessionConfig from "./src/config/sessionConfig.js";
 import connectDB from "./src/config/mongodbConfig.js";
 
 import renders from "./src/controllers/renders.js";
@@ -14,9 +14,10 @@ import usersRoutes from "./src/routes/usersRoutes.js";
 class App {
   constructor() {
     this.app = express();
-    this.routes();
-    this.middlewares();
+
     this.config();
+    this.middlewares();
+    this.routes();
   }
 
   routes() {
@@ -42,8 +43,8 @@ class App {
   }
 
   config() {
-    this.app.use(session);
     connectDB(this.app);
+    this.app.use(sessionConfig);
 
     this.app.set("view engine", "ejs");
     this.app.set("views", resolve("./", "src", "views"));
