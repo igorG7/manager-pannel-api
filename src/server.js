@@ -1,6 +1,6 @@
 const PORT = process.env.PORT || 3000;
 
-import app from "./app.js";
+import app from "../../app.js";
 
 app.on("Ready", () => {
   app.listen(PORT, () => {
