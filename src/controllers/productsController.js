@@ -1,6 +1,14 @@
-const Products = require("../models/ProductsModel");
+import Products from "../models/ProductsModel.js";
 
-exports.getProducts = async (req, res) => {
+export const controlProduct = (req, res) => {
+  res.render("product", { tab: "control" });
+};
+
+export const registerProduct = (req, res) => {
+  res.render("registerProduct", { tab: "register-product" });
+};
+
+export const getProducts = async (req, res) => {
   try {
     const products = await Products.find({
       $or: [
@@ -29,7 +37,7 @@ exports.getProducts = async (req, res) => {
   }
 };
 
-exports.findProductbyId = async (req, res) => {
+export const findProductbyId = async (req, res) => {
   try {
     const product = await Products.findById(req.params.id);
 
@@ -44,7 +52,7 @@ exports.findProductbyId = async (req, res) => {
   }
 };
 
-exports.createProduct = async (req, res) => {
+export const createProduct = async (req, res) => {
   try {
     const body = req.body;
 
@@ -71,7 +79,7 @@ exports.createProduct = async (req, res) => {
   }
 };
 
-exports.updateProducts = async (req, res) => {
+export const updateProducts = async (req, res) => {
   try {
     const body = req.body;
 
@@ -104,7 +112,7 @@ exports.updateProducts = async (req, res) => {
   }
 };
 
-exports.deleteProduct = async (req, res) => {
+export const deleteProduct = async (req, res) => {
   try {
     const product = await Products.findByIdAndDelete(req.params.id);
 
@@ -120,6 +128,7 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).json({
       status: "error",
       message: "Erro ao tentar deletar produto",
+      error,
     });
   }
 };

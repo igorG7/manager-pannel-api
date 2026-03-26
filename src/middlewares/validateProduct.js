@@ -1,4 +1,4 @@
-exports.validateProductFields = (req, res, next) => {
+export const validateProductFields = (req, res, next) => {
   if (Object.keys(req.body).length <= 0)
     return res
       .status(400)
@@ -14,7 +14,7 @@ exports.validateProductFields = (req, res, next) => {
   next();
 };
 
-exports.validateData = (req, res, next) => {
+export const validateData = (req, res, next) => {
   const product = req.body;
 
   if (typeof product.productName !== "string")
