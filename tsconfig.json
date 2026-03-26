@@ -2,14 +2,16 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-     "rootDir": "./src",
-     "outDir": "./dist",
+    "rootDir": "./src",
+    "outDir": "./dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "commonjs",
+    "module": "nodenext",
     "target": "es2019",
-  
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true,
+
     // For nodejs:
     "lib": ["esnext"],
     "types": ["node"],
@@ -34,16 +36,19 @@
 
     // Recommended Options
     "strict": true,
+    "noEmit": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
+    //"noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
     "noEmitOnError": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "removeComments": true,
-    "allowJs": true
-  }, "include": ["./src"]
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"]
 }
