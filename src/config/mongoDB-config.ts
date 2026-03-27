@@ -1,18 +1,18 @@
 import { configDotenv } from "dotenv";
-import type { Application } from "express";
 import mongoose from "mongoose";
+import emitter from "./eventEmitter-config.ts";
 
 configDotenv();
 
 class MongoDB {
-  async connect(app: Application) {
+  async connect() {
     mongoose
       .connect(process.env.CONNECTION as string)
       .then(() => {
         console.log("Database connected");
-        app.emit("mount");
+        emitter.emit("Ready");
       })
-      .catch((error) => console.log("Could not connect to database", error));
+      .catch((error) => console.log("Could not connect to database.", error));
   }
 }
 

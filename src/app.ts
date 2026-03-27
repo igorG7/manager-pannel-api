@@ -1,4 +1,4 @@
-import express from "express";
+import express, { type Application } from "express";
 import cors from "cors";
 
 import MongoDB from "./config/mongoDB-config.ts";
@@ -6,7 +6,7 @@ import helmet from "./config/helmet-config.ts";
 import routes from "./routes.ts";
 
 class App {
-  public app;
+  public app: Application;
 
   constructor() {
     this.app = express();
@@ -27,7 +27,7 @@ class App {
   }
 
   private async configs() {
-    await MongoDB.connect(this.app);
+    await MongoDB.connect();
   }
 }
 
