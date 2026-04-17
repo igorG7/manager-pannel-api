@@ -1,13 +1,7 @@
 import { Router } from "express";
 import userController from "./user-controller.ts";
 
-import {
-  createUser,
-  loginUser,
-  deactivateUser,
-  updatePassword,
-  updateUser,
-} from "./middlewares/index.ts";
+import { createUser, loginUser, updatePassword, updateUser } from "./middlewares/index.ts";
 
 const routes = Router();
 
@@ -19,6 +13,6 @@ routes.post("/sign-in", loginUser, userController.loginUser);
 
 routes.patch("/update-password", updatePassword, userController.updateUserPassword);
 routes.patch("/update/:id", updateUser, userController.updateUser);
-routes.patch("/:id/deactivate", deactivateUser, userController.deactivateUser);
+routes.patch("/:id/deactivate", userController.deactivateUser);
 
 export default routes;
