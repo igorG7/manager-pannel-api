@@ -1,6 +1,7 @@
 import type { Request, Response } from "express";
 
 import service from "./product-service.ts";
+import ResolveError from "../../shared/utils/resolveError.ts";
 
 class ProductController {
   createProduct = async (req: Request, res: Response) => {
@@ -13,7 +14,7 @@ class ProductController {
 
       return res.status(201).json({ message: "Produto criado com sucesso!", product });
     } catch (error) {
-      return res.status(500).json({ message: "Erro interno do servidor.", error });
+      ResolveError.resolve(error);
     }
   };
 
@@ -30,7 +31,7 @@ class ProductController {
         sizeCollection: products.sizeCollection,
       });
     } catch (error) {
-      res.status(500).json({ message: "Erro ao buscar produtos." });
+      ResolveError.resolve(error);
     }
   };
 
@@ -42,7 +43,7 @@ class ProductController {
 
       res.status(200).json({ message: "Busca por produto concluída com sucesso.", product });
     } catch (error) {
-      res.status(500).json({ message: "Erro ao buscar produto." });
+      ResolveError.resolve(error);
     }
   };
 
@@ -57,10 +58,7 @@ class ProductController {
 
       return res.status(200).json({ message: "Produto atualizado com sucesso!", product });
     } catch (error) {
-      if (error instanceof Error) {
-        return res.status(400).json({ message: error.message });
-      }
-      return res.status(500).json({ message: "Erro ao atualizar produto." });
+      ResolveError.resolve(error);
     }
   };
 
@@ -72,7 +70,7 @@ class ProductController {
 
       return res.status(204).json({ message: "Produto removido com sucesso!", product });
     } catch (error) {
-      return res.status(500).json({ message: "Erro ao remover produto." });
+      ResolveError.resolve(error);
     }
   };
 }

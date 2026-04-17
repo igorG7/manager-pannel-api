@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import userService from "./user-service.ts";
+import ResolveError from "../../shared/utils/resolveError.ts";
 
 class UserController {
   async createUser(req: Request, res: Response) {
@@ -9,7 +10,7 @@ class UserController {
 
       return res.status(201).json({ message: "Usuário cadastrado com sucesso!", user });
     } catch (error) {
-      return res.status(500).json({ message: "Erro interno do servidor", error });
+      ResolveError.resolve(error);
     }
   }
 
@@ -20,9 +21,7 @@ class UserController {
 
       return res.status(200).json({ message: "Autenticação realizada com sucesso!", user });
     } catch (error: any) {
-      return res.status(401).json({
-        error: error.message || "Erro ao realizar login",
-      });
+      ResolveError.resolve(error);
     }
   }
 
@@ -33,7 +32,7 @@ class UserController {
 
       return res.status(200).json({ message: "Senha atualizada com sucesso!", user });
     } catch (error) {
-      return res.status(500).json({ message: "Erro interno do servidor", error });
+      ResolveError.resolve(error);
     }
   }
 
@@ -45,7 +44,7 @@ class UserController {
 
       return res.status(200).json({ message: "Dados de usuario atualizados com sucesso!", user });
     } catch (error) {
-      return res.status(500).json({ message: "Erro interno do servidor", error });
+      ResolveError.resolve(error);
     }
   }
 
@@ -57,7 +56,7 @@ class UserController {
 
       return res.status(200).json({ message: "Usuário desativado com sucesso!", user });
     } catch (error) {
-      return res.status(500).json({ message: "Erro interno do servidor", error });
+      ResolveError.resolve(error);
     }
   }
 
@@ -69,7 +68,7 @@ class UserController {
 
       return res.status(200).json({ message: "Busca por usuários concluída!", users });
     } catch (error) {
-      return res.status(500).json({ message: "Erro interno do servidor", error });
+      ResolveError.resolve(error);
     }
   }
 
@@ -81,7 +80,7 @@ class UserController {
 
       return res.status(200).json({ message: "Busca por usuário concluída!", user });
     } catch (error) {
-      return res.status(500).json({ message: "Erro interno do servidor", error });
+      ResolveError.resolve(error);
     }
   }
 }
