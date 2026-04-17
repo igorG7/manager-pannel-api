@@ -1,12 +1,14 @@
 import type { Request, Response, NextFunction } from "express";
 import type { IUser } from "../domain/user-interface.ts";
 import { Key } from "../../shared/utils/validations/key.ts";
+import { Password } from "../../shared/utils/password/password.ts";
+import { BadRequest } from "../../../shared/utils/appErrors.ts";
 
 export const updatePassword = (req: Request, res: Response, next: NextFunction) => {
   const body: Partial<IUser> = req.body;
 
-  const keys = Object.keys(body);
-  if (!keys.length) throw new Error("Nenhuma informação para cadastro foi enviada.");
+  if (!Password.isStrong(req.body.password))
+    throw new BadRequest("Senha informada não atende os requisitos mínimos de segurança.");
 
   const validators = {
     email: { type: "string", required: true },

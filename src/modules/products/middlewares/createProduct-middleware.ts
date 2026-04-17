@@ -6,10 +6,6 @@ import { PACKAGING_TYPES } from "../domain/packaing-interface.ts";
 export const createProduct = (req: Request, res: Response, next: NextFunction) => {
   const body: IProduct = req.body;
 
-  const keys = Object.keys(body);
-
-  if (!keys.length) throw new Error("Nenhuma informação foi recebida.");
-
   const validators = {
     name: { type: "string", required: true },
     description: { type: "string", required: false },

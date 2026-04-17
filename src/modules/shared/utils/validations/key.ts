@@ -1,3 +1,4 @@
+import { BadRequest } from "../../../../shared/utils/appErrors.ts";
 import { verifyMinEntry } from "./minEntry.ts";
 
 export class Key {
@@ -6,7 +7,7 @@ export class Key {
 
     for (const key of Object.keys(data)) {
       if (!validators[key]) {
-        throw new Error(`Chave '${key}' não permitida`);
+        throw new BadRequest(`Chave '${key}' não permitida`);
       }
     }
 
@@ -16,7 +17,7 @@ export class Key {
 
       if (!(key in data)) {
         if (validator.required) {
-          throw new Error(`Chave ${key} é obrigatória.`);
+          throw new BadRequest(`Chave ${key} é obrigatória.`);
         }
 
         continue;
@@ -24,24 +25,24 @@ export class Key {
 
       if (validator.type === "array") {
         if (!Array.isArray(value)) {
-          throw new Error(`Chave '${key}' precisa ser do tipo ${validator.type}.`);
+          throw new BadRequest(`Chave '${key}' precisa ser do tipo ${validator.type}.`);
         }
       } else if (typeof value !== validator.type) {
-        throw new Error(`Chave '${key}' precisa ser do tipo ${validator.type}.`);
+        throw new BadRequest(`Chave '${key}' precisa ser do tipo ${validator.type}.`);
       }
 
       if (value === undefined || value === null || value === "") {
-        throw new Error(`Chave '${key}' sem valor válido.`);
+        throw new BadRequest(`Chave '${key}' sem valor válido.`);
       }
 
       if (validator.enum && !validator.enum.includes(value)) {
-        throw new Error(`Chave "${key}" permite apenas: ${validator.enum.join(", ")}.`);
+        throw new BadRequest(`Chave "${key}" permite apenas: ${validator.enum.join(", ")}.`);
       }
 
       if (validator.type === "array" && validator.items) {
         for (const item of value) {
           if (typeof item !== validator.items) {
-            throw new Error(`Itens de '${key}' precisam ser do tipo ${validator.items}.`);
+            throw new BadRequest(`Itens de '${key}' precisam ser do tipo ${validator.items}.`);
           }
         }
       }

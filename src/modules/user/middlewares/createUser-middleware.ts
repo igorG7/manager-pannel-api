@@ -2,12 +2,10 @@ import type { Request, Response, NextFunction } from "express";
 import type { IUser } from "../domain/user-interface.ts";
 import { Key } from "../../shared/utils/validations/key.ts";
 import { Password } from "../../shared/utils/password/password.ts";
+import { BadRequest } from "../../../shared/utils/appErrors.ts";
 
 export const createUser = (req: Request, res: Response, next: NextFunction) => {
   const body: IUser = req.body;
-
-  const keys = Object.keys(body);
-  if (!keys.length) throw new Error("Nenhuma informação para cadastro foi enviada.");
 
   const validators = {
     name: { type: "string", required: true },
@@ -24,7 +22,7 @@ export const createUser = (req: Request, res: Response, next: NextFunction) => {
   Key.validate(validators, body);
 
   const passwordIsStrong = Password.isStrong(body.password);
-  if (!passwordIsStrong) throw new Error("A senha não atende os requisitos de segurança.");
+  if (!passwordIsStrong) throw new BadRequest("A senha não atende os requisitos de segurança.");
 
   next();
 };
