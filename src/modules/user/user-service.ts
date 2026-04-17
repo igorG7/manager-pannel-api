@@ -2,6 +2,7 @@ import type { IUser } from "./domain/user-interface.ts";
 import User from "./infrastructure/user.ts";
 
 import { Password } from "../shared/utils/password/password.ts";
+import { Conflict, NotFound, Unauthorized } from "../../shared/utils/appErrors.ts";
 
 type LoginType = {
   email: string;
@@ -15,7 +16,7 @@ class UserService {
 
   async create(data: IUser) {
     const emailExists = await this.emailExists(data.email);
-    if (emailExists) throw new Error("Email já cadastrado.");
+    if (emailExists) throw new Conflict("E-mail já cadastrado.");
 
     const password_hash = await Password.hash(data.password);
 
@@ -27,11 +28,11 @@ class UserService {
   async login({ email, password }: LoginType) {
     const user = await User.findOne({ email }).select("+password").lean();
 
-    if (!user) throw new Error("Credencias inválidas");
+    if (!user) throw new Unauthorized("Credênciais inválidas");
 
     const isMatch = await Password.compare(user.password, password);
 
-    if (!isMatch) throw new Error("Credenciais inválidas");
+    if (!isMatch) throw new Unauthorized("Credênciais inválidas");
 
     const loggedIn: Partial<IUser> = user;
     delete loggedIn.password;
@@ -48,7 +49,7 @@ class UserService {
       { new: true },
     ).lean();
 
-    if (!user) throw new Error("Credencial inválida.");
+    if (!user) throw new NotFound("Usuário não encontrado.");
 
     return user;
   }
@@ -60,7 +61,7 @@ class UserService {
       { new: true },
     ).lean();
 
-    if (!user) throw new Error("Usuário não encontrado.");
+    if (!user) throw new NotFound("Usuário não encontrado.");
 
     return user;
   }
@@ -72,7 +73,7 @@ class UserService {
       { new: true },
     ).lean();
 
-    if (!user) throw new Error("Usuário não encontrado.");
+    if (!user) throw new NotFound("Usuário não encontrado.");
 
     return user;
   }
@@ -102,7 +103,7 @@ class UserService {
   async listOne(id: string) {
     const user = await User.findById(id).lean();
 
-    if (!user) throw new Error("Usuário não encotrado.");
+    if (!user) throw new NotFound("Usuário não encotrado.");
 
     return user;
   }

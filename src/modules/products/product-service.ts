@@ -1,3 +1,4 @@
+import { Conflict, NotFound } from "../../shared/utils/appErrors.ts";
 import type { IProduct } from "./domain/product-interface.ts";
 import Product from "./infrastructure/products.ts";
 
@@ -15,7 +16,7 @@ class ProductService {
     const productExist = await this.productExist(data);
 
     if (productExist)
-      throw new Error("Já existe um produto com esse nome, fabricante e fornecedor.");
+      throw new Conflict("Já existe um produto com esse nome, fabricante e fornecedor.");
 
     const newProduct = { ...data, updated_by: userId };
     const product = await Product.create(newProduct);
@@ -40,7 +41,7 @@ class ProductService {
       { new: true },
     );
 
-    if (!product) throw new Error("Produto não encontrado.");
+    if (!product) throw new NotFound("Produto não encontrado.");
 
     return product;
   }
@@ -48,7 +49,7 @@ class ProductService {
   async delete(id: string) {
     const product = await Product.findByIdAndDelete(id);
 
-    if (!product) throw new Error("Produto não encontrado.");
+    if (!product) throw new NotFound("Produto não encontrado.");
 
     return product;
   }
@@ -66,7 +67,7 @@ class ProductService {
   async listById(id: string) {
     const product = await Product.findById(id);
 
-    if (!product) throw new Error("Produto não encontrado.");
+    if (!product) throw new NotFound("Produto não encontrado.");
 
     return product;
   }
