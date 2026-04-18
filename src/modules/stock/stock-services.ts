@@ -21,7 +21,11 @@ class StockMovementService {
       };
     }
 
-    const movement = await StockMovement.find(filter).limit(limit).skip(skip).lean();
+    const movement = await StockMovement.find(filter)
+      .limit(limit)
+      .skip(skip)
+      .lean()
+      .populate("product_id", "name category maker provider");
     const sizeCollection = await StockMovement.countDocuments(filter);
 
     return { movement, sizeCollection };
