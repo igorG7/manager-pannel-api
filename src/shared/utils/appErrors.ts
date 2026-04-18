@@ -45,3 +45,8 @@ export class DatabaseException extends AppError {
     super(message, statusCode, details);
   }
 }
+export class UnprocessableEntity extends AppError {
+  constructor(message: string, statusCode = 422) {
+    super(message, statusCode);
+  }
+}
