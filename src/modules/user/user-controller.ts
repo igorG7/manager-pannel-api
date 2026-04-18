@@ -64,9 +64,13 @@ class UserController {
     try {
       const query = req.query;
 
-      const users = await userService.list(query);
+      const { users, sizeCollection } = await userService.list(query);
 
-      return res.status(200).json({ message: "Busca por usuários concluída!", users });
+      return res.status(200).json({
+        message: "Busca por usuários concluída!",
+        data: users,
+        sizeCollection,
+      });
     } catch (error) {
       ResolveError.resolve(error);
     }
