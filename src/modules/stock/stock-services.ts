@@ -14,10 +14,10 @@ class StockMovementService {
 
     if (query.type) filter.type = query.type;
     if (query.product_id) filter.product_id = query.product_id;
-    if (query.startDate || query.endDate) {
+    if (query.start_date || query.end_date) {
       filter.date = {
-        ...(query.startDate && { $gte: new Date(query.startDate) }),
-        ...(query.endDate && { $lte: new Date(query.endDate) }),
+        ...(query.start_date && { $gte: new Date(query.start_date) }),
+        ...(query.end_date && { $lte: new Date(query.end_date) }),
       };
     }
 
