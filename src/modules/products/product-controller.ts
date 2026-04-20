@@ -27,7 +27,7 @@ class ProductController {
 
       return res.status(200).json({
         message: "Busca por produtos concluída com sucesso!",
-        products: products.products,
+        data: products.products,
         sizeCollection: products.sizeCollection,
       });
     } catch (error) {
