@@ -2,6 +2,14 @@ import { BadRequest } from "../../../../shared/utils/appErrors.ts";
 import { verifyMinEntry } from "./minEntry.ts";
 
 export class Key {
+  static normalize(validators: any, filter: any) {
+    for (const [key, value] of Object.entries(filter)) {
+      if (validators[key].type === "boolean" && (value === "true" || value === "false"))
+        filter[key] = Boolean(value);
+      if (validators[key].type === "number") filter[key] = Number(value);
+    }
+  }
+
   static validate(validators: any, data: any) {
     verifyMinEntry(data);
 
